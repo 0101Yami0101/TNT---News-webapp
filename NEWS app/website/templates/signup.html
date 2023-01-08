@@ -1,0 +1,75 @@
+{% extends "base.html" %} 
+{% block title %}Signup{% endblock %}
+
+<!-- "Extended" -->
+{% block Content %}
+
+{% if not user.is_active %}  <!--if user isnt active show signup page-->
+    <div class="signup-form">
+      <div class="container">
+        <form method="POST" class="form shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 5rem;">
+          <h3 align="center">Sign-Up</h3>
+          <div class="form-group" style="margin: 2rem;">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter email"
+              required
+            />
+          </div>
+          <div class="form-group" style="margin: 2rem;">
+            <label for="userName">User Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userName"
+              name="userName"
+              placeholder="Enter Username"
+              required
+            />
+          </div>
+          <div class="form-group" style="margin: 2rem;">
+            <label for="password1">Create Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password1"
+              name="password1"
+              placeholder="Enter password"
+              required
+            />
+          </div>
+          <div class="form-group" style="margin: 2rem;">
+            <label for="password2">Verify Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password2"
+              name="password2"
+              placeholder="Re-enter password"
+              required
+            />
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary" style="margin-left: 36rem;">Submit</button>
+        </form>
+      
+        
+          <a id="Signed-In" href="/log-in"><button class="btn">Already Signed Up? Login</button></a>
+        
+      </div>
+    </div>
+{% else %} <!--if user is active show logout page-->
+
+<div>
+  <a href="/log-out">THIS IS LOG OUT PAGE</a>
+</div>
+
+{% endif %}
+    
+
+
+{% endblock %}

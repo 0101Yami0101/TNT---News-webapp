@@ -1,0 +1,192 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+
+<!-- "Extended" -->
+{% block Content %}
+
+<div class="home-body container-fluid">
+  <!-- flashnews area -->
+  <div class="flash-news container-fluid d-flex shadow p-3 mb-3">
+    <div class="container-fluid flash-text-container">
+      <h3>
+        {% for i in range(marquee_list|length) %}
+        <span>
+          <i class="fa fa-cloud"></i> &nbsp; {{ marquee_list[i] }} &nbsp; &nbsp;
+        </span>
+        {% endfor %}
+      </h3>
+    </div>
+
+    <div class="container-fluid time-date">
+      <span id="day">DD</span>
+      <span id="hour">00</span>
+      <span id="minute">00</span>
+      <span id="second">00</span>
+      <span id="meridiem">MM</span>
+    </div>
+  </div>
+
+  <!--Prime/Latest Headline-->
+  <div class="main-headline-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <h1 id="head-news-title">{{ news_list[0]['title']}}</h1>
+          <div id="head-news-description">{{ news_list[0]['description']}}</div>
+          <div class="readmore-container d-flex flex-row mb-3">
+            <a class="p-2" href="/readmore/def/0"> Read more </a>
+            <!-- To-do- target the index using api and feed data from backend-->
+            <br />
+            <a class="p-2" href='{{ news_list[0]["link"] }}'>
+              Visit original article
+            </a>
+            <br />
+            <a class="p-2"  href="/readlater/def/0"> Read Later </a>
+          </div>
+        </div>
+        <div class="image-headline col-4">
+          <a href='{{ news_list[0]["image-link"] }}'>
+            <img src='{{ news_list[0]["image-link"] }}' alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- search section -->
+  <div class="search-section">
+    <input id="searchText" type="text"  placeholder="Search Headline.. " />
+    <span id="search-eye"><i class="fa fa-cloud"></i></span>
+    <span id="close"><button>close</button></span>
+    <div id="search-results">
+
+      <!-- enter search results here -->
+        No results
+      
+    </div>
+  </div>
+
+  <!-- videosection -->
+  <div class="video-section">
+    <video autoplay muted loop src="">
+      <h5>url_for('static', filename='videos/demo.mp4')</h5>
+    </video>
+  </div>
+
+  <!-- other tech headlines -->
+
+  <div id="Other-head-container" class="other-headline-container container">
+    {% for i in range(1,6) %}
+    <div class="news-section">
+      <div class="row">
+        <div class="col-8">
+          <h3>{{ news_list[i]['title'] }}</h3>
+          <div class="other-news-description">
+            {{ news_list[i]['description']}}
+          </div>
+          <div class="readmore-container d-flex flex-row mb-3">
+            <a class="p-2"  href="/readmore/def/{{i}}"> Read more </a>
+            
+            <br />
+            <a class="p-2" href='{{ news_list[i]["link"] }}'>
+              Visit original article
+            </a>
+            <br />
+
+
+            <a class="p-2" href="/readlater/def/{{i}}" > Read Later </a>  <!-- in progress  -->
+
+
+          </div>
+        </div>
+        <div id="" class="col-4 new-img-demo" style="border: 2px solid green">
+          <a href=""> <img src="" alt="" /> </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div id="append-more-def-news">
+
+    </div>
+
+    <!-- loadmoreButton -->
+    <div  id="load1" class="load-more sticky">
+      <button><i class=" fa-solid fa-circle-chevron-down fa-3x"></i></button>
+    </div>
+  </div>
+
+  <!-- web3NewsDiv -->
+  <div class="container web3News-section">
+    <!-- for loop into division each news  -->
+    {% for i in range(0,6) %}
+    <div class="news-section blockchain-news-section">
+      <div class="row">
+        <div class="col-8">
+          <h3>{{blockchain_list[i]['title'] }}</h3>
+        </div>
+        <div class="blockchain-news-description">
+          {{ blockchain_list[i]['description']}}
+        </div>
+        <div class="readmore-container d-flex flex-row mb-3">
+          <a class="p-2" href="/readmore/block/{{i}}"> Read more </a>
+          <!-- To-do- target the index using api and feed data from backend-->
+          <br />
+          <a class="p-2" href='{{ news_list[i]["link"] }}'>
+            Visit original article
+          </a>
+          <br />
+          <a class="p-2" href="/readlater/block/{{i}}"> Read Later </a>
+        </div>
+
+        <div id="" class="col-4 web3-images" style="border: 2px solid rgb(133, 216, 133)">
+          <a href=""> <img src="" alt="" /> </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div id="append-more-block-news">
+
+    </div>
+
+    <!-- loadmoreButton -->
+    <div  id="load2" class="load-more sticky">
+      <button><i class=" fa-solid fa-circle-chevron-down fa-3x"></i></button>
+    </div>
+  </div>
+
+  <!-- add stocksection here -->
+
+{% endblock %}
+
+<!-- stocks-and-crypto-section -->
+  <!-- <div class="stocks-section">
+    <div class="Stockcontainer d-flex flex-row mb-3"> -->
+      <!-- row1 -->
+      <!-- <div class="stocks-section-rows p-2 row row-cols-1">
+        {% for i in range(7) %}
+        <div
+          id="crypto {{i}} "
+          onmouseenter="color(this)"
+          onmouseleave="colorback(this)"
+          class="cryptos col"
+          style="background-image: url('https://coinicons-api.vercel.app/api/icon/{{names_list[i]}}');"
+        >
+          <h2>{{ crypto_list[i]['asset_id'] }}</h2>
+        </div>
+        {% endfor %}
+      </div> -->
+      <!-- row2 -->
+      <!-- <div class="stocks-section-rows p-2 row row-cols-1">
+        {% for i in range(7,14) %}
+        <div
+          class="cryptos col"
+          onmouseenter="color(this)"
+          onmouseleave="colorback(this)"
+          style="background-image: url('https://coinicons-api.vercel.app/api/icon/{{names_list[i]}}'); "
+        >
+          <h2>{{ crypto_list[i]['asset_id'] }}</h2>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div> -->

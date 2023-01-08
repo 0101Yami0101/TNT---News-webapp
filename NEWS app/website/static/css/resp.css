@@ -1,0 +1,319 @@
+/* responsiveness */
+
+
+/* Breakpoint- mobile */
+@media screen and (max-width:  499px){
+
+    /*navbar*/
+
+
+    .logo-container{
+        padding-left: 0px;
+    }
+
+    #logoImg{
+        width: 75px;
+    }
+
+    #website_name{
+        position: absolute;       
+        left: 8rem;
+        bottom: 3.5rem;
+        
+    }  
+    
+    .initials{
+        font-size: 3rem;
+    }
+    
+
+    .website-name-body{
+        display: none;
+        
+
+    }
+    .navbar-nav{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .nav-item a{
+        padding-left: 1rem;
+        
+    }
+
+
+    /* Home-body */
+    .home-body{
+        margin-top: .1rem;
+        height: 110rem;
+        
+    }
+
+    .flash-news{
+        height: 1rem;
+        margin-top: .5rem;
+    }
+    .flash-text-container{
+        bottom: 14px;
+        height: 1.7rem;
+        width:  100rem;
+    }
+
+    .time-date{
+        bottom: 14px;
+        height: 1.6rem;
+        margin-left: 1rem;
+
+    }
+
+    /* * main headline */ 
+
+    .main-headline-container{
+        background-color: burlywood;
+        height: 7rem;
+        width: 100%;
+    }
+
+    .image-headline {
+        
+        width: 6rem;
+        height: 6rem;
+        top: 1.9rem;
+        right: .7rem;
+
+    }
+    .image-headline img{
+    
+        width: 7rem;
+        height: 6rem;
+        border-radius: 1rem;
+    }
+
+    /* other-headline-container */
+    .other-headline-container{
+       
+        border-radius: 2rem;
+        width: 22rem;
+        height: 34rem;
+        overflow: auto;
+        margin-top: 1rem;
+        scroll-margin: 1px;
+    }
+
+    .new-img-demo{
+        height: 5rem;
+    }
+
+
+    /* web3News-section */
+    .web3News-section{
+
+        
+        top: 36rem;
+        left: 0;
+        height: 30rem;
+        width: 22rem;
+        border-radius: 2rem;
+    }
+
+    /*stocksection */
+    .stocks-section{
+        
+        position: relative;
+        height: 28rem;
+        width: 20rem;
+        right: 0;
+        top: 38rem;
+        
+    }
+
+
+
+
+}
+
+/*breakpoint - Tabs// Follows same order as mobile breakpoint*/
+@media screen and (min-width: 500px) and (max-width: 1200px) { 
+    .nav-item{
+        padding-left: 12px;
+        padding-top: 22px;
+    }
+    
+    #website_name{
+        font-size: 25px;
+        letter-spacing: 2px;
+        word-spacing: 10px;
+        position: relative;
+        left: 2rem;
+        margin-bottom: 0;
+        text-shadow: 3px 5px 10px white, 2px 2px 5px green;
+    }
+
+    .home-body{
+        margin-top: .5rem;
+        margin-bottom: 1rem;
+        border: 2px solid black;
+        height: 87rem;  /*can increase body height to add more news sections layers later
+        
+        
+        /* flash-container */
+    }
+
+    .flash-news{   
+        height: 3rem;          
+    }
+
+
+    .flash-text-container{
+        
+        height: 2rem;
+        
+    }
+
+    .time-date{
+        width: 16rem;
+        height: 2rem;
+       
+    }
+
+    .main-headline-container{
+        height: 11rem;
+        width: 100%;
+    }
+
+    
+
+    .image-headline {
+        
+        width: 14rem;
+        height: 10rem;
+        top: 1.9rem;
+        left: 5rem;
+
+    }
+    .image-headline img{
+    
+        width: 14rem;
+        height: 10rem;
+        
+    }
+
+    /* other-headline-container */
+    .other-headline-container{
+             
+        width: 49%;
+        height: 50rem;
+    }
+
+    .new-img-demo{
+        height: 8rem;
+    }
+
+
+    /* web3News-section */
+    .web3News-section{
+
+        
+        top: 1rem;
+        left: 15.5rem;
+        height: 50rem;
+        width: 49%;
+    }
+
+    /*stocksection */
+    .stocks-section{
+        height: 17rem;
+        width: 60rem;
+        margin-top: 2rem;
+        right: 0;
+        top: 0;
+        
+    }
+
+}
+
+
+/*breakpoint - Smaller computers/ Laptops// Follows same order as mobile breakpoint*/
+@media screen and (min-width: 1200px) and (max-width: 1900px){
+
+    #logoImg{
+        background-color: aqua;
+        
+    }
+
+    .nav-item{
+        padding-left: 12px;
+        padding-top: 22px;
+    }
+    
+    #website_name{
+        font-size: 27px;
+        letter-spacing: 4px;
+        word-spacing: 13px;
+        left: 9rem;
+        
+    }
+
+    .home-body{
+        margin-top: .4rem;
+        height: 98rem;
+    }
+
+
+    .main-headline-container{
+        height: 12rem;
+        width: 100%;
+    }  
+
+    .image-headline {
+        
+        width: 20rem;
+        height: 10rem;
+        top: 1.9rem;
+        left: 8rem;
+
+    }
+    .image-headline img{
+    
+        width: 20rem;
+        height: 11rem;
+        
+    }
+
+    /* other-headline-container */
+    .other-headline-container{
+             
+        width: 49%;
+        height: 60rem;
+    }
+
+    .new-img-demo{
+        height: 10rem;
+    }
+
+
+    /* web3News-section */
+    .web3News-section{
+
+        
+        top: 1rem;
+        left: 22rem;
+        height: 60rem;
+        width: 49%;
+    }
+
+    /*stocksection */
+    .stocks-section{
+        height: 17rem;
+        width: 85rem;
+        margin-top: 3rem;
+        right: 0;
+        top: 0;
+        
+    }
+
+}
+
+
+/* from 1900px is larger computers default style.css  */
