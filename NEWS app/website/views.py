@@ -80,8 +80,8 @@ def readMore(section, article_id):
 @login_required
 def readlater():
     if request.method == 'POST':
-        data = request.get_data()
-        print((str(data)))
+        data = str(request.get_data()) #recieved data is in bit format so converting it
+        print(data)
 
 
     return jsonify({"status" : "success"})
