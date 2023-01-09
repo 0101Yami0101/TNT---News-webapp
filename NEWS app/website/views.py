@@ -73,53 +73,15 @@ def readMore(section, article_id):
     return render_template('readmore.html', content= the_content)
 
 
-@views.route('/readlater/<section>/<id>')
+    
+
+
+@views.route('/AddToReadlater', methods = ['POST'])
 @login_required
-def readlater(section, id):  #TOdo handle this using post request // request resposne should have section and id of the one and this function in return sends a json object with status report
-    newID = int(id)
-    sec = str(section)
-
-    if sec == "def":
-
-        # append to user's News
-        title = default_news_list[newID]['title']
-        author = default_news_list[newID]['author']
-        blogLink = default_news_list[newID]['link']
-        imgLink = default_news_list[newID]['image-link']
-        user_id = current_user.id
-        news = News(title = title, author = author, blogLink = blogLink, imgLink = imgLink, user_id = user_id )
-        db.session.add(news)
-        db.session.commit()
-
-        flash("APPENDED", category= "success")
-        return redirect("/")
-    elif sec == "block":
-        title = blockchain_news_list[newID]['title']
-        author = blockchain_news_list[newID]['author']
-        blogLink = blockchain_news_list[newID]['link']
-        imgLink = blockchain_news_list[newID]['image-link']
-        user_id = current_user.id
-        news = News(title = title, author = author, blogLink = blogLink, imgLink = imgLink, user_id = user_id )
-        db.session.add(news)
-        db.session.commit()
-
-        flash("APPENDED", category= "success")
-        return redirect("/")
-    else:
-        flash("ERROR 404", "error")
-
-    
-    return redirect("/")
-   
-    
-
-#Try
-# @views.route('/AddToReadlater', methods = ['POST'])
-# @login_required
-# def readlater():
-#     if request.method == 'POST':
-#         data = request.get_data()
-#         print(type(str(data)))
+def readlater():
+    if request.method == 'POST':
+        data = request.get_data()
+        print((str(data)))
 
 
-#     return jsonify({"status" : "success"})
+    return jsonify({"status" : "success"})

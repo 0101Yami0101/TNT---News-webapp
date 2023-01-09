@@ -139,13 +139,14 @@ $("#close").on("click", function(){
 
 
 //AJAX TO BACKEND for readlaters 
-function AppendToRL(id){
+function AppendToRL(id, section){
   $.ajax({
     url: '/AddToReadlater',
-    data: {"id" : id},
+    data: {"id" : id, "section": section},
     type: 'POST',
     success: function(response){
       console.log(response);
+      
     },
     error: function(error){
       console.log("ERRor");

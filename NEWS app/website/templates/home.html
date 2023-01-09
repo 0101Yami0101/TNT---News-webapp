@@ -39,8 +39,8 @@
             <a class="p-2" href='{{ news_list[0]["link"] }}'>
               Visit original article
             </a>
-            <br />
-            <a class="p-2"  href="/readlater/def/0"> Read Later </a>
+            <!-- <br /> -->
+            <a class="p-2"  onclick="AppendToRL('{{0}}', 'def')" href=""> Read Later </a> 
           </div>
         </div>
         <div class="image-headline col-4">
@@ -93,7 +93,7 @@
             <br />
 
 
-            <a class="p-2" href="/readlater/def/{{i}}" > Read Later </a>  <!-- in progress  -->
+            <a class="p-2" onclick="AppendToRL('{{i}}', 'def')"> Read Later </a>  <!-- in progress  -->
 
 
           </div>
@@ -134,7 +134,7 @@
             Visit original article
           </a>
           <br />
-          <a class="p-2" href="/readlater/block/{{i}}"> Read Later </a>
+          <a class="p-2" onclick="AppendToRL('{{i}}', 'block')"> Read Later </a>
         </div>
 
         <div id="" class="col-4 web3-images" style="border: 2px solid rgb(133, 216, 133)">
