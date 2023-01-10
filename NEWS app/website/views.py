@@ -85,13 +85,33 @@ def readlater():
         data = request.get_data()
         newdata = data.decode('utf8') #recieved data is in bit format so converting it
         dict = json.loads(newdata)
-        # print(dict["id"])
-        
-        theId = dict["id"]
+        theId = int(dict["id"])
+
         if dict["section"] == "def":
-            #add to db
-            return jsonify({"status" : f"Added default news {theId }" })
+            news = default_news_list[theId]
+            thetitle = news["title"]
+            checkFortitle = News.query.filter_by(title= thetitle).first() #chcecking if data user.news already
+            
+
+            if checkFortitle:
+                return jsonify({"status" : "already added"})
+            else:
+                title = thetitle
+                author = default_news_list[theId]['author']
+                blogLink = default_news_list[theId]['link']
+                imgLink = default_news_list[theId]['image-link']
+                user_id = current_user.id
+                news = News(title = title, author = author, blogLink = blogLink, imgLink = imgLink, user_id = user_id )
+                db.session.add(news)
+                db.session.commit()
+
+
+
+                return jsonify({"status" : f"Added default news {theId }" })
+
         elif dict["section"] == "block":
+            news = blockchain_news_list[theId]
+            title = news["title"]
             return jsonify({"status" : f"Added blocknews news {theId }"})
 
         
