@@ -2,8 +2,6 @@ var default_data ;  //default news data
 var blockchain_data ;  //default news data
 var def = "def";
 var block = "block"
-// let lenOfdefData = Object.keys(default_data).length
-// let lenOfblockData = Object.keys(blockchain_data).length
 
 
 
@@ -69,8 +67,6 @@ $( "#load2" ).on("click", function() {
 
 
   $("#append-more-block-news").append(block_news_temp); //<--- To-Do do animation while appending
-  // console.log("Appended");
-
   }
 
 })
@@ -147,7 +143,7 @@ $("#close").on("click", function(){
 function AppendToRL(id, section){
   $.ajax({
     url: '/AddToReadlater',
-    data: {"id" : id, "section": section},
+    data: JSON.stringify({"id" : id, "section": section}),
     type: 'POST',
     success: function(response){
       console.log(response);

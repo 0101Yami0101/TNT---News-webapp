@@ -4,6 +4,8 @@ from .crypto import cryptoData
 from flask_login import current_user, login_required
 from . import db
 from .models import User, News
+import json
+
 
 
 
@@ -80,8 +82,19 @@ def readMore(section, article_id):
 @login_required
 def readlater():
     if request.method == 'POST':
-        data = str(request.get_data()) #recieved data is in bit format so converting it
-        print(data)
+        data = request.get_data()
+        newdata = data.decode('utf8') #recieved data is in bit format so converting it
+        dict = json.loads(newdata)
+        # print(dict["id"])
+        
+        theId = dict["id"]
+        if dict["section"] == "def":
+            #add to db
+            return jsonify({"status" : f"Added default news {theId }" })
+        elif dict["section"] == "block":
+            return jsonify({"status" : f"Added blocknews news {theId }"})
+
+        
 
 
-    return jsonify({"status" : "success"})
+    return jsonify({"status" : "some error occurred"})
