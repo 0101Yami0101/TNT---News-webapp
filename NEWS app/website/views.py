@@ -81,6 +81,7 @@ def readMore(section, article_id):
 @views.route('/AddToReadlater', methods = ['POST'])
 @login_required
 def readlater():
+    
     if request.method == 'POST':
         data = request.get_data()
         newdata = data.decode('utf8') #recieved data is in bit format so converting it
@@ -90,11 +91,15 @@ def readlater():
         if dict["section"] == "def":
             news = default_news_list[theId]
             thetitle = news["title"]
-            checkFortitle = News.query.filter_by(title= thetitle).first() #chcecking if data user.news already
-            
 
-            if checkFortitle:
-                return jsonify({"status" : "already added"})
+            dataExists = False
+
+            for i in current_user.news: #check if the given title matches any of the title in user's list
+                if str(i.title) == str(thetitle):                
+                    dataExists = True
+
+            if dataExists:
+                return jsonify({"status" : f"ALready added to ur list" })
             else:
                 title = thetitle
                 author = default_news_list[theId]['author']
@@ -111,10 +116,30 @@ def readlater():
 
         elif dict["section"] == "block":
             news = blockchain_news_list[theId]
-            title = news["title"]
-            return jsonify({"status" : f"Added blocknews news {theId }"})
+            thetitle = news["title"]
+            dataExists = False
 
-        
+            for i in current_user.news: #check if the given title matches any of the title in user's list
+                if str(i.title) == str(thetitle):                
+                    dataExists = True
+
+            if dataExists:
+                return jsonify({"status" : f"ALready added to ur list" })
+            else:
+                title = thetitle
+                author = blockchain_news_list[theId]['author']
+                blogLink = blockchain_news_list[theId]['link']
+                imgLink = blockchain_news_list[theId]['image-link']
+                user_id = current_user.id
+                news = News(title = title, author = author, blogLink = blogLink, imgLink = imgLink, user_id = user_id )
+                db.session.add(news)
+                db.session.commit()
+
+
+
+            return jsonify({"status" : f"Added blockchain news {theId }" })
+
+            
 
 
     return jsonify({"status" : "some error occurred"})

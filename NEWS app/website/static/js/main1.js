@@ -4,7 +4,6 @@ var def = "def";
 var block = "block"
 
 
-
 $(function() { // <---  document.ready
   console.log( "ready!" );
 
@@ -139,6 +138,8 @@ $("#close").on("click", function(){
 
 
 
+
+
 //AJAX TO BACKEND for readlaters 
 function AppendToRL(id, section){
   $.ajax({
@@ -146,11 +147,23 @@ function AppendToRL(id, section){
     data: JSON.stringify({"id" : id, "section": section}),
     type: 'POST',
     success: function(response){
-      console.log(response);
+
+      if(typeof(response) == 'string'){
+
+        var ifHTML = response.includes('<!DOCTYPE html>') //to check if the route is returning the login page because of @login-reqd
+        if (ifHTML){
+          alert("PLEASE SIGNUP")
+          location.replace('/sign-up')
+        }
+      }
+      else{
+        console.log(response['status'])
+      }
+      
       
     },
     error: function(error){
-      console.log("ERRor");
+      console.log("Some unknown error ");
     }
   });
 }
