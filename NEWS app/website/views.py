@@ -80,7 +80,7 @@ def readMore(section, article_id):
 
 @views.route('/AddToReadlater', methods = ['POST'])
 @login_required
-def readlater():
+def AddToreadlater():
     
     if request.method == 'POST':
         data = request.get_data()
@@ -143,3 +143,17 @@ def readlater():
 
 
     return jsonify({"status" : "some error occurred"})
+
+
+
+# view all readlaters
+@views.route('/listOfReadlater')
+@login_required
+def listOfReadlate():
+    news_list = current_user.news
+    print(news_list)
+    for i in news_list:
+        print(i.title)
+
+    
+    return render_template('listofreadlater.html', newslist = news_list)
