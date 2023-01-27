@@ -5,7 +5,8 @@ from flask_login import current_user, login_required
 from . import db
 from .models import User, News
 import json
-
+import requests
+from bs4 import BeautifulSoup
 
 
 
@@ -130,7 +131,7 @@ def AddToreadlater():
 # view all readlaters
 @views.route('/listOfReadlater')
 @login_required
-def listOfReadlate():
+def listOfReadlater():
     news_list = current_user.news
     print(news_list)
     for i in news_list:
@@ -148,8 +149,36 @@ def readMore(section, article_id):
 
     id = int(article_id)
     if section == "def" :
-        the_content = default_news_list[id]['content']
+        
+        
+       data = requests.get(url= default_news_list[id]['link'])
+       html_content = data.text
+       #process html data
+       soupData = BeautifulSoup(html_content, 'html.parser')
+
+       for i in ['header', 'footer', 'credit', 'ad']:
+            
+          try:
+            soupData.find(i).extract()
+          except:
+              pass
+       
+       finalData = soupData.get_text()
+
+
+
+
+
     else:
-        the_content = blockchain_news_list[id]['content']
+        data = requests.get(url= blockchain_news_list[id]['link'])
+        html_content = data.text
+        #process html data
+        soupData = BeautifulSoup(html_content, 'html.parser')
+        for i in ['header', 'footer', 'credit', 'ad', 'headlines']:
+          try:
+            soupData.find(i).extract()
+          except:
+              pass
+        finalData = soupData.get_text()
     
-    return render_template('readmore.html', content= the_content)
+    return render_template('readmore.html', content= finalData)

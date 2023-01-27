@@ -263,9 +263,9 @@ body {
 /* web3News-section */
 .web3News-section {
   background-color: rgb(175, 240, 240);
-  position: absolute;
-  bottom: -40.7rem;
-  left: 77.5rem;
+  position: relative;
+  top: -84rem;
+  right: -38.8rem;
   height: 85.5rem;
   width: 41rem;
   border-radius: 2rem;
