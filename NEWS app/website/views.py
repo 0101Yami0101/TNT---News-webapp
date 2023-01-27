@@ -21,15 +21,14 @@ default_news_list = news.final_data
 blockchain_news =  NewsData(key_word="Blockchain")
 blockchain_news_list = blockchain_news.final_data
 
+# cryptodata  
+c = cryptoData()
+crypto_list = c.assets_list
+
 
 @views.route('/', methods= ['GET'])     
 def home():
-    # cryptodata  
-    c = cryptoData()
-    crypto_list = c.assets_list
-    crypto_names_list = c.asset_names_list
-
-    
+      
 
     #headline list for marquee
     marquee_list = [] 
@@ -38,41 +37,23 @@ def home():
     for i in range(len(blockchain_news_list)):
         marquee_list.append(blockchain_news_list[i]['title'])
 
-    return render_template("home.html", news_list = default_news_list, blockchain_list = blockchain_news_list, marquee_list = marquee_list, crypto_list= crypto_list, names_list= crypto_names_list , user = current_user)
+    return render_template("home.html", news_list = default_news_list, blockchain_list = blockchain_news_list, marquee_list = marquee_list, crypto_list= crypto_list , user = current_user)
 
 
 
 
-
-@views.route("/loadmore/general") #route to send data to frontend for dom manipulation
-def load_more_general():
+#route to send data to frontend for dom manipulation via 
+@views.route("/getAlldata") 
+def getAlldata():
     
     global default_news_list, blockchain_news_list
     data = {"def-data" : default_news_list,
             "block-data": blockchain_news_list,
+            "c-list": crypto_list,
             "status" : "success"}  
 
 
     return jsonify(data)
-
-
-
-
-
-
-@views.route('/readmore/<section>/<article_id>', methods= ['GET'])     
-def readMore(section, article_id):
-
-    #scrape data from news_api provided link
-    # requests.get(url= default_news_list[id]['link'])
-
-    id = int(article_id)
-    if section == "def" :
-        the_content = default_news_list[id]['content']
-    else:
-        the_content = blockchain_news_list[id]['content']
-    
-    return render_template('readmore.html', content= the_content)
 
 
     
@@ -157,3 +138,18 @@ def listOfReadlate():
 
     
     return render_template('listofreadlater.html', newslist = news_list)
+
+
+@views.route('/readmore/<section>/<article_id>', methods= ['GET'])     
+def readMore(section, article_id):
+
+    #scrape data from news_api provided link
+    # requests.get(url= default_news_list[id]['link'])
+
+    id = int(article_id)
+    if section == "def" :
+        the_content = default_news_list[id]['content']
+    else:
+        the_content = blockchain_news_list[id]['content']
+    
+    return render_template('readmore.html', content= the_content)

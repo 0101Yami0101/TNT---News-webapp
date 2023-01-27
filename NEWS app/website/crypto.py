@@ -9,33 +9,18 @@ class cryptoData():
         self.URL_endpoint = "https://rest-sandbox.coinapi.io/v1/assets" #asset data endpoint
         self.headers = {'X-CoinAPI-Key' : self.api_key}
         self.assets_list = []
-        self.asset_names_list = []
 
-
-        # icons -limited calls
 
         # request to get a list of assets
-        # asset_req = requests.get(url= self.URL_endpoint, headers= self.headers)
-        # data = asset_req.json()
-        # print(data)
-        # for i in range(33, 47):
-        #     asset = data[i]
-        #     self.assets_list.append(asset)
+        asset_req = requests.get(url= self.URL_endpoint, headers= self.headers)
+        data = asset_req.json()
+        print(len(data))
+        for i in range(len(data)):
+            asset = data[i]
+            self.assets_list.append(asset)
 
         
-        # self.icons_urls = []
-        # self.iconsAPI_endpoint = "https://cryptoicons.org/api/icon/" 
-
-        # self.get_asset_names(asset_list= self.assets_list)  
-        
-        
-    
-    
-    def get_asset_names(self, asset_list):
-        for asset in asset_list:
-            name = str(asset["asset_id"]).lower()
-            self.asset_names_list.append(name)
-
+        # print(self.assets_list)
         
 
         

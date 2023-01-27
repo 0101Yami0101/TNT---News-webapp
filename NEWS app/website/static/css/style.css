@@ -235,7 +235,7 @@ body {
 .other-headline-container {
   background-color: rgb(154, 219, 235);
   border-radius: 2rem;
-  height: 60rem;
+  height: 64rem;
   width: 55rem;
   overflow: auto;
   padding: 5px;
@@ -323,7 +323,7 @@ body {
   width: 50rem;
   margin: 2px;
   border-radius: 2rem;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .cryptos {
@@ -338,6 +338,20 @@ body {
   text-align: center;
   background-position-x: center;
   background-blend-mode: multiply;
+}
+
+.c-tabs{
+  cursor: pointer;
+}
+
+#searchCrypto{
+  position: absolute;
+  top: 8rem;
+  
+}
+
+.crypto-close{
+  background-color: #32ff08;
 }
 
 /*--- Login-page ---*/

@@ -104,13 +104,6 @@ setInterval(dispTime, 10);
 //   }
 // }
 
-//try
-function color(crypto){
-  crypto.style.backgroundColor = "aquamarine";
-}
-function colorback(crypto){
-  crypto.style.backgroundColor = "white";
-}
 
 
 
