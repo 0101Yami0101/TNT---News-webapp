@@ -2,14 +2,33 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@100&display=swap');
+
 
 /* 656565 */
 /* C0FF6B */
 /* d5d5d5 */
 /* 000000 */
 body {
-  background-color: bisque;
-  display: block;
+  background-color: rgb(3, 3, 3);
+ 
+}
+/*loader*/
+.loader {
+  position: absolute;
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #080d11; /* Blue */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  top: 45%;
+  left: 45%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* navbar */
@@ -22,12 +41,20 @@ body {
 
 #logoImg {
   width: 100px;
-  box-shadow: 4px 3px 3px 2px #656565;
+  box-shadow: 4px 3px 3px 2px #070606;
 }
 
 .nav-item {
-  padding-left: 50px;
-  padding-top: 24px;
+  padding-left: 48px;
+  padding-top: 15px;
+  font-size: 19px;
+  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+  font-weight: 900;
+  letter-spacing: 1.1px;
+  
+}
+.nav-item i {
+  padding: 10px;
 }
 
 #website_name {
@@ -37,7 +64,7 @@ body {
   letter-spacing: 5px;
   word-spacing: 15px;
   position: relative;
-  left: 16rem;
+  left: 14rem;
   margin-bottom: 0;
   text-shadow: 3px 5px 10px white, 2px 2px 5px green;
 }
@@ -49,9 +76,9 @@ body {
   font-family: "Rubik Glitch", cursive;
 }
 
-#website-name {
+/* #website-name {
   width: 78rem;
-}
+} */
 
 #login-button button {
   position: absolute;

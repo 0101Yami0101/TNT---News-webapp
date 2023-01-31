@@ -5,10 +5,10 @@ var def = "def";
 var block = "block"
 
 
-$(function() { // <---  document.ready
-  console.log( "ready!" );
 
-  
+function getData(){$(function() { // <---  document.ready
+  console.log( "ready to fetch data!" );
+
   fetch('/getAlldata')   //<---  fetching data from backend using fetch api when the DOM is ready
   .then((response) => response.json())
   .then((data) => {
@@ -19,12 +19,18 @@ $(function() { // <---  document.ready
     //   console.log(blockchain_data[i]["title"])
     // }
     }) 
-  .then(() =>{ console.log("DATA ACHIEVED SUCCESSFULLY")})
-  .catch((error) => {console.log("SORRY " + error)});
+    .then(() => {$('div:not(#loader)').show(); $('#loader').hide(); $('#search-results').hide() })
+    
+
   
   
   
-});
+});}
+
+$('div:not(#loader)').hide();
+setTimeout(getData, 2000)
+
+
 
 //Appending data to Default data section
 var def_start_count = 0;
@@ -76,13 +82,14 @@ $( "#load2" ).on("click", function() {
 
 $("#searchText").on('input', function(){
   
+  
   if ($('#searchText').val() == ""){
     $("#search-results").hide()
   }
 })
 
 $("#search-eye").on('click', function(){
-  
+  $('#search-results').show()
 
   $("#search-results").text("")
   searchText = $('#searchText').val().toLowerCase()
@@ -247,19 +254,18 @@ function Searchcrypto(){
         let secToPrepend = document.getElementById(  value.toLowerCase() )
         secToPrepend.remove()
         $("#prepend-here").prepend(secToPrepend)
-
-        
-
-        
-        
-        
+       
         
       }
      
     }
   }
   
-
   
 }
 
+
+// tooltip
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
