@@ -11,6 +11,7 @@
 /* 000000 */
 body {
   background-color: rgb(3, 3, 3);
+  margin: -1rem;
  
 }
 /*loader*/
@@ -33,28 +34,52 @@ body {
 
 /* navbar */
 .navbar {
-  border-radius: 2rem;
+  position: fixed;
+  margin-top: 0px;
+  margin-left: 1rem;
+  z-index: 1;
+  height: 7rem;
+  background-color: #313131;
+  box-shadow: 2px 3px 10px 2px rgb(2, 2, 2);
 }
+
+.navbar-nav{
+  position: absolute;
+  left: 7rem;
+  width: 100%;
+  top: .8rem;
+}
+
+
 .logo-container {
   padding-left: 10px;
+  height: 11rem;
+  position: relative;
+  top: 2.7rem;
+ 
 }
 
 #logoImg {
-  width: 100px;
-  box-shadow: 4px 3px 3px 2px #070606;
+  width: 138px;
+  box-shadow: 1px 5px 10px 10px #242323;
+  background-color: #3E3636;
+  
 }
 
 .nav-item {
-  padding-left: 48px;
-  padding-top: 15px;
-  font-size: 19px;
+  padding-left: 68px;
+  padding-top: 7px;
+  font-size: 23px;
   font-family: 'Sofia Sans Extra Condensed', sans-serif;
   font-weight: 900;
   letter-spacing: 1.1px;
-  
 }
 .nav-item i {
   padding: 10px;
+}
+
+.nav-item :hover{
+  color: aqua;
 }
 
 #website_name {
@@ -80,6 +105,12 @@ body {
   width: 78rem;
 } */
 
+#login-button{
+  position: absolute;
+  left: 83rem;
+  width: 100%;
+
+}
 #login-button button {
   position: absolute;
   right: 2rem;
@@ -88,17 +119,11 @@ body {
   border-radius: 4rem;
   background-color: #7a7c79;
 }
-#login-button{
-  position: absolute;
-  right: 10rem;
 
-}
-
-#r-laterButton{
-  position: absolute;
-  right: 4rem;
+/* #r-laterButton{
+ 
   
-}
+} */
 #r-laterButton button{
   border-radius: 4rem;
   background-color: #7a7c79;
@@ -120,6 +145,7 @@ body {
 /* homeBody */
 .home-body {
   background-color: #043649be;
+  padding-top: 10rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 2px solid black;

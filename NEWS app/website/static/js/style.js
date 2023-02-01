@@ -2,7 +2,7 @@
 function turn_red() {
   //Function to turn the logo to a different color
   document.getElementById("logoImg").style.boxShadow =
-    "3px 3px 3px 2px #FDB813";
+    "1px 1px 10px 1px aqua";
 }
 
 function turn_grey() {
