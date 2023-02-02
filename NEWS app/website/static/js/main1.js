@@ -20,16 +20,12 @@ function getData(){$(function() { // <---  document.ready
     // }
     }) 
     .then(() => {$('div:not(#loader)').show(); $('#loader').hide(); $('#search-results').hide() })
-    
-
-  
   
   
 });}
 
 $('div:not(#loader)').hide();
 setTimeout(getData, 2000)
-
 
 
 //Appending data to Default data section
@@ -51,8 +47,7 @@ $( "#load1" ).on("click", function() {
 
       $("#append-more-def-news").append(default_news_temp)  //<--- To-Do do animation while appending
       // console.log("Appended")
-    }
-     
+    }     
   });
 
 
@@ -75,14 +70,12 @@ $( "#load2" ).on("click", function() {
 
   $("#append-more-block-news").append(block_news_temp); //<--- To-Do do animation while appending
   }
-
 })
 
-//Searching
 
+//Searching
 $("#searchText").on('input', function(){
-  
-  
+    
   if ($('#searchText').val() == ""){
     $("#search-results").hide()
   }
@@ -121,32 +114,21 @@ $("#search-eye").on('click', function(){
       var temp = '<div class="container" ><h4>' + title + '<a href="/readmore/block/'+theID  +'"><button >readmore</button></a></h4></div>'
 
       $("#search-results").append(temp)
-    }
-    
-    
-
+    }        
   }
 
   //after loop check if txt area empty 
   if($("#search-results").text() == ""){
     $("#search-results").show()
     $("#search-results").append("No such results")
-  }
-
-
-  
-  
+  }   
 })
 
 $("#close").on("click", function(){
   $("#search-results").text("")
   $("#search-results").hide()
-  
-  
+ 
 })
-
-
-
 
 
 //AJAX TO BACKEND to add readlaters 
@@ -178,12 +160,9 @@ function AppendToRL(id, section){
 }
 
 
-
 // Stock Section 
-
 function ExpandDetails(crypto_div){
-
-  
+ 
   let TheElem = (crypto_div.id).toUpperCase()
   console.log(TheElem)
 
@@ -202,23 +181,23 @@ function ExpandDetails(crypto_div){
       let template = '<span onclick = "closeThis(this)"><button class= "crypto-close" >Close</button></span><div>Price :'+ Price.toFixed(2) +' </div>'+'<br/>' + '<div><h5>1 Hr Trade Vol : ' + OnehrTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnedayTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnemonthTrade.toFixed(2) +'$</h5></div>'
 
       let appendplace = document.getElementById("appendDetails"+crypto_div.id)
-      appendplace.innerHTML = template
-      
-      
+      appendplace.innerHTML = template            
       
     }
   } 
   
 }
 
-// function to close crypto tabs
+
+// Function to close crypto tabs
 function closeThis(section){
   console.log("close request")
   section.parentElement.parentElement.style.height = "2.9rem"
   
 }
 
-//search from list if searchcrypto button is clicked
+
+//Search from list if searchcrypto button is clicked
 var value
 function Searchcrypto(){
 
@@ -265,7 +244,12 @@ function Searchcrypto(){
 }
 
 
-// tooltip
+// Tooltip
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+
+
+
+

@@ -1,3 +1,25 @@
+//styling code
+
+//form validation
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
 
 function turn_red() {
   //Function to turn the logo to a different color
@@ -10,24 +32,6 @@ function turn_grey() {
   document.getElementById("logoImg").style.boxShadow =
     "3px 3px 3px 2px #656565";
 }
-
-// function TNT_in() {
-//   //Function to add effects to initials/demo
-//   const initials = document.getElementsByClassName("initials");
-//   for (let i = 0; i < initials.length; i++) {
-//     initials[i].setAttribute("style", "font-family: Cursive;");
-//   }
-// }
-
-// function TNT_out() {
-//   //Function to remove effects from initials/demo
-//   const initials = document.getElementsByClassName("initials");
-//   for (let i = 0; i < initials.length; i++) {
-//     initials[i].setAttribute("style", "font-family: 'Rubik Glitch';");
-//   }
-// }
-
-
 
 
 //Adding time
@@ -84,49 +88,19 @@ function dispTime() {
 setInterval(dispTime, 10);
 
 
-
-///////////////STYLING JS BELOW
-
-// //Adding d-flex to website-name header when dom width is mobile width
-// let w = window.innerWidth;
-// if (w <= 450) {
-//   let target = document.getElementById("website_name");
-//   target.setAttribute("class", "d-flex");
-// }
-
-// //Adding effect to initails when in mobile width
-// if (w <= 450) {
-//   const init = document.getElementsByClassName("initials");
-
-//   for (let i = 0; i < init.length; i++) {
-//     init[i].setAttribute("onmouseover", "TNT_in()");
-//     init[i].setAttribute("onmouseout", "TNT_out()");
-//   }
-// }
+//Navbar Gradient on hover effect
+$(document).mousemove(function(event) {
+  windowWidth = $(window).width();
+  windowHeight = $(window).height();
+  
+  mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
+  mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
+  
+  $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #57abe4, #302f30)');
+});
 
 
 
-
-//form validation
-
-(() => {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
 
 
 

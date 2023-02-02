@@ -1,0 +1,14 @@
+/* site responsiveness */
+
+
+
+@media only screen and (max-width: 1300px) {  
+    /* if less than 1300px*/
+    .nav-item{
+        display: none;
+    }
+
+    #nav-toggler{
+        display: block;
+    }
+  }

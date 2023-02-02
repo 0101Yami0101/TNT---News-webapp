@@ -22,7 +22,7 @@
     <!-- NAVBAR -->
     <div id="navBar">
 
-      <nav id="navbar" class="container-fluid navbar navbar-expand-sm navbar-dark">
+      <nav id="navbar" class="radial-gradient container-fluid navbar navbar-expand-sm navbar-dark">
           <div class="container-fluid">
             <a class="navbar-brand logo-container" href="/" onclick="turn_red()" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Homepage">
               <img id="logoImg" src="{{ url_for('static', filename='images/logo.png') }}" alt="Avatar Logo"  class="rounded-pill"> 
@@ -41,6 +41,9 @@
                 </li>
                 <li class="nav-item" id="login-button">
                   <a class="nav-link" id="clicksignup" href="/sign-up"><i class="fa-solid fa-right-to-bracket " ></i> Login | Sign-up</a>
+                </li>
+                <li id="nav-toggler">
+                  <a class="nav-link"><i id="toggler" class="fa-brands fa-pagelines fa-4x"></i></a>
                 </li>
           
               </ul>
@@ -217,6 +220,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ url_for('static', filename='js/style.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main1.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/resp.js') }}"></script>
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
 
     

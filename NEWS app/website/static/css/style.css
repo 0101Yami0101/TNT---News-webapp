@@ -5,10 +5,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@100&display=swap');
 
 
-/* 656565 */
-/* C0FF6B */
-/* d5d5d5 */
-/* 000000 */
 body {
   background-color: rgb(3, 3, 3);
   margin: -1rem;
@@ -39,15 +35,59 @@ body {
   margin-left: 1rem;
   z-index: 1;
   height: 7rem;
-  background-color: #313131;
+  /* background-image: linear-gradient(rgb(129, 124, 124), rgb(34, 43, 48)); */
   box-shadow: 2px 3px 10px 2px rgb(2, 2, 2);
 }
 
 .navbar-nav{
-  position: absolute;
-  left: 7rem;
+  position: relative;
   width: 100%;
-  top: .8rem;
+  
+}
+
+
+.nav-item {
+  padding-left: 68px;
+  padding-top: 7px;
+  width: 15rem;
+  font-size: 23px;
+  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+  font-weight: 900;
+  letter-spacing: 1.1px;
+}
+.nav-item i {
+  padding: 10px;
+}
+
+.nav-item :hover{
+  color: aqua;
+}
+
+.radial-gradient {
+  
+  background: 
+    radial-gradient( #57abe4, #302f30);
+}
+
+/* toggler */
+#nav-toggler{
+  display: none;
+  position: absolute;
+  width: 3rem;
+  right: 3rem;
+  bottom: -2.5rem;
+  text-shadow: 1px 2px 3px aqua;
+  animation: shadow 2s linear 3;
+  
+}
+
+
+
+
+@keyframes shadow {
+  33% {text-shadow: 1px 2px 3px rgb(0, 0, 0);}
+  66% {text-shadow: 1px 1px 3px rgb(223, 233, 233);}
+  99% {text-shadow: 1px 3px 3px rgb(0, 194, 243);}
 }
 
 
@@ -63,56 +103,19 @@ body {
   width: 138px;
   box-shadow: 1px 5px 10px 10px #242323;
   background-color: #3E3636;
+
   
 }
 
-.nav-item {
-  padding-left: 68px;
-  padding-top: 7px;
-  font-size: 23px;
-  font-family: 'Sofia Sans Extra Condensed', sans-serif;
-  font-weight: 900;
-  letter-spacing: 1.1px;
-}
-.nav-item i {
-  padding: 10px;
-}
 
-.nav-item :hover{
-  color: aqua;
-}
-
-#website_name {
-  color: whitesmoke;
-  font-family: "DM Serif Display", serif;
-  font-size: 35px;
-  letter-spacing: 5px;
-  word-spacing: 15px;
-  position: relative;
-  left: 14rem;
-  margin-bottom: 0;
-  text-shadow: 3px 5px 10px white, 2px 2px 5px green;
-}
-
-.initials {
-  position: relative;
-  font-size: 70px;
-  color: #ff0000;
-  font-family: "Rubik Glitch", cursive;
-}
-
-/* #website-name {
-  width: 78rem;
-} */
 
 #login-button{
   position: absolute;
-  left: 83rem;
-  width: 100%;
+  right: 4rem;
 
 }
 #login-button button {
-  position: absolute;
+  position: relative;
   right: 2rem;
   height: 5rem;
   width: 5rem;
@@ -144,7 +147,7 @@ body {
 
 /* homeBody */
 .home-body {
-  background-color: #043649be;
+  background-color: #ffffffbe;
   padding-top: 10rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -446,13 +449,10 @@ body {
 
 }
 
-
-
-
-
 /* footer */
 #footer{
   position: relative;
   background-color: #cadcf0;
   bottom: -11rem ;
 }
+
