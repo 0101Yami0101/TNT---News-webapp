@@ -49,11 +49,21 @@ def home():
 #route to send data to frontend for dom manipulation via 
 @views.route("/getAlldata") 
 def getAlldata():
+
+    user = False
     
+    try: #checking for active user if any
+        if current_user.id is not None :  
+            user = True
+            print(current_user.id, user)
+    except:
+        print("no user", user)
+        
     global default_news_list, blockchain_news_list
     data = {"def-data" : default_news_list,
             "block-data": blockchain_news_list,
             "c-list": crypto_list,
+            "user": user,
             "status" : "success"}  
 
 

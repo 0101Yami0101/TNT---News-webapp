@@ -1,8 +1,10 @@
 var default_data ;  //default news data
 var blockchain_data ;  //default news data
 var c_list
+var user
 var def = "def";
 var block = "block"
+let logoutTemp = '<a class="nav-link " id="clicksignup" href="/log-out"><i class="fa-solid fa-right-to-bracket " ></i>Logout</a>'
 
 
 
@@ -15,11 +17,14 @@ function getData(){$(function() { // <---  document.ready
     default_data = data['def-data'];
     blockchain_data = data['block-data'];
     c_list = data['c-list'];
-    // for(i = 0; i < Object.keys(blockchain_data).length; i++){
-    //   console.log(blockchain_data[i]["title"])
-    // }
+    user = data['user']
+    
     }) 
-    .then(() => {$('div:not(#loader)').show(); $('#loader').hide(); $('#search-results').hide() })
+    .then(() => {$('div:not(#loader)').show(); $('#loader').hide(); $('#search-results').hide(); if(user){
+      $("#clicksignup").hide();
+      $("#login-button").append(logoutTemp) //add logout in place of login if user is found
+      
+    } })
   
   
 });}

@@ -6,7 +6,7 @@
 
 
 body {
-  background-color: rgb(3, 3, 3);
+  background-color: rgb(158, 62, 62);
   margin: -1rem;
  
 }
@@ -446,6 +446,12 @@ body {
   padding: 2rem;
   width: 70rem;
 
+}
+
+/* logout */
+#logoutLink{
+  position: relative;
+  top: 10rem;
 }
 
 /* footer */
