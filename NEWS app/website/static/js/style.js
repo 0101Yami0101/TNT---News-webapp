@@ -21,18 +21,6 @@
 })()
 
 
-function turn_red() {
-  //Function to turn the logo to a different color
-  document.getElementById("logoImg").style.boxShadow =
-    "1px 1px 10px 1px aqua";
-}
-
-function turn_grey() {
-  //Function to turn the logo to a different color
-  document.getElementById("logoImg").style.boxShadow =
-    "3px 3px 3px 2px #656565";
-}
-
 
 //Adding time
 function dispTime() {
@@ -88,6 +76,24 @@ function dispTime() {
 setInterval(dispTime, 10);
 
 
+////////////////
+
+
+//Logo shadow
+function turn_red() {
+  //Function to turn the logo to a different color
+  document.getElementById("logoImg").style.boxShadow =
+    "1px 1px 10px 1px aqua";
+}
+
+function turn_grey() {
+  //Function to turn the logo to a different color
+  document.getElementById("logoImg").style.boxShadow =
+    "3px 3px 3px 2px #656565";
+}
+
+
+
 //Navbar Gradient on hover effect
 $(document).mousemove(function(event) {
   windowWidth = $(window).width();
@@ -99,8 +105,9 @@ $(document).mousemove(function(event) {
   $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #57abe4, #302f30)');
 });
 
+$(document).scroll(function (){ //TODO
+  null
+})
 
 
-
-
-
+//

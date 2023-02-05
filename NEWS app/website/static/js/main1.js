@@ -250,6 +250,75 @@ $(function () {
 })
 
 
+//Menu toggle button
 
+var ToggleOn = false
+
+function ToggleMenu(){
+  if(ToggleOn){
+    ToggleOn = false
+    $(".nav-item").fadeOut(1000)
+    $(".navbar").animate({height: '7rem'}, 1000)
+    $(".logo-container").css({height: "6rem"})
+    $("#logoImg").animate({width: "138px"})
+
+    let query1 = window.matchMedia("(max-width: 600px)")
+    let query2 = window.matchMedia("(max-width: 1300px)")
+    console.log(query1.matches)
+
+    
+    
+    if(query1.matches){//if opening and maxwidth is 600px
+      $("#nav-toggler").animate({bottom: "0.2rem"}, "fast")
+      console.log("query 1 matches")
+    }   
+    else if(query2.matches){ //if closing and maxwidth 1300 
+      $("#nav-toggler").animate({bottom: "-2.4rem"}, 100)
+      console.log("query 2 matches")
+    }
+
+    
+  }
+  else{
+    //unhide menu 
+    ToggleOn = true
+    $(".nav-item").fadeIn(1000)
+    $(".navbar").animate({height: '15rem' }, 1000)
+    $(".logo-container").css({height: "3rem"})
+    $("#logoImg").animate({width: "100px"})
+
+    let query1 = window.matchMedia("(max-width: 600px)")
+    let query2 = window.matchMedia("(max-width: 1300px)")
+    console.log(query1.matches)
+
+    
+    
+    if(query1.matches){//if opening and maxwidth is 600px
+      $("#nav-toggler").animate({bottom: "8.7rem"}, "slow")
+      console.log("query 1 matches")
+
+      //adjust navitems
+      $("#whoAreWe").css({position: "relative", top: "3rem"})
+      $("#talkWithUs").css({position: "relative", top: "4rem"})
+      $("#r-laterButton").css({position: "relative", top: "-4.4rem", right: "-13rem"})
+      $(".logo-container").css({height: "3rem"})
+      
+
+    }  
+    else if(query2.matches){//if opening and maxwidth is 1300px
+      $("#nav-toggler").animate({bottom: "-1rem"}, "slow")
+      $("#login-button").css({right: "24rem", top: "4rem"})
+      $(".l1").css({position: "relative", top: "-1rem"})
+    }
+    
+
+
+    
+    
+
+
+    
+  }
+}
 
 

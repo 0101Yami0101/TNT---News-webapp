@@ -27,6 +27,9 @@ c = cryptoData()
 crypto_list = c.assets_list
 
 
+
+
+
 @views.route('/', methods= ['GET'])     
 def home():
       
@@ -144,8 +147,6 @@ def listOfReadlater():
 @views.route('/readmore/<section>/<article_id>', methods= ['GET'])     
 def readMore(section, article_id):
 
-    #scrape data from news_api provided link
-    # requests.get(url= default_news_list[id]['link'])
 
     id = int(article_id)
     if section == "def" :

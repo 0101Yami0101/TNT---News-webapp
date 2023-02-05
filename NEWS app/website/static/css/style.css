@@ -35,7 +35,6 @@ body {
   margin-left: 1rem;
   z-index: 1;
   height: 7rem;
-  /* background-image: linear-gradient(rgb(129, 124, 124), rgb(34, 43, 48)); */
   box-shadow: 2px 3px 10px 2px rgb(2, 2, 2);
 }
 
@@ -47,6 +46,7 @@ body {
 
 
 .nav-item {
+  display: block;
   padding-left: 68px;
   padding-top: 7px;
   width: 15rem;
@@ -92,10 +92,9 @@ body {
 
 
 .logo-container {
-  padding-left: 10px;
-  height: 11rem;
   position: relative;
-  top: 2.7rem;
+  padding-left: 10px;
+  height: 6rem;
  
 }
 

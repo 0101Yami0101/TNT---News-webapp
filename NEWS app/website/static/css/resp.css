@@ -10,5 +10,36 @@
 
     #nav-toggler{
         display: block;
+        /* bottom: 0; */
+    }
+  }
+
+
+  @media only screen and (max-width: 600px) {  
+    /* if less than 1300px*/
+    #nav-toggler{
+        position: absolute;
+        width: 2rem;
+        right: 2rem;
+        bottom: 0.5rem;
+        
+    }
+
+    .logo-container {
+        
+        position: relative;
+        top: 0;
+       
+      }
+
+    
+
+    .nav-item{
+        padding: 0;
+    }
+
+    #login-button{
+        right: -5rem;
+        top: 7.8rem;
     }
   }
