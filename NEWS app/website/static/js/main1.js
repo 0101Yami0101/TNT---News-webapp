@@ -5,6 +5,8 @@ var user
 var def = "def";
 var block = "block"
 let logoutTemp = '<a class="nav-link " id="clicksignup" href="/log-out"><i class="fa-solid fa-right-to-bracket " ></i>Logout</a>'
+let togglerTreeTemp = '<i id="toggler" class="fa-solid fa-tree fa-4x"></i></i>'
+let togglerLeafTemp = '<i id="toggler" class="fa-brands fa-pagelines fa-4x"></i>'
 
 
 
@@ -261,11 +263,21 @@ var ToggleOn = false
 
 function ToggleMenu(){
   if(ToggleOn){
+    //hide menu /closing
     ToggleOn = false
     $(".nav-item").fadeOut(1000)
     $(".navbar").animate({height: '7rem'}, 1000)
     $(".logo-container").css({height: "6rem"})
     $("#logoImg").animate({width: "138px"})
+
+
+    //tree
+    $("#toggler").fadeOut()
+    $("#toggler").remove()
+    $("#togglerLink").append(togglerLeafTemp)
+    $("#toggler").fadeIn()
+
+    
 
     let query1 = window.matchMedia("(max-width: 600px)")
     let query2 = window.matchMedia("(max-width: 1300px)")
@@ -276,6 +288,7 @@ function ToggleMenu(){
     if(query1.matches){//if opening and maxwidth is 600px
       $("#nav-toggler").animate({bottom: "0.2rem"}, "fast")
       console.log("query 1 matches")
+      $("#logoImg").animate({width: "120px"})
     }   
     else if(query2.matches){ //if closing and maxwidth 1300 
       $("#nav-toggler").animate({bottom: "-2.4rem"}, 100)
@@ -285,12 +298,20 @@ function ToggleMenu(){
     
   }
   else{
-    //unhide menu 
+    //unhide menu /opening
     ToggleOn = true
     $(".nav-item").fadeIn(1000)
     $(".navbar").animate({height: '15rem' }, 1000)
     $(".logo-container").css({height: "3rem"})
     $("#logoImg").animate({width: "100px"})
+
+    //tree
+    $("#toggler").fadeOut()
+    $("#toggler").remove()
+    $("#togglerLink").append(togglerTreeTemp)
+    $("#toggler").fadeIn()
+
+
 
     let query1 = window.matchMedia("(max-width: 600px)")
     let query2 = window.matchMedia("(max-width: 1300px)")
@@ -306,7 +327,7 @@ function ToggleMenu(){
       $("#whoAreWe").css({position: "relative", top: "3rem"})
       $("#talkWithUs").css({position: "relative", top: "4rem"})
       $("#r-laterButton").css({position: "relative", top: "-4.4rem", right: "-13rem"})
-      $(".logo-container").css({height: "3rem"})
+      $(".logo-container").css({height: "3rem", top: "0rem"})
       
 
     }  
