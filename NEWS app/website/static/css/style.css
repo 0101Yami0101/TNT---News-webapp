@@ -6,7 +6,7 @@
 
 
 body {
-  background-color: rgb(158, 62, 62);
+  background-color: rgb(255, 255, 255);
   margin: -1rem;
  
 }
@@ -146,8 +146,9 @@ body {
 
 /* homeBody */
 .home-body {
+  position: relative;
+  top: 9rem;
   background-color: #ffffffbe;
-  padding-top: 10rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 2px solid black;

@@ -269,6 +269,7 @@ function ToggleMenu(){
     $(".navbar").animate({height: '7rem'}, 1000)
     $(".logo-container").css({height: "6rem"})
     $("#logoImg").animate({width: "138px"})
+    $(".home-body").animate({top: '9rem'}, 1200)
 
 
     //tree
@@ -294,7 +295,6 @@ function ToggleMenu(){
 
 
       //tree
-      
       $("#toggler").hide()
       $("#toggler").fadeIn(3000)
 
@@ -318,6 +318,7 @@ function ToggleMenu(){
     $(".navbar").animate({height: '15rem' }, 1000)
     $(".logo-container").css({height: "3rem"})
     $("#logoImg").animate({width: "100px"})
+    $(".home-body").animate({top: '15.6rem'})
 
     
 
