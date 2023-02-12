@@ -285,14 +285,28 @@ function ToggleMenu(){
 
     
     
-    if(query1.matches){//if opening and maxwidth is 600px
+    if(query1.matches){//if closing and maxwidth is 600px
       $("#nav-toggler").animate({bottom: "0.2rem"}, "fast")
       console.log("query 1 matches")
       $("#logoImg").animate({width: "120px"})
+      //navbar
+      $(".nav-item").hide()
+
+
+      //tree
+      
+      $("#toggler").hide()
+      $("#toggler").fadeIn(3000)
+
     }   
     else if(query2.matches){ //if closing and maxwidth 1300 
       $("#nav-toggler").animate({bottom: "-2.4rem"}, 100)
       console.log("query 2 matches")
+
+      $("#toggler").fadeOut()
+      $("#toggler").fadeIn(4000)
+
+
     }
 
     
@@ -305,11 +319,7 @@ function ToggleMenu(){
     $(".logo-container").css({height: "3rem"})
     $("#logoImg").animate({width: "100px"})
 
-    //tree
-    $("#toggler").fadeOut()
-    $("#toggler").remove()
-    $("#togglerLink").append(togglerTreeTemp)
-    $("#toggler").fadeIn()
+    
 
 
 
@@ -320,21 +330,36 @@ function ToggleMenu(){
     
     
     if(query1.matches){//if opening and maxwidth is 600px
-      $("#nav-toggler").animate({bottom: "8.7rem"}, "slow")
       console.log("query 1 matches")
-
+      
       //adjust navitems
       $("#whoAreWe").css({position: "relative", top: "3rem"})
       $("#talkWithUs").css({position: "relative", top: "4rem"})
       $("#r-laterButton").css({position: "relative", top: "-4.4rem", right: "-13rem"})
       $(".logo-container").css({height: "3rem", top: "0rem"})
+      $('.navbar-nav').css({left: '0.8rem'})
+      $("#nav-toggler").css({bottom: "9rem", right: '3.6rem'})
+
+      //toggler/tree
+      $("#toggler").remove()
+      setTimeout(() => { $("#togglerLink").append(togglerTreeTemp)},1500)
+   
       
+        
 
     }  
     else if(query2.matches){//if opening and maxwidth is 1300px
       $("#nav-toggler").animate({bottom: "-1rem"}, "slow")
       $("#login-button").css({right: "24rem", top: "4rem"})
       $(".l1").css({position: "relative", top: "-1rem"})
+
+      //toggler/tree
+      $("#toggler").fadeOut()
+      $("#toggler").remove()
+      setTimeout(() => { $("#togglerLink").append(togglerTreeTemp)},1000)
+      setTimeout(() => { $("#toggler").fadeIn()},2000)
+      
+
     }
     
 
