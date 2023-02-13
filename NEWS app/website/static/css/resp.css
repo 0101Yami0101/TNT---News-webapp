@@ -11,6 +11,7 @@
     #nav-toggler{
         display: block;
         /* bottom: 0; */
+        text-shadow: 1px 11px 8px #2e2d2d;
     }
   }
 
@@ -22,6 +23,7 @@
         width: 2rem;
         right: 2rem;
         bottom: -2.5rem;
+        text-shadow: 1px 11px 8px #2e2d2d;
         
     }
 
@@ -47,5 +49,7 @@
     #logoImg{
         width: 120px;
     }
+
+
     
   }

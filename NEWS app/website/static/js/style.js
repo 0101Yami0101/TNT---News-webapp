@@ -102,7 +102,7 @@ $(document).mousemove(function(event) {
   mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
   mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
   
-  $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #57abe4, #302f30)');
+  $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%,  #06a6e6, #2c2b2b');
 });
 
 $(document).scroll(function (){ //TODO

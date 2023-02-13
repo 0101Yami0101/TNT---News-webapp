@@ -55,7 +55,7 @@ def getAlldata():
     try: #checking for active user if any
         if current_user.id is not None :  
             user = True
-            print(current_user.id, user)
+            # print(current_user.id, user)
     except:
         print("no user", user)
         

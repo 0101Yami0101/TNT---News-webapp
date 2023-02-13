@@ -3,10 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
 
 
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(41, 39, 39);
   margin: -1rem;
  
 }
@@ -30,12 +33,25 @@ body {
 
 /* navbar */
 .navbar {
+  
   position: fixed;
   margin-top: 0px;
   margin-left: 1rem;
   z-index: 1;
   height: 7rem;
   box-shadow: 2px 3px 10px 2px rgb(2, 2, 2);
+}
+
+.l1 a{
+  color: #faf8f8;
+  text-shadow: 4px 7px 8px rgb(10, 10, 10);
+  
+  
+}
+
+.l2 a{
+  color: #faf8f8;
+  text-shadow: 4px 7px 8px rgb(10, 10, 10);
 }
 
 .navbar-nav{
@@ -57,16 +73,26 @@ body {
 }
 .nav-item i {
   padding: 10px;
+  
 }
 
 .nav-item :hover{
-  color: aqua;
+  color: #205E61;
+  animation: enlarge 2s infinite;
 }
+
+@keyframes enlarge {
+  33% {color: #F9F54B; text-shadow: 5px 10px 12px rgb(59, 58, 58); font-size: 1.5rem;}
+  66% {color: #151616;}
+  99% {color: #205E61;}
+}
+
+
 
 .radial-gradient {
   
   background: 
-    radial-gradient( #57abe4, #302f30);
+    radial-gradient( #06a6e6, #2c2b2b);
 }
 
 /* toggler */
@@ -82,12 +108,10 @@ body {
 }
 
 
-
-
 @keyframes shadow {
   33% {text-shadow: 1px 2px 3px rgb(0, 0, 0);}
   66% {text-shadow: 1px 1px 3px rgb(223, 233, 233);}
-  99% {text-shadow: 1px 3px 3px rgb(0, 194, 243);}
+  99% {text-shadow: 1px 3px 3px rgb(13, 13, 14);}
 }
 
 
@@ -100,12 +124,11 @@ body {
 
 #logoImg {
   width: 138px;
-  box-shadow: 1px 5px 10px 10px #242323;
+  box-shadow: 0px 1px 11px 8px #2e2d2d;
   background-color: #3E3636;
 
   
 }
-
 
 
 #login-button{
@@ -122,10 +145,7 @@ body {
   background-color: #7a7c79;
 }
 
-/* #r-laterButton{
- 
-  
-} */
+/* #r-laterButton */
 #r-laterButton button{
   border-radius: 4rem;
   background-color: #7a7c79;
@@ -159,7 +179,7 @@ body {
     /* flash-container */
 }
 .flash-news {
-  background-color: #0fe5aa;
+  background-color: #222222;
   border-radius: 2rem;
   margin-top: 1rem;
   height: 3rem;
@@ -178,8 +198,12 @@ body {
 .flash-text-container h3 {
   width: fit-content;
   white-space: nowrap;
+  font-family: 'Righteous', cursive;
+  color: rgb(255, 255, 255);
   animation: marquee 500s linear infinite;
 }
+
+
 
 @keyframes marquee {
   from {
