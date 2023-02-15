@@ -4,6 +4,11 @@
 
 @media only screen and (max-width: 1300px) {  
     /* if less than 1300px*/
+    #navbar{
+        top: -0.1rem;
+        left: -1.2rem;
+    }
+    
     .nav-item{
         display: none;
     }
@@ -13,20 +18,37 @@
         /* bottom: 0; */
         text-shadow: 1px 11px 8px #2e2d2d;
     }
+
+    .flash-text-container h3{
+        font-size: 1.5rem;
+        animation: marquee 800s linear infinite ;
+        
+    }
   }
 
 
   @media only screen and (max-width: 600px) {  
     /* if less than 600px*/
+    #navbar{
+        top: -0.1rem;
+        left: -1.2rem;
+    }
+
     #nav-toggler{
         position: absolute;
         width: 2rem;
-        right: 2rem;
+        right: 1.4rem;
         bottom: -2.5rem;
         text-shadow: 1px 11px 8px #2e2d2d;
         
     }
 
+    .navbar-nav {
+        position: relative;
+        width: 98%;
+    }
+
+   
     .logo-container {
         
         position: relative;
@@ -39,6 +61,7 @@
 
     .nav-item{
         padding: 0;
+        
     }
 
     #login-button{
@@ -50,6 +73,33 @@
         width: 120px;
     }
 
+    .flash-text-container{
+        bottom: 5px;
+        padding: 0;
+    }
 
-    
-  }
+    .flash-text-container h3{
+        font-size: 1.3rem;
+        animation: marquee 900s linear infinite ;
+        
+    }
+
+    .time-date{
+        font-size: 1rem;
+        letter-spacing: 1px;
+        overflow: hidden;
+        text-align: center;
+        width: 9rem;
+        height: 3.6rem;
+        bottom: 1.3rem;
+        right: -1rem;
+        margin: 0;
+    }
+    .time-date span {
+        
+        left: 2px;
+        padding: 0;
+        top: 3px;
+    }
+
+}

@@ -77,22 +77,25 @@ body {
 }
 
 .nav-item :hover{
-  color: #205E61;
+  color: black;
   animation: enlarge 2s infinite;
 }
 
 @keyframes enlarge {
-  33% {color: #F9F54B; text-shadow: 5px 10px 12px rgb(59, 58, 58); font-size: 1.5rem;}
-  66% {color: #151616;}
-  99% {color: #205E61;}
+  25% {color: #151616;}
+  50% {color: #08eb1b;}
+  75% {color: #daf107;}
 }
-
-
 
 .radial-gradient {
   
   background: 
     radial-gradient( #06a6e6, #2c2b2b);
+}
+.radial-gradient-home {
+  
+  background: 
+    radial-gradient( #fffbfb  , rgb(22, 219, 219), #085a7a);
 }
 
 /* toggler */
@@ -167,23 +170,28 @@ body {
 /* homeBody */
 .home-body {
   position: relative;
-  top: 9rem;
-  background-color: #ffffffbe;
-  margin-top: 1rem;
+  top: 9rem; 
+  margin-top: 1.2rem;
   margin-bottom: 1rem;
-  border: 2px solid black;
+  /* border: 1px solid black; */
   border-radius: 2rem;
-  height: 95rem; /*can increase body height to add more news sections layers later
+  box-shadow: -2px 1px 12px 8px rgb(104, 100, 100);
+  height: 95rem; /*can increase body height to add more news sections layers later */
+  background-image: radial-gradient(#fffbfb  , rgb(22, 219, 219), #085a7a )
+  
     
     
-    /* flash-container */
 }
+
+
+/* flashnewscontainer */
 .flash-news {
-  background-color: #222222;
+  background-color: #119499;
   border-radius: 2rem;
   margin-top: 1rem;
   height: 3rem;
-  overflow: hidden;
+  box-shadow: 0px 5px 10px 2px rgb(5, 5, 5);
+  /* overflow: hidden; */
 }
 
 .flash-text-container {
@@ -200,6 +208,7 @@ body {
   white-space: nowrap;
   font-family: 'Righteous', cursive;
   color: rgb(255, 255, 255);
+  text-shadow: 1px 3px 7px rgb(22, 21, 21);
   animation: marquee 500s linear infinite;
 }
 
@@ -215,23 +224,33 @@ body {
 }
 
 .time-date {
-  background-color: antiquewhite;
+  background-color: #009ccc5b;
   bottom: 8px;
-  border: 1px solid black;
   border-radius: 2rem;
   color: #0d0e0d;
   font-size: 1.4rem;
   font-weight: bold;
+  font-family: 'Righteous', cursive;
   position: relative;
-  width: 20rem;
+  width: 21rem;
   height: 2rem;
   word-spacing: 0.4rem;
   padding-bottom: 2px;
+  box-shadow: 0px 1px 6px 2px rgb(3, 3, 3);
+  animation: tick 1s infinite ;
+
 }
+@keyframes tick {
+  50% { box-shadow: 0px 1px 1px 2px rgb(3, 3, 3); color: rgb(245, 247, 248); text-shadow: 0px 2px 10px rgb(12, 12, 12);}
+  100% {  box-shadow: 0px 1px 10px 2px rgb(3, 3, 3); }
+ 
+}
+
 
 .time-date span {
   position: relative;
   left: 0.4rem;
+  padding-left: 5px;
 }
 
 /* main headline */

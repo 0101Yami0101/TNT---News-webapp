@@ -3,11 +3,11 @@
 <!-- "Extended" -->
 {% block Content %}
 
-<div class="home-body container-fluid">
+<div class="home-body container-fluid radial-gradient-home">
   <!-- flashnews area -->
-  <div class="flash-news container-fluid d-flex shadow p-3 mb-3">
+  <div class="flash-news container-fluid d-flex p-3 mb-3">
     <div class="container-fluid flash-text-container">
-      <h3>
+      <h3 id="theMarqueehead">
         {% for i in range(marquee_list|length) %}
         <span>
           <i class="fa fa-cloud"></i> &nbsp; {{ marquee_list[i] }} &nbsp; &nbsp;
@@ -18,10 +18,12 @@
 
     <div class="container-fluid time-date">
       <span id="day">DD</span>
+      <span id="hiphen">-</span>
       <span id="hour">00</span>
+      <span id="colon1">:</span>
       <span id="minute">00</span>
+      <span id="colon2">:</span>
       <span id="second">00</span>
-      <span id="meridiem">MM</span>
     </div>
   </div>
 

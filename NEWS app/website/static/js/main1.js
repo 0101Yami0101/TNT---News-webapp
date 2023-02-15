@@ -258,7 +258,6 @@ $(function () {
 
 
 //Menu toggle button
-
 var ToggleOn = false
 
 function ToggleMenu(){
@@ -292,17 +291,22 @@ function ToggleMenu(){
       $("#logoImg").animate({width: "120px"})
       //navbar
       $(".nav-item").hide()
-
-
+      $(".navbar").animate({height: '7.7rem'}, 100) //readjusting navbar
+      $(".home-body").animate({top: "8.7rem"}, 1000)
+      
       //tree
       $("#toggler").hide()
       $("#toggler").fadeIn(3000)
-
+      
     }   
     else if(query2.matches){ //if closing and maxwidth 1300 
-      $("#nav-toggler").animate({bottom: "-2.4rem"}, 100)
-      console.log("query 2 matches")
 
+      $("#nav-toggler").animate({bottom: "-2.4rem"}, 100)
+      $(".navbar").animate({height: '7.5rem'}, 100) //readjusting navbar
+      $(".home-body").animate({top: "8.7rem"}, 1000)
+
+      console.log("query 2 matches")
+      
       $("#toggler").fadeOut()
       $("#toggler").fadeIn(4000)
 
@@ -339,7 +343,7 @@ function ToggleMenu(){
       $("#r-laterButton").css({position: "relative", top: "-4.4rem", right: "-13rem"})
       $(".logo-container").css({height: "3rem", top: "0rem"})
       $('.navbar-nav').css({left: '0.8rem'})
-      $("#nav-toggler").css({bottom: "9rem", right: '3.6rem'})
+      $("#nav-toggler").css({bottom: "9rem", right: '2.5rem'})
 
       //toggler/tree
       $("#toggler").remove()
@@ -363,12 +367,6 @@ function ToggleMenu(){
 
     }
     
-
-
-    
-    
-
-
     
   }
 }
