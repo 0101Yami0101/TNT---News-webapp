@@ -126,6 +126,7 @@ if (query1.matches){
 
 
   $(".home-body").css({top: "8rem"})
+  console.log("matches")
 
 
   //flashnews area
@@ -137,6 +138,11 @@ if (query1.matches){
   hiphen.remove()
   colon2.remove()
   $(".time-date").append(tempDay)
+
+  //reload timedate div
+  setInterval(() => {
+    $(".time-date").load(".time-date")
+  }, 1000);
   
     
   
