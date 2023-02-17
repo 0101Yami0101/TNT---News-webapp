@@ -45,7 +45,7 @@ $( "#load1" ).on("click", function() {
       
       
       //edit and add templates
-      default_news_temp = '<div class="news-section"><div class="row"><div class="col-8"><h3>'
+      default_news_temp = '<div class="news-section"><div class="row"><div class="col-8"><h3 class = "headers-des">'
       + default_data[i]['title'] + '</h3><div class="other-news-description">'
       + default_data[i]['description'] +'</div><div class="readmore-container d-flex flex-row mb-3"><a class="p-2" href="/readmore/def/'
       +i+'"> Read more </a><br /><a class="p-2" href="'
@@ -58,7 +58,7 @@ $( "#load1" ).on("click", function() {
   });
 
 
-//Appending data to Default data section
+//Appending data to block data section
 var block_news_count = 0
 
 $( "#load2" ).on("click", function() {

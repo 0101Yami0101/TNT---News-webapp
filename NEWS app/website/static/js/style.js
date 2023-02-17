@@ -43,7 +43,7 @@ $(document).mousemove(function(event) {
   mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
   
   $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%,  #06a6e6, #2c2b2b');
-  $('.radial-gradient-home').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%,  #fffbfb  , rgb(22, 219, 219), #085a7a');
+  $('.radial-gradient-home').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #09cccc  , #1b1a1a');
 });
 
 

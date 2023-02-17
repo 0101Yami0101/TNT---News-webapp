@@ -95,7 +95,7 @@ body {
 .radial-gradient-home {
   
   background: 
-    radial-gradient( #fffbfb  , rgb(22, 219, 219), #085a7a);
+    radial-gradient(rgb(22, 219, 219), #085a7a);
 }
 
 /* toggler */
@@ -177,7 +177,7 @@ body {
   border-radius: 2rem;
   box-shadow: -2px 1px 12px 8px rgb(104, 100, 100);
   height: 95rem; /*can increase body height to add more news sections layers later */
-  background-image: radial-gradient(#fffbfb  , rgb(22, 219, 219), #085a7a )
+  background-image: radial-gradient( #09cccc  , #1b1a1a )
   
     
     
@@ -256,18 +256,29 @@ body {
 /* main headline */
 
 .main-headline-container {
-  background-color: whitesmoke;
+  
+  background: radial-gradient(rgb(2, 216, 245), #03030365);
   height: 17rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   width: 65%;
   border-radius: 2rem;
+  box-shadow: 2px 1px 8px 2px rgb(19, 18, 18);
+
 }
 
-#head-news-title {
+#head-news-title, .headers-des {
+  color: rgba(183, 186, 187, 0.897);
+  background: linear-gradient(rgba(0, 0, 0, 0.562) , rgba(255, 255, 255, 0.384) );
+  border-radius: 2rem;
+  box-shadow: 0px 1px 10px 2px rgb(12, 12, 12);
   padding-top: 0.5rem;
   margin-top: 0.5rem;
-  font-family: serif;
-  font-weight: bold;
+  font-family: 'Righteous', cursive;
+  text-shadow: 1px 3px 8px rgb(10, 10, 10);
+  text-align: center;
+  margin: 1rem;
+  
+  /* font-weight: bold; */
 }
 
 #head-news-description {
@@ -277,6 +288,7 @@ body {
   padding-left: 0.2rem;
   content: inherit;
   overflow: hidden;
+  font-family: 'Righteous', cursive;
 }
 
 .image-headline {
