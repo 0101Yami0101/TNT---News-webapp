@@ -45,8 +45,8 @@ $( "#load1" ).on("click", function() {
       
       
       //edit and add templates
-      default_news_temp = '<div class="news-section"><div class="row"><div class="col-8"><h3 class = "headers-des">'
-      + default_data[i]['title'] + '</h3><div class="other-news-description">'
+      default_news_temp = '<div class="news-section"><div class="row"><div class="col-8"><h3 class = "headers-title">'
+      + default_data[i]['title'] + '</h3><div class="other-news-description headers-desp">'
       + default_data[i]['description'] +'</div><div class="readmore-container d-flex flex-row mb-3"><a class="p-2" href="/readmore/def/'
       +i+'"> Read more </a><br /><a class="p-2" href="'
       + default_data[i]['link'] +'">Visit original article</a><br /><a class="p-2" onclick="AppendToRL('
@@ -66,8 +66,8 @@ $( "#load2" ).on("click", function() {
 
   for(i = block_news_count; i <= block_news_count + 5 ; i++ ){
   //edit and add templates
-    block_news_temp = '<div class="news-section blockchain-news-section"><div class="row"><div class="col-8"><h3>'
-    + blockchain_data[i]["title"] + '</h3></div><div class="blockchain-news-description">'
+    block_news_temp = '<div class="news-section blockchain-news-section"><div class="row"><div class="col-8"><h3 class = "headers-title">'
+    + blockchain_data[i]["title"] + '</h3></div><div class="blockchain-news-description headers-desp">'
     + blockchain_data[i]['description'] + '</div><div class="readmore-container d-flex flex-row mb-3"><a class="p-2" href="/readmore/block/'
     +i+'"> Read more </a><br/><a class="p-2" href='
     + blockchain_data[i]["link"] + '>Visit original article</a><br/><a class="p-2" onclick="AppendToRL('
