@@ -2,18 +2,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
-
-
-
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 
 body {
   background-color: rgb(41, 39, 39);
   margin: -1rem;
- 
 }
 /*loader*/
 .loader {
@@ -29,13 +25,16 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* navbar */
 .navbar {
-  
   position: fixed;
   margin-top: 0px;
   margin-left: 1rem;
@@ -44,24 +43,20 @@ body {
   box-shadow: 2px 3px 10px 2px rgb(2, 2, 2);
 }
 
-.l1 a{
-  color: #faf8f8;
-  text-shadow: 4px 7px 8px rgb(10, 10, 10);
-  
-  
-}
-
-.l2 a{
+.l1 a {
   color: #faf8f8;
   text-shadow: 4px 7px 8px rgb(10, 10, 10);
 }
 
-.navbar-nav{
+.l2 a {
+  color: #faf8f8;
+  text-shadow: 4px 7px 8px rgb(10, 10, 10);
+}
+
+.navbar-nav {
   position: relative;
   width: 100%;
-  
 }
-
 
 .nav-item {
   display: block;
@@ -69,39 +64,40 @@ body {
   padding-top: 7px;
   width: 15rem;
   font-size: 23px;
-  font-family: 'Sofia Sans Extra Condensed', sans-serif;
+  font-family: "Sofia Sans Extra Condensed", sans-serif;
   font-weight: 900;
   letter-spacing: 1.1px;
 }
 .nav-item i {
   padding: 10px;
-  
 }
 
-.nav-item :hover{
+.nav-item :hover {
   color: black;
   animation: enlarge 2s infinite;
 }
 
 @keyframes enlarge {
-  25% {color: #151616;}
-  50% {color: #08eb1b;}
-  75% {color: #daf107;}
+  25% {
+    color: #151616;
+  }
+  50% {
+    color: #08eb1b;
+  }
+  75% {
+    color: #daf107;
+  }
 }
 
 .radial-gradient {
-  
-  background: 
-    radial-gradient( #06a6e6, #2c2b2b);
+  background: radial-gradient(#06a6e6, #2c2b2b);
 }
 .radial-gradient-home {
-  
-  background: 
-    radial-gradient(rgb(22, 219, 219), #085a7a);
+  background: radial-gradient(rgb(22, 219, 219), #085a7a);
 }
 
 /* toggler */
-#nav-toggler{
+#nav-toggler {
   display: none;
   position: absolute;
   width: 3rem;
@@ -109,37 +105,35 @@ body {
   bottom: -2.5rem;
   text-shadow: 1px 2px 3px aqua;
   animation: shadow 2s linear 3;
-  
 }
-
 
 @keyframes shadow {
-  33% {text-shadow: 1px 2px 3px rgb(0, 0, 0);}
-  66% {text-shadow: 1px 1px 3px rgb(223, 233, 233);}
-  99% {text-shadow: 1px 3px 3px rgb(13, 13, 14);}
+  33% {
+    text-shadow: 1px 2px 3px rgb(0, 0, 0);
+  }
+  66% {
+    text-shadow: 1px 1px 3px rgb(223, 233, 233);
+  }
+  99% {
+    text-shadow: 1px 3px 3px rgb(13, 13, 14);
+  }
 }
-
 
 .logo-container {
   position: relative;
   padding-left: 10px;
   height: 6rem;
- 
 }
 
 #logoImg {
   width: 138px;
   box-shadow: 0px 1px 11px 8px #2e2d2d;
-  background-color: #3E3636;
-
-  
+  background-color: #3e3636;
 }
 
-
-#login-button{
+#login-button {
   position: absolute;
   right: 4rem;
-
 }
 #login-button button {
   position: relative;
@@ -151,40 +145,33 @@ body {
 }
 
 /* #r-laterButton */
-#r-laterButton button{
+#r-laterButton button {
   border-radius: 4rem;
   background-color: #7a7c79;
 }
 
-#login-button i{
+#login-button i {
   border-radius: 4rem;
-  
 }
-#login-button button :hover{
+#login-button button :hover {
   background-color: #0fe5aa;
-  
 }
-#r-laterButton button :hover{
+#r-laterButton button :hover {
   background-color: #0fe5aa;
-  
 }
 
 /* homeBody */
 .home-body {
   position: relative;
-  top: 9rem; 
+  top: 9rem;
   margin-top: 1.2rem;
   margin-bottom: 1rem;
   /* border: 1px solid black; */
   border-radius: 2rem;
   box-shadow: -2px 1px 12px 8px rgb(104, 100, 100);
   height: 95rem; /*can increase body height to add more news sections layers later */
-  background-image: radial-gradient( #09cccc  , #1b1a1a )
-  
-    
-    
+  background-image: radial-gradient(#09cccc, #1b1a1a);
 }
-
 
 /* flashnewscontainer */
 .flash-news {
@@ -208,13 +195,11 @@ body {
 .flash-text-container h3 {
   width: fit-content;
   white-space: nowrap;
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   color: rgb(255, 255, 255);
   text-shadow: 1px 3px 7px rgb(22, 21, 21);
   animation: marquee 500s linear infinite;
 }
-
-
 
 @keyframes marquee {
   from {
@@ -232,22 +217,25 @@ body {
   color: #0d0e0d;
   font-size: 1.4rem;
   font-weight: bold;
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   position: relative;
   width: 21rem;
   height: 2rem;
   word-spacing: 0.4rem;
   padding-bottom: 2px;
   box-shadow: 0px 1px 6px 2px rgb(3, 3, 3);
-  animation: tick 1s infinite ;
-
+  animation: tick 1s infinite;
 }
 @keyframes tick {
-  50% { box-shadow: 0px 1px 1px 2px rgb(3, 3, 3); color: rgb(245, 247, 248); text-shadow: 0px 2px 10px rgb(12, 12, 12);}
-  100% {  box-shadow: 0px 1px 10px 2px rgb(3, 3, 3); }
- 
+  50% {
+    box-shadow: 0px 1px 1px 2px rgb(3, 3, 3);
+    color: rgb(245, 247, 248);
+    text-shadow: 0px 2px 10px rgb(12, 12, 12);
+  }
+  100% {
+    box-shadow: 0px 1px 10px 2px rgb(3, 3, 3);
+  }
 }
-
 
 .time-date span {
   position: relative;
@@ -258,54 +246,98 @@ body {
 /* main headline */
 
 .main-headline-container {
-  
   background: radial-gradient(rgb(2, 216, 245), #03030365);
   height: 17rem;
   margin-top: 2rem;
   width: 65%;
   border-radius: 2rem;
   box-shadow: 2px 1px 8px 2px rgb(19, 18, 18);
-
 }
 
-#head-news-title, .headers-title{
+#head-news-title,
+.headers-title {
   color: rgb(236, 239, 240);
-  background: linear-gradient(rgba(0, 0, 0, 0.562) , rgba(255, 255, 255, 0.384) );
+  background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 182, 228, 0.384));
   border-radius: 2rem;
   box-shadow: 0px 1px 10px 2px rgb(12, 12, 12);
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
-  font-family: 'Righteous', cursive;
-  text-shadow: 2px 3px 5px #00c3ff;
+  font-family: "Righteous", cursive;
+  text-shadow: 2px 3px 5px #080808;
   text-align: center;
   margin: 1rem;
-  
-  /* font-weight: bold; */
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  max-height: 7rem;
+  overflow: hidden;
 }
 
-#head-news-description, .headers-desp {
-  font-size: 20px;
-  height: 5.5rem;
-  border-top: 3px solid #08ceff;
+#head-news-description,
+.headers-desp {
+  color: #daf6fc;
+  text-shadow: 4px 5px 4px #000000;
+  line-height: 1.5rem;
+  font-weight: 200;
+  font-size: 23.5px;
+  margin-top: 1rem;
   text-align: center;
   padding-left: 0.2rem;
+  padding-bottom: 0.21rem;
   content: inherit;
   overflow: hidden;
-  font-family: 'Gloock', serif;
-  /* background-color: red; */
+  font-family: "Concert One", cursive;
+}
+
+
+.read-more{
+  position: relative;
+  bottom: -3.1rem;
+
+}
+
+.read-more i{
+  color: #06a7e64d;
+  padding-left: 3rem;
+  padding-top: 0.5em;
+  text-shadow: 5px 7px 7px rgb(36, 34, 34);
+  
+}
+
+.visit-original{
+  position: relative;
+  left: 24em;
+  bottom: -4.4rem;
+}
+
+.visit-original i{
+  color: #08eb1b56;
+  padding-left: 3rem;
+  text-shadow: 5px 7px 7px rgb(36, 34, 34);
+}
+.read-later  {
+  position: relative;
+  left: 28em;
+  bottom: -4rem;
+
+}
+
+.read-later i{
+  color: #06a7e65d;
+  text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }
 
 .image-headline {
   position: relative;
-
 }
 .image-headline img {
-  height: 17rem;
-  width: 24rem;
+  box-shadow: 0px 1px 10px 7px black;
+  height: 15rem;
+  width: 23rem;
   position: relative;
+  top: 10px;
   right: 1rem;
   margin-right: 2px;
-  border-radius: 1rem;
+  border-radius: 2rem;
+  padding: 10px;
+  opacity: 0.8;
 }
 
 /*search*/
@@ -323,7 +355,7 @@ body {
   border-radius: 1rem;
 }
 
-#search-results{
+#search-results {
   background-color: #007bff;
   width: 55rem;
   height: 5rem;
@@ -348,9 +380,10 @@ body {
 
 /* other-headline-container */
 .other-headline-container {
-  background-color: rgb(154, 219, 235);
+  background: radial-gradient(rgb(2, 216, 245), #03030365);
+  box-shadow: 2px 1px 8px 2px rgb(19, 18, 18); 
   border-radius: 2rem;
-  height: 64rem;
+  height: 70rem;
   width: 55rem;
   overflow: auto;
   padding: 5px;
@@ -364,20 +397,26 @@ body {
   border: 3px solid black;
   margin: 1rem;
   cursor: pointer;
+  height: 22.4rem;
+}
+
+.news-section h3{
+  background-color: aqua;
 }
 .new-img-demo {
-  height: 14rem;
+  height: 16rem;
 }
 
 .other-news-description {
-  height: 4.5rem;
-  overflow: hidden;
-  /* border-top: 2px solid rgb(43, 255, 0); */
+
+  max-height: 9.2rem;
+  padding-bottom: 4px;
 }
 
 /* web3News-section */
 .web3News-section {
-  background-color: rgb(175, 240, 240);
+  background: radial-gradient(rgb(2, 216, 245), #03030365);
+  box-shadow: 2px 1px 8px 2px rgb(19, 18, 18); 
   position: relative;
   top: -84rem;
   right: -38.8rem;
@@ -391,15 +430,18 @@ body {
 
 .web3News-section h3 {
   font-size: 1.6rem;
+  background-color: red;
+  max-height: 6.5rem;
+  overflow: hidden;
 }
 .blockchain-news-section {
-  background-color: rgb(238, 196, 196);
-  height: 15rem;
+  
+  height: 24rem;
 }
 
 .blockchain-news-description {
-  /* border-top: 2px solid lime; */
-  height: 4.3rem;
+  height: 8.8rem;
+  margin-top: 0.5rem;
   width: 24rem;
   position: relative;
   left: 15px;
@@ -455,20 +497,24 @@ body {
   background-blend-mode: multiply;
 }
 
-.c-tabs{
+.c-tabs {
   cursor: pointer;
 }
 
-#searchCrypto{
+#searchCrypto {
   position: absolute;
   top: 8rem;
-  
 }
 
-.crypto-close{
+.crypto-close {
   background-color: #32ff08;
 }
+/* Readmore section*/
 
+.readmore-container {
+  position: relative;
+  bottom: -0.2em;
+}
 /*--- Login-page ---*/
 
 /* signup page */
@@ -505,19 +551,17 @@ body {
   margin-bottom: 10rem;
   padding: 2rem;
   width: 70rem;
-
 }
 
 /* logout */
-#logoutLink{
+#logoutLink {
   position: relative;
   top: 10rem;
 }
 
 /* footer */
-#footer{
+#footer {
   position: relative;
   background-color: #cadcf0;
-  bottom: -11rem ;
+  bottom: -11rem;
 }
-
