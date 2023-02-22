@@ -249,26 +249,31 @@ body {
   background: radial-gradient(rgb(2, 216, 245), #03030365);
   height: 17rem;
   margin-top: 2rem;
+  margin-bottom: 3rem;
   width: 65%;
   border-radius: 2rem;
   box-shadow: 2px 1px 8px 2px rgb(19, 18, 18);
+  
 }
+
 
 #head-news-title,
 .headers-title {
-  color: rgb(236, 239, 240);
+  color: #eceff0;
   background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 182, 228, 0.384));
   border-radius: 2rem;
   box-shadow: 0px 1px 10px 2px rgb(12, 12, 12);
   font-family: "Righteous", cursive;
   text-shadow: 2px 3px 5px #080808;
   text-align: center;
-  margin: 1rem;
+  margin: 2rem;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   max-height: 7rem;
   overflow: hidden;
+ 
 }
+
 
 #head-news-description,
 .headers-desp {
@@ -286,6 +291,8 @@ body {
   font-family: "Concert One", cursive;
 }
 
+
+
 /* readmore section */
 .read-more{
   position: relative;
@@ -294,7 +301,7 @@ body {
 }
 
 .read-more i{
-  color: #06a7e6a1;
+  color: #0badecde;
   padding-left: 3rem;
   padding-top: 0.5em;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
@@ -305,24 +312,24 @@ body {
 
 .visit-original{
   position: relative;
-  left: 24em;
+  left: 30em;
   bottom: -4.4rem;
 }
 
 .visit-original i{
-  color: #08eb1b93;
+  color: #08eb1bd7;
   padding-left: 3rem;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }
 .read-later  {
   position: relative;
-  left: 28em;
+  left: 32em;
   bottom: -4rem;
 
 }
 
 .read-later i{
-  color: #06a7e6a6;
+  color: #eb640bf6;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }
 
@@ -336,10 +343,11 @@ body {
   position: relative;
   top: 13px;
   margin-right: 2px;
-  border-radius: 2rem;
-  padding: 10px;
-  opacity: 0.8;
+  border-radius: 1rem;
+  opacity: 0.65;
 }
+
+
 
 /*search*/
 
@@ -431,7 +439,7 @@ body {
 
 .web3News-section h3 {
   font-size: 1.6rem;
-  background-color: red;
+  /* background-color: red; */
   max-height: 6.5rem;
   overflow: hidden;
 }

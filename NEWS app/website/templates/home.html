@@ -32,15 +32,15 @@
     <div class="container">
       <div class="row">
         <div class="col-8">
-          <h1 id="head-news-title">{{ news_list[0]['title']}}</h1>
+          <h1 id="head-news-title" onmouseenter="Glowup(this)">{{ news_list[0]['title']}}</h1>
           <div id="head-news-description" >{{ news_list[0]['description']}}</div>
           <div class="readmore-container d-flex flex-row mb-3">
 
 
-           <span class="read-more"><i class="fa-solid fa-angles-right fa-3x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/def/0"  ></a> </i> </span> 
+           <span class="read-more"><i class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/def/0"  ></a> </i> </span> 
             <!-- To-do- target the index using api and feed data from backend-->
-           <span class="visit-original"><i class="fa-solid fa-person-running fa-3x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ news_list[0]["link"] }}'></a></i></span>
-           <span class="read-later"><i class="fa-solid fa-download fa-3x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"></a></i></span> 
+           <span class="visit-original"><i class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ news_list[0]["link"] }}'></a></i></span>
+           <span class="read-later"><i class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"></a></i></span> 
 
 
           </div>
@@ -81,7 +81,7 @@
     <div class="news-section">
       <div class="row">
         <div class="col-8">
-          <h3 class="headers-title">{{ news_list[i]['title'] }}</h3>
+          <h3 id="otherheader{{i}}" class="headers-title" onmouseenter="Glowup(this)">{{ news_list[i]['title'] }}</h3>
           <div class="other-news-description headers-desp">
             {{ news_list[i]['description']}}
           </div>
@@ -123,7 +123,7 @@
     <div class="news-section blockchain-news-section">
       <div class="row">
         <div class="col-8">
-          <h3  class = "headers-title">{{blockchain_list[i]['title'] }}</h3>
+          <h3 id="blockchainheader{{i}}"  class="headers-title" onmouseenter="Glowup(this)">{{blockchain_list[i]['title'] }}</h3>
         </div>
         <div class="blockchain-news-description headers-desp">
           {{ blockchain_list[i]['description']}}

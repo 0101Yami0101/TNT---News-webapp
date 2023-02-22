@@ -115,6 +115,23 @@ function dispTime() {
 setInterval(dispTime, 10);
 
 
+//Main headline area
+function Glowup(elem){
+  let id = "#"+elem.id 
+  console.log(id)
+  
+  $(id).css("color", "aqua")
+  $(id).css("background" , "linear-gradient( #3B9DEA, black)")
+  $(id).mouseleave(function(){
+    $(id).css("color", "#daf6fc");
+    $(id).css("background" , "linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 182, 228, 0.384))")
+    
+  });
+
+  
+}
+
+
 
 
 //Responsiveness and styling according to query
