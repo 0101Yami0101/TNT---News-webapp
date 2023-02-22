@@ -286,7 +286,7 @@ body {
   font-family: "Concert One", cursive;
 }
 
-
+/* readmore section */
 .read-more{
   position: relative;
   bottom: -3.1rem;
@@ -294,10 +294,12 @@ body {
 }
 
 .read-more i{
-  color: #06a7e64d;
+  color: #06a7e6a1;
   padding-left: 3rem;
   padding-top: 0.5em;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
+  text-decoration: solid;
+
   
 }
 
@@ -308,7 +310,7 @@ body {
 }
 
 .visit-original i{
-  color: #08eb1b56;
+  color: #08eb1b93;
   padding-left: 3rem;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }
@@ -320,7 +322,7 @@ body {
 }
 
 .read-later i{
-  color: #06a7e65d;
+  color: #06a7e6a6;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }
 
@@ -332,8 +334,7 @@ body {
   height: 15rem;
   width: 23rem;
   position: relative;
-  top: 10px;
-  right: 1rem;
+  top: 13px;
   margin-right: 2px;
   border-radius: 2rem;
   padding: 10px;
