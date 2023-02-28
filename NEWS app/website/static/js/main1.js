@@ -45,12 +45,14 @@ $( "#load1" ).on("click", function() {
       
       
       //edit and add templates
-      default_news_temp = '<div class="news-section"><div class="row"><div class="col-8"><h3 id="otherheader{{i}}" class = "headers-title" onclick="Glowup(this)">'
+      default_news_temp = '<div class="news-section"><div class="row"><div class="col-8"><h3 id="otherheader'+i+'" class = "headers-title" onmouseenter="Glowup(this)">'
       + default_data[i]['title'] + '</h3><div class="other-news-description headers-desp">'
       + default_data[i]['description'] +'</div><div class="readmore-container d-flex flex-row mb-3"><a class="p-2" href="/readmore/def/'
       +i+'"> Read more </a><br /><a class="p-2" href="'
       + default_data[i]['link'] +'">Visit original article</a><br /><a class="p-2" onclick="AppendToRL('
-      + i + ' , ' + def  +')"> Read Later </a></div></div><div class="col-4 new-img-demo" style="border: 2px solid green"><a > <img/> </a></div></div></div>'
+      + i + ' , ' + def  +')"> Read Later </a></div></div><div class="col-4 new-img-demo" style="border: 2px solid green"><a href=' + 
+      default_data[i]["image-link"] + ' target="_blank"><img src=' + 
+      default_data[i]["image-link"] +' alt="" /> </a></div></div></div>'
 
       $("#append-more-def-news").append(default_news_temp)  //<--- To-Do do animation while appending
       // console.log("Appended")
@@ -66,13 +68,14 @@ $( "#load2" ).on("click", function() {
 
   for(i = block_news_count; i <= block_news_count + 5 ; i++ ){
   //edit and add templates
-    block_news_temp = '<div class="news-section blockchain-news-section"><div class="row"><div class="col-8"><h3 id="blockchainheader{{i}}" class = "headers-title" onclick="Glowup(this)">'
+    block_news_temp = '<div class="news-section blockchain-news-section"><div class="row"><div class="col-8"><h3 id="blockchainheader'+i+'" class = "headers-title" onmouseenter="Glowup(this)">'
     + blockchain_data[i]["title"] + '</h3></div><div class="blockchain-news-description headers-desp">'
     + blockchain_data[i]['description'] + '</div><div class="readmore-container d-flex flex-row mb-3"><a class="p-2" href="/readmore/block/'
     +i+'"> Read more </a><br/><a class="p-2" href='
     + blockchain_data[i]["link"] + '>Visit original article</a><br/><a class="p-2" onclick="AppendToRL('
     + i + ' , ' + block  +')"> Read Later </a></div>'
-    +'<div id="" class="col-4 web3-images" style="border: 2px solid rgb(133, 216, 133)"><a href=""> <img src="" alt="" /> </a></div>'
+    +'<div id="" class="col-4 web3-images" style="border: 2px solid rgb(133, 216, 133)"><a href=' +
+    blockchain_data[i]["image-link"] + ' target="_blank"><img src='+ blockchain_data[i]["image-link"] + ' alt="" /></a></div>'
 
 
   $("#append-more-block-news").append(block_news_temp); //<--- To-Do do animation while appending

@@ -263,6 +263,7 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 182, 228, 0.384));
   border-radius: 2rem;
   box-shadow: 0px 1px 10px 2px rgb(12, 12, 12);
+  cursor: pointer;
   font-family: "Righteous", cursive;
   text-shadow: 2px 3px 5px #080808;
   text-align: center;
@@ -272,6 +273,14 @@ body {
   max-height: 7rem;
   overflow: hidden;
  
+}
+
+#head-news-title a,
+.headers-title a {
+  
+  text-decoration: none;
+  color: white;
+
 }
 
 
@@ -325,6 +334,7 @@ body {
   position: relative;
   left: 32em;
   bottom: -4rem;
+  cursor: pointer;
 
 }
 
@@ -345,8 +355,9 @@ body {
   margin-right: 2px;
   border-radius: 1rem;
   opacity: 0.65;
-}
+  
 
+}
 
 
 /*search*/
@@ -412,8 +423,14 @@ body {
 .news-section h3{
   background-color: aqua;
 }
+
 .new-img-demo {
-  height: 16rem;
+  height: 10em;
+}
+.new-img-demo  img{
+  height: 100%;
+  width: 100%;
+  
 }
 
 .other-news-description {
@@ -439,7 +456,7 @@ body {
 
 .web3News-section h3 {
   font-size: 1.6rem;
-  /* background-color: red; */
+
   max-height: 6.5rem;
   overflow: hidden;
 }
@@ -458,9 +475,15 @@ body {
 }
 
 .web3-images {
-  height: 15rem;
+  height: 12em;
   position: absolute;
   right: 1rem;
+}
+
+.web3-images img{
+  height: 100%;
+  width: 100%;
+  
 }
 
 /* stocks-section */

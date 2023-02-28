@@ -116,6 +116,8 @@ setInterval(dispTime, 10);
 
 
 //Main headline area
+
+//headline
 function Glowup(elem){
   let id = "#"+elem.id 
   console.log(id)
@@ -130,6 +132,51 @@ function Glowup(elem){
 
   
 }
+
+//IMAGES
+const css = window.document.styleSheets[1];
+css.insertRule(`
+@keyframes focus {
+  25% {box-shadow: 0px 2px 15px 9px black;  } 
+  50% {box-shadow: 0px 2px 15px 9px rgb(80, 78, 78);} 
+  75% {box-shadow: 0px 1px 10px 7px black;;} 
+   
+ }`, css.cssRules.length);
+
+css.insertRule(`
+@keyframes fadeAnim {
+  25% {text-shadow: 1px 1px 4px red; opacity: 1} 
+  50% {text-shadow: 2px 2px black;} 
+  75% {text-shadow: 4px 2px 4px red; opacity: 0.2} 
+   
+ }`, css.cssRules.length);
+
+
+function FocusUp(img){
+
+  img.style.animation = "focus 2s infinite"
+  img.style.opacity = 1 ;
+  
+
+}
+function FocusDown(img){
+
+
+  img.style.animation = "None";
+  img.style.opacity = 0.65 ;
+
+}
+
+//Readmore section
+function FadeReadLater(rmore){
+  rmore.style.animation = "fadeAnim 2s infinite"
+
+}
+function FadestopReadLater(rmore){
+  rmore.style.animation = ""
+
+}
+
 
 
 

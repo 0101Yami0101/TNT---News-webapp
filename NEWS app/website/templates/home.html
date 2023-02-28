@@ -32,22 +32,21 @@
     <div class="container">
       <div class="row">
         <div class="col-8">
-          <h1 id="head-news-title" onmouseenter="Glowup(this)">{{ news_list[0]['title']}}</h1>
+          <h1 id="head-news-title" onmouseenter="Glowup(this)"><a href="/readmore/def/0"  >{{ news_list[0]['title']}}</a></h1>
           <div id="head-news-description" >{{ news_list[0]['description']}}</div>
           <div class="readmore-container d-flex flex-row mb-3">
 
 
-           <span class="read-more"><i class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/def/0"  ></a> </i> </span> 
-            <!-- To-do- target the index using api and feed data from backend-->
-           <span class="visit-original"><i class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ news_list[0]["link"] }}'></a></i></span>
-           <span class="read-later"><i class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"></a></i></span> 
+           <span class="read-more"><a  class="p-2" href="/readmore/def/0"  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a>  </span> 
+           <span class="visit-original"><a class="p-2" href='{{ news_list[0]["link"] }}'><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article"></i></a></span>
+           <span class="read-later"><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later"></i></a></span> 
 
 
           </div>
         </div>
         <div class="image-headline col-4">
           <a href='{{ news_list[0]["image-link"] }}' target="_blank">
-            <img src='{{ news_list[0]["image-link"] }}' alt="" />
+            <img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ news_list[0]["image-link"] }}' alt="" />
           </a>
         </div>
       </div>
@@ -81,27 +80,23 @@
     <div class="news-section">
       <div class="row">
         <div class="col-8">
-          <h3 id="otherheader{{i}}" class="headers-title" onmouseenter="Glowup(this)">{{ news_list[i]['title'] }}</h3>
+          <h3 id="otherheader{{i}}" class="headers-title" onmouseenter="Glowup(this)"><a href="/readmore/def/{{i}}"  >{{ news_list[i]['title'] }}</a></h3>
           <div class="other-news-description headers-desp">
             {{ news_list[i]['description']}}
           </div>
           <div class="readmore-container d-flex flex-row mb-3">
-            <a class="p-2"  href="/readmore/def/{{i}}"> Read more </a>
-            
-            <br />
-            <a class="p-2" href='{{ news_list[i]["link"] }}'>
-              Visit original article
-            </a>
-            <br />
-
-
-            <a class="p-2" onclick="AppendToRL('{{i}}', 'def')"> Read Later </a>  <!-- in progress  -->
+            <span class="read-more"><i class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/def/{{i}}"  ></a> </i> </span> 
+            <!-- To-do- target the index using api and feed data from backend-->
+           <span class="visit-original"><i class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ news_list[i]["link"] }}'></a></i></span>
+           <span class="read-later"><i class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'def')"></a></i></span> 
 
 
           </div>
         </div>
-        <div id="" class="col-4 new-img-demo" style="border: 2px solid green">
-          <a href=""> <img src="" alt="" /> </a>
+        <div id="" class="col-4 new-img-demo " style="border: 2px solid green">
+          <a href='{{ news_list[i]["image-link"] }}' target="_blank">
+            <img src='{{ news_list[i]["image-link"] }}' alt="" />
+          </a>
         </div>
       </div>
     </div>
@@ -123,7 +118,7 @@
     <div class="news-section blockchain-news-section">
       <div class="row">
         <div class="col-8">
-          <h3 id="blockchainheader{{i}}"  class="headers-title" onmouseenter="Glowup(this)">{{blockchain_list[i]['title'] }}</h3>
+          <h3 id="blockchainheader{{i}}"  class="headers-title" onmouseenter="Glowup(this)"><a href="/readmore/block/{{i}}"  >{{blockchain_list[i]['title'] }}</a></h3>
         </div>
         <div class="blockchain-news-description headers-desp">
           {{ blockchain_list[i]['description']}}
@@ -132,7 +127,7 @@
           <a class="p-2" href="/readmore/block/{{i}}"> Read more </a>
           <!-- To-do- target the index using api and feed data from backend-->
           <br />
-          <a class="p-2" href='{{ news_list[i]["link"] }}'>
+          <a class="p-2" href='{{ blockchain_list[i]["link"] }}'>
             Visit original article
           </a>
           <br />
@@ -140,7 +135,9 @@
         </div>
 
         <div id="" class="col-4 web3-images" style="border: 2px solid rgb(133, 216, 133)">
-          <a href=""> <img src="" alt="" /> </a>
+          <a href='{{ blockchain_list[i]["image-link"] }}' target="_blank">
+            <img src='{{ blockchain_list[i]["image-link"] }}' alt="" />
+          </a>
         </div>
       </div>
     </div>
