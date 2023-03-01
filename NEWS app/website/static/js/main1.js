@@ -88,14 +88,19 @@ $("#searchText").on('input', function(){
     
   if ($('#searchText').val() == ""){
     $("#search-results").hide()
+    $("#close-search").hide()
+    $("#Other-head-container").css("top", '0')
+    let searchSpan = $("#searchspan");
+    searchSpan.css("animation", "");
   }
 })
 
-$("#search-eye").on('click', function(){
+$("#searchspan").on('click', function(){
   $('#search-results').show()
-
+  $('#close-search').show()
   $("#search-results").text("")
   searchText = $('#searchText').val().toLowerCase()
+
   
   //check if both lists are same  length -- TODO
   for (i = 0 ; i < default_data.length; i++){
@@ -134,7 +139,9 @@ $("#search-eye").on('click', function(){
   }   
 })
 
-$("#close").on("click", function(){
+$("#close-search").on("click", function(){
+  $(this).hide()
+  $("#searchText").val("")
   $("#search-results").text("")
   $("#search-results").hide()
  

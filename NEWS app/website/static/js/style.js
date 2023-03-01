@@ -120,7 +120,6 @@ setInterval(dispTime, 10);
 //headline
 function Glowup(elem){
   let id = "#"+elem.id 
-  console.log(id)
   
   $(id).css("color", "aqua")
   $(id).css("background" , "linear-gradient( #3B9DEA, black)")
@@ -178,13 +177,42 @@ function FadestopReadLater(rmore){
 }
 
 
+//Search section
+$("#searchText").on({
+  mouseenter: function(){
+    $(this).css("background-color", "white").css("opacity", "1");
+  },
+  mouseleave: function(){
+    $(this).css("background-color", "white").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
+  },
+  dblclick: function(){
+    $(this).css("background", "linear-gradient(yellow, orange, aqua)").css("box-shadow", "0px 1px 8px 1px white");
+  },
+  keypress: function(){
+    $(this).css("background", "white");
+  }
+});
 
+$("#searchspan").on({
+  click: function(){
+    $(this).css("animation", "fadeAnim 2s infinite");
+    $("#Other-head-container").css("top", '14rem')
+  }
+})
+
+$("#close-search").on({
+  click: function(){
+    $("#Other-head-container").css("top", '0')
+    let searchSpan = $("#searchspan");
+    searchSpan.css("animation", "");
+  }
+})
 
 
 //Responsiveness and styling according to query
 
-let query1 = window.matchMedia("(max-width: 600px)")
-let query2 = window.matchMedia("(max-width: 1300px)")
+let query1 = window.matchMedia("(max-width: 600px)");
+let query2 = window.matchMedia("(max-width: 1300px)");
 
 if (query1.matches){  
 
@@ -221,3 +249,5 @@ else if(query2.matches){
   $(".flash-text-container").css({bottom: "6px"})
 
 }
+
+$("#search-results").show()

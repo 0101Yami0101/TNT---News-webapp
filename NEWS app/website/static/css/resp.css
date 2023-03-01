@@ -1,4 +1,6 @@
 /* site responsiveness */
+
+/* if less than 1600px*/
 @media only screen and (max-width: 1600px) {
   .time-date {
     word-spacing: 0px;
@@ -30,8 +32,10 @@
   }
 }
 
+
+/* if less than 1200px*/
 @media only screen and (max-width: 1200px) {
-  /* if less than 1300px*/
+  
   #navbar {
     top: -0.1rem;
     left: -1.2rem;
@@ -93,7 +97,7 @@
 
 
 
-/* special adjustments*/
+/* less than 700px*/
 
 @media only screen and (max-width: 700px) {
   #second,
@@ -170,6 +174,7 @@
   }
   .main-headline-container{
     height: 30rem;
+    max-height: 40rem;
   }
   
   #head-news-title{
@@ -193,6 +198,7 @@
     left: -16rem;
     width: 22.2rem;
     height: 12rem;
+    opacity: 0.9;
     
   }
   .read-more{
@@ -219,7 +225,7 @@
 
 
 
-/* special */
+/* more than */
 @media only screen and (min-width: 600px) {
   .time-date {
     word-spacing: 1px;
