@@ -84,65 +84,79 @@ $( "#load2" ).on("click", function() {
 
 
 //Searching
-$("#searchText").on('input', function(){
-    
-  if ($('#searchText').val() == ""){
-    $("#search-results").hide()
-    $("#close-search").hide()
-    $("#Other-head-container").css("top", '0')
-    let searchSpan = $("#searchspan");
-    searchSpan.css("animation", "");
+
+function searchText(){
+  $("#appendSearch").text("")
+
+  //check if mobile screen
+  let maxMobwid =   window.matchMedia("(max-width: 700px)")
+  if (maxMobwid.matches){
+    // todo -------------->
+    // $(".image-headline").css("transition", "height 2s")
+    // $(".image-headline").css("height", "50rem")
   }
-})
-
-$("#searchspan").on('click', function(){
-  $('#search-results').show()
-  $('#close-search').show()
-  $("#search-results").text("")
-  searchText = $('#searchText').val().toLowerCase()
-
   
-  //check if both lists are same  length -- TODO
-  for (i = 0 ; i < default_data.length; i++){
-    var def_title = default_data[i]["title"].toLowerCase()
-    var block_title = blockchain_data[i]["title"].toLowerCase()
-    if(searchText == "" || searchText == null ) {
-      
-      $("#search-results").text("")
-      alert('Please type something')
-      break
+  //get search data
+  searchText = $('#searchText').val().toUpperCase()
+
+  // adjust dom and open box
+  $(".other-headline-container").css("transition", "top 1s")
+  $(".other-headline-container").css("top", "14rem")
+  $('#search-results').fadeIn()
+  $('#close-search').show()
+
+  //If value is empty - readjust
+  if($("#searchText").val() == "")
+    {
+        $(".other-headline-container").css("transition", "top 1s")
+        $(".other-headline-container").css("top", "0")
+        $("#search-results").fadeOut()
+        $('#close-search').hide()
+    
+    
     }
+    
+  //function to search in the titles  
+  function searchInTitle(data, listNm){ 
+    
 
-    if (def_title.includes(searchText) ) {
-      $("#search-results").show()
-      var title = default_data[i]["title"]
-      var theID = default_data[i]["id"] - 1
-      var temp = '<div class="container" ><h4>' + title + '<a href="/readmore/def/'+theID  +'"><button >readmore</button></a></h4></div>'
 
-      $("#search-results").append(temp)
-     
+    for(i = 0; i < data.length; i++){
+      let defTitle = data[i]["title"].toUpperCase() 
+      if (defTitle.includes(searchText)){  
+        //create temporary div to append
+
+        var title = data[i]["title"]
+        var theID = data[i]["id"] - 1
+        var tempDivSearch = '<div class="container search-return" ><h4>' + title + '<a href="/readmore/'+ listNm +'/'+theID  +'"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right search-readmore-icon" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></h4></div>'
+        $("#appendSearch").append(tempDivSearch)
+  
+  
+      }
     }
-    if(block_title.includes(searchText)){
-      $("#search-results").show()
-      var title = blockchain_data[i]["title"]
-      var theID = blockchain_data[i]["id"] - 1
-      var temp = '<div class="container" ><h4>' + title + '<a href="/readmore/block/'+theID  +'"><button >readmore</button></a></h4></div>'
-
-      $("#search-results").append(temp)
-    }        
   }
 
-  //after loop check if txt area empty 
-  if($("#search-results").text() == ""){
-    $("#search-results").show()
-    $("#search-results").append("No such results")
-  }   
+  // call above function twice for two different data inputs
+  searchInTitle(default_data, "def")
+  searchInTitle(blockchain_data, "block")
+
+}
+
+
+//Tracking input
+$("#searchText").on('input', searchText)
+
+
+$("#close-search").on({
+  click: function(){
+    $("#Other-head-container").css("top", '0')
+  }
 })
 
+//close search button
 $("#close-search").on("click", function(){
   $(this).hide()
   $("#searchText").val("")
-  $("#search-results").text("")
   $("#search-results").hide()
  
 })

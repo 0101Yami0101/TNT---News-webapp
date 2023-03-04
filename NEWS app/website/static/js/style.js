@@ -87,6 +87,9 @@ function dispTime() {
     var new_hour = "0" + hours;
     hours = new_hour;
   }
+  if(day == undefined || day == null){
+    day = "--"
+  }
 
   document.getElementById("day").innerHTML = day;
   document.getElementById("hour").innerHTML = hours;
@@ -178,6 +181,9 @@ function FadestopReadLater(rmore){
 
 
 //Search section
+
+
+
 $("#searchText").on({
   mouseenter: function(){
     $(this).css("background-color", "white").css("opacity", "1");
@@ -193,20 +199,8 @@ $("#searchText").on({
   }
 });
 
-$("#searchspan").on({
-  click: function(){
-    $(this).css("animation", "fadeAnim 2s infinite");
-    $("#Other-head-container").css("top", '14rem')
-  }
-})
 
-$("#close-search").on({
-  click: function(){
-    $("#Other-head-container").css("top", '0')
-    let searchSpan = $("#searchspan");
-    searchSpan.css("animation", "");
-  }
-})
+
 
 
 //Responsiveness and styling according to query

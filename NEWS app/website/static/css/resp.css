@@ -30,6 +30,18 @@
     bottom: -1.4rem;
     left: 22rem;
   }
+  #searchText{
+    width: 45rem;
+  }
+  #search-results{
+    width: 45rem;
+    justify-content: center;
+
+  }
+  #close-search{
+    left: -1.7rem;
+    top: -1.9rem;
+  }
 }
 
 
@@ -93,7 +105,21 @@
     bottom: -3.4rem;
     left: 22rem;
   }
+  #searchText{
+    width: 96vw;
+  }
+  #search-results{
+    width: 96vw;
+    justify-content: center;
+    z-index: 2;
+
+  }
+  #close-search{
+    left: 60rem;
+    top: -3.6rem;
+  }
 }
+
 
 
 
@@ -216,6 +242,21 @@
     top: 13.4rem;
     left: 18.5rem;
     
+  }
+
+  #searchText{
+    width: 92vw;
+  }
+  #search-results{
+    margin-top: 1rem;
+    width: 92vw;
+    justify-content: center;
+    z-index: 2;
+
+  }
+  #close-search{
+    left: -1.7rem;
+    top: -1.9rem;
   }
 
 
