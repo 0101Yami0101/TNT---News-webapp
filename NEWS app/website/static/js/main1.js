@@ -38,32 +38,53 @@ setTimeout(getData, 2000)
 //Appending data to Default data section
 var def_start_count = 0;
 
-$( "#load1" ).on("click", function() {
+$( "#loadmoreOther" ).on("click", function() {
        
     def_start_count += 6;
     for(i = def_start_count; i <= def_start_count + 5 ; i++ ){ 
       
       
+
       //edit and add templates
-      default_news_temp = '<div class="news-section"><div class="row"><div class="col-8"><h3 id="otherheader'+i+'" class = "headers-title" onmouseenter="Glowup(this)">'
-      + default_data[i]['title'] + '</h3><div class="other-news-description headers-desp">'
-      + default_data[i]['description'] +'</div><div class="readmore-container d-flex flex-row mb-3"><a class="p-2" href="/readmore/def/'
-      +i+'"> Read more </a><br /><a class="p-2" href="'
-      + default_data[i]['link'] +'">Visit original article</a><br /><a class="p-2" onclick="AppendToRL('
-      + i + ' , ' + def  +')"> Read Later </a></div></div><div class="col-4 new-img-demo" style="border: 2px solid green"><a href=' + 
-      default_data[i]["image-link"] + ' target="_blank"><img src=' + 
-      default_data[i]["image-link"] +' alt="" /> </a></div></div></div>'
+      
+     default_news_temp =  '<div class="news-section">'+ 
+     '<div class="row">'+
+          '<div class="col-12">'+
+            '<h3 id="otherheader'+i+'" class="headers-title" onmouseenter="Glowup(this)"><a href="/readmore/def/'+i+'"  >' + default_data[i]["title"] +'</a></h3>'+
+            '<div class="other-news-description headers-desp">'+
+              ''+default_data[i]["description"]+''+
+            '</div>'+
+            '<div class="other-readmore-container  d-flex flex-row mb-3 justify-content-between">'+
+
+              '<span class="other-read-more flex-grow-1 "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/def/'+i+'"  ></a> </i> </span> '+
+              '<span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='+ default_data[i]["link"] +'></a></i></span>'+
+              '<span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('+i+', "def")"></a></i></span> '+
+
+            '</div>'+
+          '</div>'+
+          '<div id="otherImg'+i+'" class="col-4 new-img-demo ">'+
+            '<a href='+ default_data[i]["image-link"] +' target="_blank">'+
+              '<img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='+ default_data[i]["image-link"] +' alt="" />'+
+            '</a>'+
+          '</div>'+
+        '</div>'+
+     '</div>'  
+
+
+
 
       $("#append-more-def-news").append(default_news_temp)  //<--- To-Do do animation while appending
-      // console.log("Appended")
     }     
   });
+
+
+
 
 
 //Appending data to block data section
 var block_news_count = 0
 
-$( "#load2" ).on("click", function() {
+$( "#loadmoreBlock" ).on("click", function() {
   block_news_count += 6;
 
   for(i = block_news_count; i <= block_news_count + 5 ; i++ ){
@@ -105,11 +126,11 @@ function searchText(){
   $('#search-results').fadeIn()
   $('#close-search').show()
 
-  //If value is empty - readjust
+  //If value is empty - re-adjust
   if($("#searchText").val() == "")
     {
         $(".other-headline-container").css("transition", "top 1s")
-        $(".other-headline-container").css("top", "0")
+        $(".other-headline-container").css("top", "-2rem")
         $("#search-results").fadeOut()
         $('#close-search').hide()
     
@@ -394,5 +415,22 @@ function ToggleMenu(){
     
   }
 }
+
+
+//Scrolling buttons and Loadmore buttons 
+$("#scrollBottomOther").click(() => {
+  let appNewsLen = $("#append-more-def-news").children().length
+  if(appNewsLen == 0){
+   
+    document.getElementById("otherheader5").scrollIntoView(true)
+  }
+  else{
+    let appNewsLen = $("#append-more-def-news").children().length
+    const newNum = appNewsLen + 5
+    let id = "otherheader"+newNum 
+    document.getElementById(id).scrollIntoView(true)
+
+  }
+})
 
 

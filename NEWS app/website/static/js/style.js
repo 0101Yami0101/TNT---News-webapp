@@ -33,6 +33,22 @@ function turn_grey() {
 }
 
 
+//Hiding and Unhiding Navbar on scroll
+
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {  //scrolling up
+    document.getElementById("navbar").style.top = "0";
+    $("#navbar").fadeIn(900)
+    $("#home-body").css("top", "9rem")
+  } else {  //scrolling down
+    document.getElementById("navbar").style.top = "-100px";
+    $("#navbar").fadeOut(900)
+    $("#home-body").css("top", "7.1rem")
+  }
+  prevScrollpos = currentScrollPos;
+}
 
 //Navbar Gradient on hover effect
 $(document).mousemove(function(event) {
@@ -139,9 +155,9 @@ function Glowup(elem){
 const css = window.document.styleSheets[1];
 css.insertRule(`
 @keyframes focus {
-  25% {box-shadow: 0px 2px 15px 9px black;  } 
-  50% {box-shadow: 0px 2px 15px 9px rgb(80, 78, 78);} 
-  75% {box-shadow: 0px 1px 10px 7px black;;} 
+  25% {box-shadow: 0px 2px 10px 2px grey;  } 
+  50% {box-shadow: 0px 2px 15px 3px black;} 
+  75% {box-shadow: 0px 1px 10px 2px grey;;} 
    
  }`, css.cssRules.length);
 
@@ -157,7 +173,7 @@ css.insertRule(`
 function FocusUp(img){
 
   img.style.animation = "focus 2s infinite"
-  img.style.opacity = 1 ;
+  // img.style.opacity = 1 ;
   
 
 }
@@ -165,7 +181,7 @@ function FocusDown(img){
 
 
   img.style.animation = "None";
-  img.style.opacity = 0.65 ;
+  // img.style.opacity = 0.65 ;
 
 }
 
@@ -181,8 +197,6 @@ function FadestopReadLater(rmore){
 
 
 //Search section
-
-
 
 $("#searchText").on({
   mouseenter: function(){
