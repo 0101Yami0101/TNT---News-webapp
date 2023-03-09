@@ -108,69 +108,90 @@ $( "#loadmoreBlock" ).on("click", function() {
 
 function searchText(){
   $("#appendSearch").text("")
+  let TempsearchingIcon = '<div class="lds-hourglass searching"></div>'  //searching loader
+  $("#appendSearch").append(TempsearchingIcon)
 
-  //check if mobile screen
-  let maxMobwid =   window.matchMedia("(max-width: 700px)")
-  if (maxMobwid.matches){
-    // todo -------------->
-    // $(".image-headline").css("transition", "height 2s")
-    // $(".image-headline").css("height", "50rem")
-  }
-  
-  //get search data
-  searchText = $('#searchText').val().toUpperCase()
-
-  // adjust dom and open box
-  $(".other-headline-container").css("transition", "top 1s")
-  $(".other-headline-container").css("top", "14rem")
-  $('#search-results').fadeIn()
-  $('#close-search').show()
-
-  //If value is empty - re-adjust
-  if($("#searchText").val() == "")
-    {
-        $(".other-headline-container").css("transition", "top 1s")
-        $(".other-headline-container").css("top", "-2rem")
-        $("#search-results").fadeOut()
-        $('#close-search').hide()
-    
-    
+  setTimeout(() => {
+    $("#appendSearch").text("")
+     //check if mobile screen
+    let maxMobwid =   window.matchMedia("(max-width: 700px)")
+    if (maxMobwid.matches){
+      // todo -------------->
+      // $(".image-headline").css("transition", "height 2s")
+      // $(".image-headline").css("height", "50rem")
     }
     
-  //function to search in the titles  
-  function searchInTitle(data, listNm){ 
-    
+    //get search data
+    searchText = $('#searchText').val().toUpperCase()
 
+    // adjust dom and open box
+    $(".other-headline-container").css("transition", "top 1s")
+    $(".other-headline-container").css("top", "14rem")
+    $('#search-results').fadeIn()
+    $('#close-search').show()
 
-    for(i = 0; i < data.length; i++){
-      let defTitle = data[i]["title"].toUpperCase() 
-      if (defTitle.includes(searchText)){  
-        //create temporary div to append
-
-        var title = data[i]["title"]
-        var theID = data[i]["id"] - 1
-        var tempDivSearch = '<div class="container search-return" ><h4>' + title + '<a href="/readmore/'+ listNm +'/'+theID  +'"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right search-readmore-icon" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></h4></div>'
-        $("#appendSearch").append(tempDivSearch)
-  
-  
+    //If value is empty - re-adjust
+    if($("#searchText").val() == "")
+      {
+          $(".other-headline-container").css("transition", "top 1s")
+          $(".other-headline-container").css("top", "-2rem")
+          $("#search-results").fadeOut()
+          $('#close-search').hide()
+      
+      
       }
-    }
-  }
+      
 
-  // call above function twice for two different data inputs
-  searchInTitle(default_data, "def")
-  searchInTitle(blockchain_data, "block")
+
+    //function to search in the titles 
+    function searchInTitle(data, listNm){ 
+
+      for(i = 0; i < data.length; i++){
+        let theTitle = data[i]["title"].toUpperCase() 
+        if (theTitle.includes(searchText)){  
+          //create temporary div to append
+
+          var title = data[i]["title"]
+          var theID = data[i]["id"] - 1
+          var tempDivSearch = '<div class="container search-return" ><h4>' + title + '<a href="/readmore/'+ listNm +'/'+theID  +'"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right search-readmore-icon" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></h4></div>'
+          $("#appendSearch").append(tempDivSearch)
+    
+    
+        }
+        
+      }
+    
+    }
+
+    // call above function twice for two different data inputs
+    searchInTitle(default_data, "def")
+    searchInTitle(blockchain_data, "block")
+
+    if( $("#appendSearch").children().length == 0){
+      let NoTitleFound = "<div id='NoTitleFound'>No such title found. Please retry </div>"
+      $("#appendSearch").append(NoTitleFound)
+    }
+
+
+
+  }, 500)
+
+ 
 
 }
 
-
-//Tracking input
+//Tracking input and searching corresponding text
 $("#searchText").on('input', searchText)
 
 
 $("#close-search").on({
   click: function(){
     $("#Other-head-container").css("top", '0')
+    let MobileWidmatches =   window.matchMedia("(max-width: 700px)")
+
+    if(MobileWidmatches){ //re-adjust in mobile device 
+      $("#Other-head-container").css("top", '-2rem')
+    }
   }
 })
 

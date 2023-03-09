@@ -1,5 +1,10 @@
 /* site responsiveness */
-
+/* if less than 2000px*/
+@media only screen and (max-width: 2000px){
+  .other-headline-container{
+    left: -31rem;
+  }
+}
 /* if less than 1600px*/
 @media only screen and (max-width: 1600px) {
   .time-date {
@@ -42,12 +47,20 @@
     left: -1.7rem;
     top: -1.9rem;
   }
+
+  .other-headline-container{
+    
+    left: -26rem;
+    width: 45rem;
+  }
 }
 
 
 /* if less than 1200px*/
 @media only screen and (max-width: 1200px) {
-  
+  .home-body{
+    height: 200rem;
+  }
   #navbar {
     top: -0.1rem;
     left: -1.2rem;
@@ -117,6 +130,25 @@
   #close-search{
     left: 60rem;
     top: -3.6rem;
+  }
+  .other-headline-container{
+    
+    left: 0rem;
+    width: 100%;
+    height: 120rem;
+  }
+  .new-img-demo {
+    
+    width: 96%;
+    height: 20rem;
+    margin-top: 1rem;
+    
+    
+  }
+  .new-img-demo  img{
+    height: 100%;
+    width: 100%;
+    
   }
 }
 
@@ -221,7 +253,7 @@
   .image-headline img{
     position: relative;
     top: 6.5rem;
-    left: -16rem;
+    left: -15.5rem;
     width: 22.2rem;
     height: 12rem;
     opacity: 0.9;
@@ -258,7 +290,23 @@
     left: -1.7rem;
     top: -1.9rem;
   }
-
+  .other-headline-container{
+    padding-top: 1rem;
+  }
+  .news-section{
+    width: 100%;
+    position: relative;
+    left: -2rem;
+    
+  }
+  .lds-hourglass{
+    left: 40%;
+  }
+  #NoTitleFound{
+    font-size: 1rem;
+    left: 20%;
+    top: 40%;
+  }
 
 }
 
@@ -266,7 +314,7 @@
 
 
 
-/* more than */
+/* MORE THAN */
 @media only screen and (min-width: 600px) {
   .time-date {
     word-spacing: 1px;
