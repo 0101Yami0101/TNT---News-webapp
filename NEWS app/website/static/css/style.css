@@ -603,50 +603,76 @@ body {
   position: absolute;
   top: 5.2rem;
   right: 1rem;
-  height: 85.5rem;
+  height: 108rem;
   width: 41rem;
-  border-radius: 2rem;
   padding: 0.2rem;
   overflow: auto;
   scroll-behavior: smooth;
+  border-radius: 2rem 0rem 2rem  0rem;
 }
 
+.web3News-section::-webkit-scrollbar {/* Hide scrollbar for Chrome, Safari and Opera */
+  display: none;
+}
+
+.blockchain-news-section {
+  border-radius: 1rem;
+  margin: 2rem;
+  cursor: pointer;
+  height: fit-content;
+  box-shadow: 0 0 8px 2px rgb(0, 0, 0);
+  background: radial-gradient(rgb(0, 247, 255), black);
+}
 .web3News-section h3 {
   font-size: 1.6rem;
+  max-height: fit-content;
 
-  max-height: 6.5rem;
-  overflow: hidden;
 }
-.blockchain-news-section {
-  
-  height: 24rem;
-}
+
 
 .blockchain-news-description {
-  height: 8.8rem;
-  margin-top: 0.5rem;
-  width: 24rem;
+  height: fit-content;
+  padding-left: 3rem;
+  padding-top: 0rem;
+  width: 95%;
   position: relative;
-  left: 15px;
-  overflow: hidden;
+  
+
+}
+
+.block-readmore-container{
+  padding: 2rem;
+}
+.block-readmore-container a {
+  padding: 2rem;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  left: -2rem;
+  top: 1rem;
 }
 
 .web3-images {
-  height: 12em;
-  position: absolute;
-  right: 1rem;
+  max-height: inherit;
+  width: 94%;
+  height: 19rem;
+  margin: 0 0 1rem 1rem;
 }
 
 .web3-images img{
   height: 100%;
   width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0px 1px 10px 7px black; 
   
 }
 
 /* stocks-section */
 
 .stocks-section {
-  background-color: rgb(253, 42, 42);
+  
+  /* background-color: rgb(253, 42, 42); */
   border-radius: 10rem;
   height: 54rem;
   width: 20rem;
@@ -698,17 +724,19 @@ body {
 .crypto-close {
   background-color: #32ff08;
 }
-/* Readmore section*/
 
+
+
+/* Readmore section*/
 .readmore-container {
   position: relative;
   bottom: -0.2em;
 }
 
+
 /* Loadmore icons section */
 #load1{
   color: rgba(0, 217, 255, 0.801);
-  /* background-color: red; */
   height: fit-content;
   text-shadow: 0px 2px 1px rgb(44, 43, 43);  /* defualt shadow*/
   display: flex;
@@ -765,6 +793,48 @@ body {
   50% {color: rgba(0, 225, 255, 0.89) ;transform:  translate(0 , 30px); text-shadow: 4px 11px 2px rgba(0, 0, 0, 0.247);}
   75% {color: rgba(0, 225, 255, 0.938) ;transform:  translate(0 , 40px) ;opacity: 1;}; 
 }
+
+#load2{
+  color: rgba(0, 217, 255, 0.801);
+  height: fit-content;
+  text-shadow: 0px 2px 1px rgb(44, 43, 43);  /* defualt shadow*/
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  
+  
+}
+#scrollBottomBlock{
+  position: absolute;
+  top: 2rem;
+}
+
+#scrollBottomBlock i{
+  color: rgb(9, 248, 228);
+  animation: flyDown 1s infinite ; /* animation keyframes above*/
+  opacity: 1;
+}
+
+#scrollTopBlock i{
+  color: rgb(9, 248, 236);
+  animation: flyUp 1s infinite ; /* animation keyframes above*/
+  opacity: 1;
+}
+
+#loadmoreBlock{
+  position: relative;
+  left: 50%;
+}
+#loadmoreBlock i {
+  color: red;
+  text-shadow: 0px 5px 2px black;
+  animation: loadMoreAnim 2s linear infinite;
+  opacity: 0;
+}
+
+
+
+
 /*--- Login-page ---*/
 
 /* signup page */

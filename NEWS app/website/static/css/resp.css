@@ -12,7 +12,7 @@
   }
 
   .main-headline-container {
-    width: 60%;
+    width: 64%;
   }
   #head-news-title {
     max-height: 7rem;
@@ -53,13 +53,18 @@
     left: -26rem;
     width: 45rem;
   }
+  .web3News-section{
+    width: 35rem;
+  }
 }
 
 
 /* if less than 1200px*/
 @media only screen and (max-width: 1200px) {
+
+
   .home-body{
-    height: 200rem;
+    height: 300rem;
   }
   #navbar {
     top: -0.1rem;
@@ -150,6 +155,22 @@
     width: 100%;
     
   }
+  .web3News-section{
+    position: static;
+    width: 100%;
+    margin-top: 5rem;
+  }
+
+  #scrollBottomBlock{
+    position: relative;
+    top: -253rem;
+    
+  }
+  #loadmoreBlock{
+    display: block;
+    left: 0%;
+  }
+  
 }
 
 
@@ -163,6 +184,9 @@
     display: none;
   }
 
+  .home-body{
+    height: 400rem;
+  }
   .time-date {
     word-spacing: 3px;
   }
@@ -299,6 +323,7 @@
     left: -2rem;
     
   }
+
   .lds-hourglass{
     left: 40%;
   }
@@ -307,6 +332,33 @@
     left: 20%;
     top: 40%;
   }
+  .web3News-section{
+    height: 150rem;
+    position: relative;
+    top: 20rem;
+    
+  }
+   
+  .blockchain-news-section{
+    width: 100%;
+    position: relative;
+    left: -2rem;
+  }
+  #scrollBottomBlock{
+    position: relative;
+    top: -313rem;
+    
+  }
+
+  .stocks-section{
+    position: relative;
+    top: 13rem;
+    left: 1rem;
+  }
+  #searchCrypto{
+    position: relative;
+  }
+
 
 }
 

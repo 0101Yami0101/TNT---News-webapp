@@ -27,6 +27,7 @@ function getData(){$(function() { // <---  document.ready
       $("#login-button").append(logoutTemp) //add logout in place of login if user is found
       
     } })
+    
   
   
 });}
@@ -89,14 +90,16 @@ $( "#loadmoreBlock" ).on("click", function() {
 
   for(i = block_news_count; i <= block_news_count + 5 ; i++ ){
   //edit and add templates
-    block_news_temp = '<div class="news-section blockchain-news-section"><div class="row"><div class="col-8"><h3 id="blockchainheader'+i+'" class = "headers-title" onmouseenter="Glowup(this)">'
+    block_news_temp = '<div class="blockchain-news-section"><div class="row"><div class="col-12"><h3 id="blockchainheader'+i+'" class = "headers-title" onmouseenter="Glowup(this)">'
     + blockchain_data[i]["title"] + '</h3></div><div class="blockchain-news-description headers-desp">'
-    + blockchain_data[i]['description'] + '</div><div class="readmore-container d-flex flex-row mb-3"><a class="p-2" href="/readmore/block/'
-    +i+'"> Read more </a><br/><a class="p-2" href='
-    + blockchain_data[i]["link"] + '>Visit original article</a><br/><a class="p-2" onclick="AppendToRL('
-    + i + ' , ' + block  +')"> Read Later </a></div>'
-    +'<div id="" class="col-4 web3-images" style="border: 2px solid rgb(133, 216, 133)"><a href=' +
-    blockchain_data[i]["image-link"] + ' target="_blank"><img src='+ blockchain_data[i]["image-link"] + ' alt="" /></a></div>'
+    + blockchain_data[i]['description'] + '</div>'+
+    '<div class="block-readmore-container d-flex flex-row mb-3">'+
+          '<span class="other-read-more flex-grow-1 "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/block/'+i+'"  ></a> </i> </span> '+
+          '<span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='+ blockchain_data[i]["link"] +'></a></i></span>'+
+          '<span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('+i+', "block")"></a></i></span> '+
+    '</div>'+
+    '<div id="" class="col-4 web3-images"><a href=' +
+    blockchain_data[i]["image-link"] + ' target="_blank"><img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='+ blockchain_data[i]["image-link"] + ' alt="" /></a></div>'
 
 
   $("#append-more-block-news").append(block_news_temp); //<--- To-Do do animation while appending
@@ -440,7 +443,7 @@ function ToggleMenu(){
 
 //Scrolling buttons and Loadmore buttons 
 $("#scrollBottomOther").click(() => {
-  let appNewsLen = $("#append-more-def-news").children().length
+  let appNewsLen = $("#append-more-block-news").children().length
   if(appNewsLen == 0){
    
     document.getElementById("otherheader5").scrollIntoView(true)
@@ -449,6 +452,20 @@ $("#scrollBottomOther").click(() => {
     let appNewsLen = $("#append-more-def-news").children().length
     const newNum = appNewsLen + 5
     let id = "otherheader"+newNum 
+    document.getElementById(id).scrollIntoView(true)
+
+  }
+})
+$("#scrollBottomBlock").click(() => {
+  let appNewsLen = $("#append-more-def-news").children().length
+  if(appNewsLen == 0){
+   
+    document.getElementById("blockchainheader5").scrollIntoView(true)
+  }
+  else{
+    let appNewsLen = $("#append-more-block-news").children().length
+    const newNum = appNewsLen + 5
+    let id = "blockchainheader"+newNum 
     document.getElementById(id).scrollIntoView(true)
 
   }
