@@ -236,88 +236,7 @@ function AppendToRL(id, section){
 }
 
 
-// Stock Section 
-function ExpandDetails(crypto_div){
- 
-  let TheElem = (crypto_div.id).toUpperCase()
-  console.log(TheElem)
 
-  for(i in c_list){
-    if(c_list[i]['asset_id'] == TheElem){
-      var dataItem = c_list[i]
-      // \\\\Expand
-      var currentElement = document.getElementById(crypto_div.id)
-      currentElement.style.height = "22rem"
-      
-      let OnehrTrade = dataItem["volume_1hrs_usd"]
-      let OnedayTrade = dataItem["volume_1day_usd"]
-      let OnemonthTrade = dataItem["volume_1mth_usd"]
-      let Price = dataItem["price_usd"]
-       //ADD CLOSE BTN
-      let template = '<span onclick = "closeThis(this)"><button class= "crypto-close" >Close</button></span><div>Price :'+ Price.toFixed(2) +' </div>'+'<br/>' + '<div><h5>1 Hr Trade Vol : ' + OnehrTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnedayTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnemonthTrade.toFixed(2) +'$</h5></div>'
-
-      let appendplace = document.getElementById("appendDetails"+crypto_div.id)
-      appendplace.innerHTML = template            
-      
-    }
-  } 
-  
-}
-
-
-// Function to close crypto tabs
-function closeThis(section){
-  console.log("close request")
-  section.parentElement.parentElement.style.height = "2.9rem"
-  
-}
-
-
-//Search from list if searchcrypto button is clicked
-var value
-function Searchcrypto(){
-
-  if($("#Searchcrypto").val().toUpperCase()){
-
-    value = $("#Searchcrypto").val().toUpperCase()
-    for(i in c_list){
-    
-      if(value == c_list[i]['asset_id']){
-        
-        let lowerVal = value.toLowerCase()
-        let secToPrepend = document.getElementById( lowerVal )
-        secToPrepend.remove()
-        $("#prepend-here").prepend(secToPrepend)
-        //changing color a bit
-        console.log(secToPrepend.style.backgroundColor = '#D7B80B')
-        setInterval(function(){
-          secToPrepend.style.backgroundColor = '#C8F3AE'
-        }, 1000)
-
-        
-      }
-     
-    }
-  }
-  else{
-    value = $("#Searchcrypto").val()
-    for(i in c_list){
-    
-      if(value == c_list[i]['asset_id']){
-        //convert val to lowercase again
-  
-        let secToPrepend = document.getElementById(  value.toLowerCase() )
-        secToPrepend.remove()
-        $("#prepend-here").prepend(secToPrepend)
-       
-        
-      }
-     
-    }
-  }
-  
-  
-}
 
 
 // Tooltip
@@ -472,3 +391,92 @@ $("#scrollBottomBlock").click(() => {
 })
 
 
+// Stock Section 
+function ExpandDetails(crypto_div){
+ 
+  let TheElem = (crypto_div.id).toUpperCase()
+  console.log(TheElem)
+
+  for(i in c_list){
+    if(c_list[i]['asset_id'] == TheElem){
+      var dataItem = c_list[i]
+      // \\\\Expand
+      var currentElement = document.getElementById(crypto_div.id)
+      currentElement.style.height = "22rem"
+      
+      let OnehrTrade = dataItem["volume_1hrs_usd"]
+      let OnedayTrade = dataItem["volume_1day_usd"]
+      let OnemonthTrade = dataItem["volume_1mth_usd"]
+      let Price = dataItem["price_usd"]
+       //ADD CLOSE BTN
+      let template = '<span onclick = "closeThis(this)"><button class= "crypto-close" >Close</button></span><div>Price :'+ Price.toFixed(2) +' </div>'+'<br/>' + '<div><h5>1 Hr Trade Vol : ' + OnehrTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnedayTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnemonthTrade.toFixed(2) +'$</h5></div>'
+
+      let appendplace = document.getElementById("appendDetails"+crypto_div.id)
+      appendplace.innerHTML = template            
+      
+    }
+  } 
+  
+}
+
+
+// Function to close crypto tabs
+function closeThis(section){
+  console.log("close request")
+  section.parentElement.parentElement.style.height = "2.9rem"
+  
+}
+
+
+//Search Crypto section
+var value//Search from list if searchcrypto button is clicked
+function Searchcrypto(){
+
+  if($("#Searchcrypto").val().toUpperCase()){
+
+    value = $("#Searchcrypto").val().toUpperCase()
+    for(i in c_list){
+    
+      if(value == c_list[i]['asset_id']){
+        
+        let lowerVal = value.toLowerCase()
+        let secToPrepend = document.getElementById( lowerVal )
+        secToPrepend.remove()
+        $("#prepend-here").prepend(secToPrepend)
+        //changing color a bit
+        console.log(secToPrepend.style.backgroundColor = '#D7B80B')
+        setInterval(function(){
+          secToPrepend.style.backgroundColor = '#C8F3AE'
+        }, 1000)
+
+        
+      }
+     
+    }
+  }
+  else{
+    value = $("#Searchcrypto").val()
+    for(i in c_list){
+    
+      if(value == c_list[i]['asset_id']){
+        //convert val to lowercase again
+  
+        let secToPrepend = document.getElementById(  value.toLowerCase() )
+        secToPrepend.remove()
+        $("#prepend-here").prepend(secToPrepend)
+       
+        
+      }
+     
+    }
+  }
+    
+}
+
+//
+$("#Searchcrypto").click(() => {
+  
+  let elem = document.getElementById("prepend-here").firstElementChild.scrollIntoView({ block: "center" })
+  console.log(elem)
+  
+})

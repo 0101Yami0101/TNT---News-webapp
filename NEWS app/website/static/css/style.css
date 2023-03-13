@@ -379,7 +379,7 @@ body {
   background-color: #eee9e9d3;
   border-radius: 1rem;
   box-shadow: 0px 4px 10px 1px black;
-  font-family:"Righteous", cursive;;
+  font-family:"Righteous", cursive;
   letter-spacing: 2px;
   text-shadow: 1px 1px 4px rgba(253, 252, 252, 0.788);
   height: 2rem;
@@ -668,34 +668,40 @@ body {
   
 }
 
-/* stocks-section */
+/* cryptos-section */
 
-.stocks-section {
+.cryptos-section {
   
   /* background-color: rgb(253, 42, 42); */
   border-radius: 10rem;
   height: 54rem;
   width: 20rem;
   position: absolute;
-  top: 43rem;
-  left: 56.5rem;
+  top: 38.2rem;
+  left: 58rem;
   padding: 0.2rem;
 }
 
-.Stockcontainer {
-  background-color: #32ff08;
-  height: 36rem;
+.Cryptocontainer {
+  background-color: #08daff3d;
+  box-shadow: 2px 0px 10px 3px black;
+  height: 62rem;
   position: relative;
   border-radius: 1rem;
   top: 10rem;
+
 }
 
-.stocks-section-rows {
+.cryptos-section-rows {
   background-color: #656565;
   width: 50rem;
   margin: 2px;
   border-radius: 2rem;
   overflow: scroll;
+}
+
+.cryptos-section-rows::-webkit-scrollbar {/* Hide scrollbar for Chrome, Safari and Opera */
+  display: none;
 }
 
 .cryptos {
@@ -717,14 +723,28 @@ body {
 }
 
 #searchCrypto {
-  position: absolute;
+  position: relative;
   top: 8rem;
+}
+
+#Searchcrypto{
+  border-radius: 2rem;
+  width: 19.5rem;
+  box-shadow: 0px 4px 10px 1px black;
+  font-family:"Righteous", cursive;
+  padding-left: 1rem;
+ 
+
+}
+
+#Searchcrypto::placeholder{
+  letter-spacing: 2px;
 }
 
 .crypto-close {
   background-color: #32ff08;
+  
 }
-
 
 
 /* Readmore section*/
