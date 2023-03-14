@@ -1,8 +1,18 @@
 /* site responsiveness */
+/* if less than 2400px*/
+@media only screen and (max-width: 2400px){
+  .cryptos-section {
+    left: 64.5rem;
+  }
+}
 /* if less than 2000px*/
 @media only screen and (max-width: 2000px){
   .other-headline-container{
     left: -31rem;
+  }
+  
+  .cryptos-section{
+    left: 58rem;
   }
 }
 /* if less than 1600px*/
@@ -56,6 +66,11 @@
   .web3News-section{
     width: 35rem;
   }
+  .cryptos-section{
+    left: 48rem;
+    width: 16rem;
+  }
+ 
 }
 
 
@@ -64,7 +79,7 @@
 
 
   .home-body{
-    height: 300rem;
+    height: 380rem;
   }
   #navbar {
     top: -0.1rem;
@@ -159,6 +174,8 @@
     position: static;
     width: 100%;
     margin-top: 5rem;
+    position: relative;
+    top: 18rem;
   }
 
   #scrollBottomBlock{
@@ -169,6 +186,33 @@
   #loadmoreBlock{
     display: block;
     left: 0%;
+  }
+
+  .Cryptocontainer{
+    display: flex;
+    height: 80rem;
+  }
+
+  .cryptos-section{
+    position: relative;
+    left: 1.5rem;
+    top: 12rem;
+    width: 96%;
+    
+  
+  }
+  .cryptos-section-rows{
+    width: 100%;
+
+    
+  }
+  .cryptos {
+    width: 70rem;
+    
+  }
+
+  .OnehrVol, .OnedayVol, .OnemonthVol{
+    font-size: 1.4rem;
   }
   
 }
@@ -185,7 +229,7 @@
   }
 
   .home-body{
-    height: 400rem;
+    height: 440rem;
   }
   .time-date {
     word-spacing: 3px;
@@ -357,6 +401,13 @@
   }
   #searchCrypto{
     position: relative;
+  }
+
+  .cryptos-section{
+    width: 86%;
+  }
+  #Searchcrypto{
+    margin-top: 3rem;
   }
 
 

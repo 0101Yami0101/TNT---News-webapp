@@ -675,7 +675,6 @@ body {
 
 .cryptos-section {
   
-  /* background-color: rgb(253, 42, 42); */
   border-radius: 10rem;
   height: 54rem;
   width: 20rem;
@@ -708,13 +707,9 @@ body {
 }
 
 .cryptos {
-  background-color: rgba(255, 255, 255, 0.027);
   margin: 1px;
   border-radius: 1rem;
   height: 10rem;
-}
-
-.cryptos {
   background-color: rgba(0, 0, 0, 0.541);
   background-size: contain;
   background-repeat: no-repeat;
@@ -765,7 +760,7 @@ body {
 
 #Searchcrypto{
   border-radius: 2rem;
-  width: 19.5rem;
+  width: inherit;
   box-shadow: 0px 4px 10px 1px black;
   font-family:"Righteous", cursive;
   padding-left: 1rem;
