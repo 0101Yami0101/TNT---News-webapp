@@ -391,40 +391,72 @@ $("#scrollBottomBlock").click(() => {
 })
 
 
-// Stock Section 
+// Crypto Section 
 function ExpandDetails(crypto_div){
- 
   let TheElem = (crypto_div.id).toUpperCase()
-  console.log(TheElem)
 
   for(i in c_list){
     if(c_list[i]['asset_id'] == TheElem){
       var dataItem = c_list[i]
-      // \\\\Expand
-      var currentElement = document.getElementById(crypto_div.id)
-      currentElement.style.height = "22rem"
+
+      //Expand the div 
+      let TheId = "#"+crypto_div.id
+      $(TheId).css("transition", "height 1s")
+      $(TheId).css("height", "20rem")
+      //readjust during transition
+      $(TheId).children(".asset_ID").css("transition", "top 1s, color 3s, text-shadow 2s")
+      $(TheId).children(".asset_ID").css('top', '0')
+      $(TheId).children(".asset_ID").css('color', 'red')
+      $(TheId).children(".asset_ID").css('text-shadow', '0px 2px 1px whitesmoke')
+
+
+      // add tooltip when opened
+      $(TheId).prop('title', 'Double click to close');
+      
+
+      
       
       let OnehrTrade = dataItem["volume_1hrs_usd"]
       let OnedayTrade = dataItem["volume_1day_usd"]
       let OnemonthTrade = dataItem["volume_1mth_usd"]
       let Price = dataItem["price_usd"]
-       //ADD CLOSE BTN
-      let template = '<span onclick = "closeThis(this)"><button class= "crypto-close" >Close</button></span><div>Price :'+ Price.toFixed(2) +' </div>'+'<br/>' + '<div><h5>1 Hr Trade Vol : ' + OnehrTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnedayTrade.toFixed(2) +'$</h5></div>'+'<br/>'+'<div><h5>1 day Trade Vol : ' + OnemonthTrade.toFixed(2) +'$</h5></div>'
+      let reModPrice = Math.round((Price + Number.EPSILON) * 100) / 100
 
-      let appendplace = document.getElementById("appendDetails"+crypto_div.id)
-      appendplace.innerHTML = template            
+
+      let Temp = '<div class = "price"> <span style="color: green">$</span> '+ reModPrice +' </div>'+
+                  '<div class = "OnehrVol"> 1Hr Vol - <span style="color: green">$</span> '+ OnehrTrade +' </div>'+
+                  '<div class = "OnedayVol"> 1Day Vol - <span style="color: green">$</span> '+ OnedayTrade +' </div>'+
+                  '<div class = "OnemonthVol"> 1Month Vol - <span style="color: green">$</span> '+ OnemonthTrade +' </div>'
+
+
+        //since fading out when closing the div
+      let appendplaceID = "#appendDetails"+crypto_div.id
+      $(appendplaceID).html(Temp)   
+      $(appendplaceID).fadeIn()       
       
     }
   } 
   
 }
 
+function CloseDetails(crypto_div){
+  let TheId = "#"+crypto_div.id
+  //readjust Div
+  $(TheId).css("transition", "height 1s")
+  $(TheId).css("height", "10rem")
 
-// Function to close crypto tabs
-function closeThis(section){
-  console.log("close request")
-  section.parentElement.parentElement.style.height = "2.9rem"
-  
+  //remove details
+  let appendplaceID = "#appendDetails"+crypto_div.id
+  $(appendplaceID).fadeOut(100)  
+
+  //readjust during transition
+  $(TheId).children(".asset_ID").css("transition", "top 1s, color 3s, text-shadow 2s")
+  $(TheId).children(".asset_ID").css('top', '20%')
+  $(TheId).children(".asset_ID").css('color', 'white')
+  $(TheId).children(".asset_ID").css('text-shadow', '0 10px 3px rgb(5, 5, 5)')
+  $(TheId).prop('title', 'Click to open/expand');
+
+
 }
 
 
@@ -443,10 +475,12 @@ function Searchcrypto(){
         let secToPrepend = document.getElementById( lowerVal )
         secToPrepend.remove()
         $("#prepend-here").prepend(secToPrepend)
+        
+
         //changing color a bit
-        console.log(secToPrepend.style.backgroundColor = '#D7B80B')
+        secToPrepend.style.backgroundColor = '#D7B80B'
         setInterval(function(){
-          secToPrepend.style.backgroundColor = '#C8F3AE'
+          secToPrepend.style.backgroundColor = '#0000008a'
         }, 1000)
 
         
@@ -476,7 +510,7 @@ function Searchcrypto(){
 //
 $("#Searchcrypto").click(() => {
   
-  let elem = document.getElementById("prepend-here").firstElementChild.scrollIntoView({ block: "center" })
+  let elem = document.getElementById("prepend-here").firstElementChild.scrollIntoView({ behavior: "smooth", block: "center" })
   console.log(elem)
   
 })

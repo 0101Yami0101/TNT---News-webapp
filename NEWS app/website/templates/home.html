@@ -164,18 +164,16 @@
         <input id="Searchcrypto" oninput="Searchcrypto()" name="Searchcrypto" type="text" placeholder="Search Crypto..">
       </div>
 
-
-
-      <div class="Cryptocontainer d-flex flex-row mb-3">
+      <div id="Cryptocontainer" class="Cryptocontainer d-flex flex-row mb-3">
         <!-- row1 -->
         <div id="prepend-here" class="cryptos-section-rows p-2 row row-cols-1">
           
           
           {% for i in range(32, crypto_list|length)  %}
             {% set name = (crypto_list[i]['name']).lower() %}
-              <div id="{{(crypto_list[i]['name']).lower()}}" ondblclick="ExpandDetails(this)"  class="cryptos col c-tabs" style='background-image: url("https://coinicons-api.vercel.app/api/icon/{{name}}");'>
+              <div id="{{(crypto_list[i]['name']).lower()}}" onclick="ExpandDetails(this)" ondblclick="CloseDetails(this)" class="cryptos col c-tabs" style='background-image: url("https://coinicons-api.vercel.app/api/icon/{{name}}");'>
               
-                <h2>{{ crypto_list[i]['asset_id'] }}</h2>
+                <h2 class="asset_ID">{{ crypto_list[i]['asset_id'] }}</h2>
                 <!-- <h4>{{ crypto_list[i]['price_usd'] }}</h4> -->
                 <div id="appendDetails{{(crypto_list[i]['name']).lower()}}">
 
