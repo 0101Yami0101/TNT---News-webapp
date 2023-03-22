@@ -213,6 +213,17 @@ $("#searchText").on({
   }
 });
 
+
+//video section
+$("#centerGIF").mouseenter(function(){
+  $(this).css('opacity', '1').css('transition', 'box-shadow 3s').css('box-shadow', '0px 0px 12px 4px #09f1e380')
+   
+})
+$("#centerGIF").mouseleave(function(){
+  $(this).css('opacity', '1').css('transition', 'box-shadow 3s').css('box-shadow', '0px 9px 9px 3px #141313')
+   
+})
+
 //crypto search section
 
 $("#Searchcrypto").on({
@@ -229,6 +240,7 @@ $("#Searchcrypto").on({
     $(this).css("background", "white");
   }
 });
+
 
 
 
@@ -274,3 +286,7 @@ else if(query2.matches){
 }
 
 $("#search-results").show()
+
+
+
+
