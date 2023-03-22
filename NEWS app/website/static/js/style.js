@@ -213,7 +213,22 @@ $("#searchText").on({
   }
 });
 
+//crypto search section
 
+$("#Searchcrypto").on({
+  mouseenter: function(){
+    $(this).css("background-color", "white").css("opacity", "1");
+  },
+  mouseleave: function(){
+    $(this).css("background-color", "white").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
+  },
+  dblclick: function(){
+    $(this).css("background", "linear-gradient(yellow, orange, aqua)").css("box-shadow", "0px 1px 8px 1px white");
+  },
+  keypress: function(){
+    $(this).css("background", "white");
+  }
+});
 
 
 

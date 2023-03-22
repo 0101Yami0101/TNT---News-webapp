@@ -511,14 +511,21 @@ body {
 .video-section {
   background-color: rgb(55, 0, 255);
   position: absolute;
-  left: 56.5rem;
-  top: 32rem;
-  height: fit-content;
-  z-index: -1;
+  left: 58rem;
+  top: 24rem;
+  height: 20rem;
+
 }
-.video-section video {
-  height: 18rem;
+#centerGIF{
+  border-radius: 1rem;
+  box-shadow: 0px 9px 9px 3px #141313;
+  position: absolute;
+  top: -1rem;
+  display: block;
+  height: 21rem;
   width: 20rem;
+  opacity: 0.9;
+
 }
 
 /* other-headline-container */
@@ -764,6 +771,7 @@ body {
   box-shadow: 0px 4px 10px 1px black;
   font-family:"Righteous", cursive;
   padding-left: 1rem;
+  opacity: 0.85;
  
 
 }
@@ -781,7 +789,7 @@ body {
 /* Readmore section*/
 .readmore-container {
   position: relative;
-  bottom: -0.2em;
+  bottom: 2.5em;
 }
 
 
