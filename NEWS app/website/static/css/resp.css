@@ -90,7 +90,7 @@
 
 
   .home-body{
-    height: 380rem;
+    height: 371rem;
   }
   #navbar {
     top: -0.1rem;
@@ -237,6 +237,12 @@
     width: 60rem;
     top: 0;
   }
+
+  .foot-container{
+    padding: 0;
+    margin: 1rem;
+    margin-top: 2rem;
+  }
   
 }
 
@@ -252,7 +258,7 @@
   }
 
   .home-body{
-    height: 440rem;
+    height: 430rem;
   }
   .time-date {
     word-spacing: 3px;
@@ -442,6 +448,17 @@
     height: 22rem;
     width: 22.5rem;
 
+  }
+
+  #other-links-section{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .foot-container{
+    
+    width: 22rem;
+    margin-top: 0.4rem;
   }
   
 
