@@ -5,7 +5,7 @@
     left: 64.5rem;
   }
 }
-/* if less than 2000px*/
+/* if less than 2000px -----to do change to above 1960 FOR LARGER DESKTOP*/
 @media only screen and (max-width: 2000px){
   .other-headline-container{
     left: -31rem;
@@ -69,8 +69,19 @@
   .cryptos-section{
     left: 48rem;
     width: 16rem;
+    top: 35.5rem;
   }
- 
+  .video-section {   
+    left: 48rem;
+    top: 24rem;
+  
+  }
+  #centerGIF{
+    height: 18rem;
+    width: 16rem;
+    transform: width 0.5s;
+    top: 0;
+  }
 }
 
 
@@ -213,6 +224,18 @@
 
   .OnehrVol, .OnedayVol, .OnemonthVol{
     font-size: 1.4rem;
+  }
+  .video-section {  
+    position: relative; 
+    display: inline;
+    top: 120rem;
+    left: 2rem;
+  
+  }
+  #centerGIF{
+    height: 20rem;
+    width: 60rem;
+    top: 0;
   }
   
 }
@@ -409,6 +432,18 @@
   #Searchcrypto{
     margin-top: 3rem;
   }
+  .video-section {  
+    
+    left: 1rem;
+  
+  }
+  
+  #centerGIF{
+    height: 22rem;
+    width: 22.5rem;
+
+  }
+  
 
 
 }

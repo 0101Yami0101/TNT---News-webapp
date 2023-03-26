@@ -289,4 +289,42 @@ $("#search-results").show()
 
 
 
+//FOOTER
+function changeShadow(icon){
+  icon.style.transition = "text-shadow 0.5s, font-size 1s, color 0.5s";  
+  icon.style.textShadow = "2px 7px 5px black";  
+  icon.style.fontSize = '2rem'
+  icon.style.color = 'blue'
+  
+}
 
+function changeBack(icon){
+  icon.style.textShadow = "0px 2px 3px rgb(10, 10, 10)"; 
+  icon.style.fontSize = '1.5rem'
+  icon.style.color = 'rgb(8, 8, 8)'
+}
+
+
+function highlightAboutUs(){
+  setTimeout(function(){
+    $('#aboutUSsec').css({transition: "background-color 1.5s"})
+    $('#aboutUSsec').css({backgroundColor: "lime"})
+  },1000)
+
+  setTimeout(function(){
+    $('#aboutUSsec').css({backgroundColor: "black"})
+  },2000)
+  
+}
+
+
+function highlightTalkwithUs(){
+  setTimeout(function(){
+    $('#contactUsSec').css({transition: "background-color 1.5s"})
+    $('#contactUsSec').css({backgroundColor: "lime"})
+  },1000)
+
+  setTimeout(function(){
+    $('#contactUsSec').css({backgroundColor: "black"})
+  },2000)
+}
