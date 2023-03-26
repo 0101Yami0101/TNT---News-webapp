@@ -328,3 +328,6 @@ function highlightTalkwithUs(){
     $('#contactUsSec').css({backgroundColor: "black"})
   },2000)
 }
+
+
+

@@ -82,6 +82,12 @@
     transform: width 0.5s;
     top: 0;
   }
+  .alertArea{ 
+
+    left: 56rem;
+    width: 24rem;
+    
+  }
 }
 
 
@@ -243,7 +249,13 @@
     margin: 1rem;
     margin-top: 2rem;
   }
-  
+  .alertArea{ 
+
+    left: 30rem;
+    width: 24rem;
+    top: 1rem;
+    
+  }
 }
 
 
@@ -461,7 +473,16 @@
     margin-top: 0.4rem;
   }
   
+  .alertArea{ 
 
+    left: 0rem;
+    width: 10rem;
+    font-size: 1rem;
+    top: 8.5rem;
+    left: 2rem;
+    position: relative;
+    
+  }
 
 }
 

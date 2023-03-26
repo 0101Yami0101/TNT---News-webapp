@@ -52,20 +52,20 @@
       </nav>
     </div>
 
-    
-    {% block flashmessage%}  <!-- flash messges -->
+    <!-- flash messges -->
+    {% block flashmessage%}  
     {% with messages = get_flashed_messages(with_categories=true) %} 
     {% if messages %} 
     {% for category, message in messages%} 
     {% if category == 'error' %}
-    <div class="alert alert-danger alert-dismissible" style="overflow: auto ; z-index: 9;">
+    <div class="alertArea alert alert-danger alert-dismissible" style="overflow: auto ; z-index: 9;">
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>{{ message }}</strong> 
+      <h6>{{ message }}</h6> 
     </div>
     {% else %}
-    <div class="alert alert-primary alert-dismissible" style=" z-index: 100;">
+    <div class="alertArea alert alert-primary alert-dismissible" style=" z-index: 100;">
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <strong>{{ message }}</strong>
+      <h6>{{ message }}</h6>
     </div>
     {% endif %} {% endfor%}  {% endif %} {%endwith%} {% endblock %}
 

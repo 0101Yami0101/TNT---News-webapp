@@ -994,3 +994,20 @@ body {
   font-size: 1.5rem;
 }
 
+
+/* Alert area */
+
+.alertArea{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: rgba(13, 153, 130, 0.541);
+  box-shadow: 0px 0px 7px 3px rgb(0, 0, 0); 
+  position: absolute;
+  top: 2rem;
+  left: 70rem;
+  width: 27rem;
+  border: 0;
+  
+}
+.alertArea h6{
+  color: white;
+}

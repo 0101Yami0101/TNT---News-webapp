@@ -507,10 +507,11 @@ function Searchcrypto(){
     
 }
 
-//
+//scroll on click on search crypto
 $("#Searchcrypto").click(() => {
   
-  let elem = document.getElementById("prepend-here").firstElementChild.scrollIntoView({ behavior: "smooth", block: "center" })
-  console.log(elem)
-  
+  document.getElementById("prepend-here").firstElementChild.scrollIntoView({ behavior: "smooth", block: "center" });
+
 })
+
+//// Alert area
