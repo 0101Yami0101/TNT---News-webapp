@@ -899,8 +899,18 @@ body {
 
 
 /*--- Login-page ---*/
+form {
+  box-shadow: 0px 0px 6px 1px rgb(238, 238, 238);
+}
+form label{
+  font-size: 1.3rem;
+}
+.form-group{
+  
+  width: 20rem;
+}
 
-/* signup page */
+/* login page */
 .login-form {
   height: 40rem;
   display: flex;
@@ -925,16 +935,112 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
+
+
 .signup-form form {
   align-items: center;
-  background-color: #32ff08;
+  background: radial-gradient(rgba(245, 244, 244, 0.74) ,  rgba(3, 178, 247, 0.952));
+  position: relative;
+  top: 9rem;
+  left: 28rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 10rem;
   padding: 2rem;
-  width: 70rem;
+  width: fit-content;
+  height: fit-content;
+  font-family: 'Berkshire Swash', cursive;
 }
+
+#sign-up-title{
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-shadow: 4px 7px 3px rgba(12, 12, 12, 0.466);
+}
+
+
+/* buttons */
+
+.signup-form button {
+  --border: 7px;    /* the border width */
+  --slant: 0.7em;   /* control the slanted corners */
+  --color: black; /* the color */
+  
+  font-size: 20px;
+  padding: 0.4em 1.2em;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  color: rgb(13, 14, 14);
+  background: 
+     linear-gradient(to bottom left,var(--color)  50%,#0000 50.1%) top right,
+     linear-gradient(to top   right,var(--color)  50%,#0000 50.1%) bottom left;
+  background-size: calc(var(--slant) + 1.3*var(--border)) calc(var(--slant) + 1.3*var(--border));
+  background-repeat: no-repeat;
+  box-shadow:
+    0 0 0 200px inset var(--s,#00000059),
+    0 0 0 var(--border) inset rgba(15, 15, 15, 0);
+  clip-path: 
+      polygon(0 0, calc(100% - var(--slant)) 0, 100% var(--slant),
+              100% 100%, var(--slant) 100%,0 calc(100% - var(--slant))
+             );
+  transition: color var(--t,0.3s), background-size 0.3s;
+}
+.signup-form button:focus-visible {
+  outline-offset: calc(-1*var(--border));
+  outline: var(--border) solid rgba(0, 0, 0, 0.863);
+  clip-path: none;
+  background-size: 0 0;
+}
+.signup-form button:hover,
+.signup-form button:active{
+  background-size: 100% 100%;
+  color: #ffffff;
+  --t: 0.2s 0.1s;
+}
+.signup-form button:active {
+  --s: #0005;
+  transition: none;
+}
+/* already signed in */
+#Signed-In{
+  --border: 3px;    /* the border width */
+  --slant: 0.7em;   /* control the slanted corners */
+  --color: rgb(247, 244, 244);
+  color: rgba(255, 255, 255, 0.973);
+  position: relative;
+  top: 5rem;
+  left: 54rem;
+  font-size: 2rem;
+  font-family: 'Berkshire Swash', cursive;
+  background: 
+     linear-gradient(to bottom left,var(--color)  50%,#0000 50.1%) top right,
+     linear-gradient(to top   right,var(--color)  50%,#0000 50.1%) bottom left;
+  background-size: calc(var(--slant) + 1.3*var(--border)) calc(var(--slant) + 1.3*var(--border));
+  background-repeat: no-repeat;
+ 
+}
+
+#Signed-In:focus-visible {
+  outline-offset: calc(-1*var(--border));
+  outline: var(--border) solid rgba(248, 244, 244, 0.993);
+  clip-path: none;
+  background-size: 0 0;
+}
+#Signed-In:hover,
+#Signed-In:active{
+  background-size: 100% 100%;
+  color: #ffffff;
+  --t: 0.2s 0.1s;
+}
+#Signed-In:active {
+  --s: rgb(255, 255, 255);
+  transition: none;}
+
+
+
 
 /* logout */
 #logoutLink {

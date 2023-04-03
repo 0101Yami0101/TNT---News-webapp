@@ -11,7 +11,6 @@ let togglerLeafTemp = '<i id="toggler" class="fa-brands fa-pagelines fa-4x"></i>
 
 
 function getData(){$(function() { // <---  document.ready
-  console.log( "ready to fetch data!" );
 
   fetch('/getAlldata')   //<---  fetching data from backend using fetch api when the DOM is ready
   .then((response) => response.json())

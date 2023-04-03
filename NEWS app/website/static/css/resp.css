@@ -264,6 +264,8 @@
 /* less than 700px*/
 
 @media only screen and (max-width: 700px) {
+
+  
   #second,
   #colon2 {
     display: none;
@@ -271,6 +273,7 @@
 
   .home-body{
     height: 430rem;
+    overflow-x: hidden;
   }
   .time-date {
     word-spacing: 3px;

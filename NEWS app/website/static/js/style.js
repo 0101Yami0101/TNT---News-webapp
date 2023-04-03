@@ -266,10 +266,7 @@ if (query1.matches){
   colon2.remove()
   $(".time-date").append(tempDay)
 
-  //reload timedate div
-  setInterval(() => {
-    $(".time-date").load(".time-date")
-  }, 1000);
+ 
   
     
   

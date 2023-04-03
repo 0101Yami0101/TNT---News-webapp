@@ -32,7 +32,7 @@ crypto_list = c.assets_list
 
 @views.route('/', methods= ['GET'])     
 def home():
-      
+ 
 
     #headline list for marquee
     marquee_list = [] 

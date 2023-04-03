@@ -5,11 +5,11 @@
 {% block Content %}
 
 {% if not user.is_active %}  <!--if user isnt active show signup page-->
-    <div class="signup-form">
-      <div class="container">
-        <form method="POST" class="form shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 5rem;">
-          <h3 align="center">Sign-Up</h3>
-          <div class="form-group" style="margin: 2rem;">
+    <div id="sign-up" class="signup-form">
+      <div class="container ">
+        <form method="POST" class="form p-3 mb-5 bg-white rounded" style="margin-top: 2rem;">
+          <h3 id="sign-up-title" align="center">Sign-Up</h3>
+          <div class="form-group" style="margin: 1rem;">
             <label for="email">Email Address</label>
             <input
               type="email"
@@ -20,7 +20,7 @@
               required
             />
           </div>
-          <div class="form-group" style="margin: 2rem;">
+          <div class="form-group" style="margin: 1rem;">
             <label for="userName">User Name</label>
             <input
               type="text"
@@ -31,7 +31,7 @@
               required
             />
           </div>
-          <div class="form-group" style="margin: 2rem;">
+          <div class="form-group" style="margin: 1rem;">
             <label for="password1">Create Password</label>
             <input
               type="password"
@@ -42,7 +42,7 @@
               required
             />
           </div>
-          <div class="form-group" style="margin: 2rem;">
+          <div class="form-group" style="margin: 1rem;">
             <label for="password2">Verify Password</label>
             <input
               type="password"
@@ -54,11 +54,11 @@
             />
           </div>
           <br />
-          <button type="submit" class="btn btn-primary" style="margin-left: 36rem;">Submit</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       
         
-          <a id="Signed-In" href="/log-in"><button class="btn">Already Signed Up? Login</button></a>
+          <a id="Signed-In" href="/log-in"><button class="btn" style=" color:rgb(132, 96, 230);">Already Signed Up? Login</button></a>
         
       </div>
     </div>
