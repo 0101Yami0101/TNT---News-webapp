@@ -61,9 +61,17 @@ def login():
         email= request.form.get('email')
         password = request.form.get('password')
 
+        
+        #   todo 
+        # NEED TO MAKE CHANGES
+        # password validation error
+        # multiple flashes error
+
         user = User.query.filter_by(email= email).first() #check if user email exists in database
 
         if user:
+            if password == None or password == "":
+                flash('Kindly enter the registered password and email')
             
             if check_password_hash(user.password, password):
                 flash("Logged in successfully", category= 'success')

@@ -4,15 +4,19 @@
 <!-- "Extended" -->
 {% block Content %}
 <div>
-    <h2>This is user's readlater page</h2>
-    <div class="container">
+    <h2 id="this-is-read-later">READ LATERS</h2>
+    <div id="my-readlaters"  class="container ">
         {% for i in newslist %}
-        <div class="newsdiv" style="border: 2px solid green;">
+        <div class="newsdiv" >
             <div class="imgcontainer" style="height: 5rem; width: 5rem;">
-                <img style="height: 5rem; width: 5rem;" src="{{ i.imgLink }}" alt="">
+                <img src="{{ i.imgLink }}" alt="">
             </div>
-            <h3>{{ i.title }}</h3>
-            <a href="{{ i.blogLink }}"> <button>visit news blog</button></a>
+            <span class="titles-readlater"> <h3>{{ i.title }}</h3></span>
+           
+            <!-- Go to article -->
+            <span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ i.blogLink }}'></a></i></span>
+            <!-- to-do::: delete news on click -->
+            <span><i class="fa-solid fa-delete-left fa-2x"></i></span>
 
         </div>
         {% endfor %}
