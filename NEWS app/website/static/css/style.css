@@ -17,6 +17,7 @@
 body {
   background-color: rgb(41, 39, 39);
   margin: -1rem;
+  
 }
 /*loader*/
 .loader {
@@ -898,7 +899,7 @@ body {
 
 
 
-/*--- Login-page ---*/
+/*--- Login-page/ signup page ---*/
 form {
   box-shadow: 0px 0px 6px 1px rgb(238, 238, 238);
 }
@@ -910,26 +911,9 @@ form label{
   width: 20rem;
 }
 
-/* login page */
-.login-form {
-  height: 40rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.login-form form {
-  align-items: center;
-  background-color: #32ff08;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 2rem;
-  padding: 2rem;
-  width: 70rem;
-}
 
-/* signup page */
-.signup-form {
+
+.signup-form, .login-form {
   height: 100rem;
   display: flex;
   flex-direction: column;
@@ -937,13 +921,12 @@ form label{
 }
 
 
-
-.signup-form form {
+.signup-form form, .login-form form {
   align-items: center;
   background: radial-gradient(rgba(245, 244, 244, 0.74) ,  rgba(3, 178, 247, 0.952));
   position: relative;
   top: 9rem;
-  left: 28rem;
+  left: 30rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -954,7 +937,7 @@ form label{
   font-family: 'Berkshire Swash', cursive;
 }
 
-#sign-up-title{
+#sign-up-title, #log-in-title{
   font-size: 3rem;
   letter-spacing: 2px;
   text-shadow: 4px 7px 3px rgba(12, 12, 12, 0.466);
@@ -963,7 +946,7 @@ form label{
 
 /* buttons */
 
-.signup-form button {
+.signup-form button, .login-form button {
   --border: 7px;    /* the border width */
   --slant: 0.7em;   /* control the slanted corners */
   --color: black; /* the color */
@@ -988,33 +971,35 @@ form label{
              );
   transition: color var(--t,0.3s), background-size 0.3s;
 }
-.signup-form button:focus-visible {
+.signup-form button:focus-visible,  .login-form button:focus-visible  {
   outline-offset: calc(-1*var(--border));
   outline: var(--border) solid rgba(0, 0, 0, 0.863);
   clip-path: none;
   background-size: 0 0;
 }
 .signup-form button:hover,
+.login-form button:hover,
+.login-form button:active,
 .signup-form button:active{
   background-size: 100% 100%;
   color: #ffffff;
   --t: 0.2s 0.1s;
 }
-.signup-form button:active {
+.signup-form button:active, .login-form button:active {
   --s: #0005;
   transition: none;
 }
 /* already signed in */
-#Signed-In{
+#Signed-In, #Logged-in{
   --border: 3px;    /* the border width */
   --slant: 0.7em;   /* control the slanted corners */
   --color: rgb(247, 244, 244);
   color: rgba(255, 255, 255, 0.973);
   position: relative;
-  top: 5rem;
-  left: 54rem;
-  font-size: 2rem;
-  font-family: 'Berkshire Swash', cursive;
+  top: 7rem;
+  left: 37rem;
+  font-size: 1.6rem;
+  font-family: cursive;
   background: 
      linear-gradient(to bottom left,var(--color)  50%,#0000 50.1%) top right,
      linear-gradient(to top   right,var(--color)  50%,#0000 50.1%) bottom left;
@@ -1023,19 +1008,22 @@ form label{
  
 }
 
-#Signed-In:focus-visible {
+
+#Signed-In:focus-visible, #Logged-in:focus-visible {
   outline-offset: calc(-1*var(--border));
   outline: var(--border) solid rgba(248, 244, 244, 0.993);
   clip-path: none;
   background-size: 0 0;
 }
 #Signed-In:hover,
-#Signed-In:active{
+#Logged-in:hover,
+#Signed-In:active,
+#Logged-in:active{
   background-size: 100% 100%;
   color: #ffffff;
   --t: 0.2s 0.1s;
 }
-#Signed-In:active {
+#Signed-In:active, #Logged-in:active {
   --s: rgb(255, 255, 255);
   transition: none;}
 
@@ -1116,4 +1104,82 @@ form label{
 }
 .alertArea h6{
   color: white;
+}
+
+
+/* # Readlater Page */
+#my-readlaters{
+  background-color: rgba(0, 255, 255, 0.459);
+  border-radius: 2rem;
+  box-shadow: 2px 2px 8px 3px rgb(78, 77, 77);
+  position: relative;
+  top: 15rem;
+  padding: 3rem;
+  min-height: 35rem;
+  max-height: 70rem;
+  margin-bottom: 10rem;
+  overflow: auto;
+ 
+}
+
+#my-readlaters::-webkit-scrollbar {/* Hide scrollbar for Chrome, Safari and Opera */
+  display: none;
+}
+
+#this-is-read-later{
+  color: rgb(30, 100, 100);
+  position: absolute;
+  top: 8rem;
+  left: 47rem;
+  font-size: 4rem;
+  text-shadow: 1px 5px 2px white;
+  font-family:"Righteous", cursive;
+
+}
+
+.newsdiv{
+  background: linear-gradient(rgba(0, 255, 255, 0.514), rgb(30, 100, 100), rgba(255, 255, 255, 0.651) );
+  box-shadow: 1px 1px 8px 2px black;
+  margin: 2rem;
+  height: 16rem;
+  padding: 1rem;
+  width: 95%;
+  border-radius: 0 2rem 0 2rem;
+  text-shadow: 0px 2px 1px black;
+  font-family:"Righteous", cursive;
+
+}
+.newsdiv img{
+  border-radius: 1rem;
+  box-shadow: 0px 0px 4px 1px black;
+  color: aq;
+  right: 6rem;
+  position: absolute;  
+  display: block;
+  
+
+  height: 14rem;
+  max-width: 22rem;
+}
+.titles-readlater{
+  display: block;
+  width: 50rem;
+  position: relative;
+  top: -4rem;
+}
+
+#emptyTag{
+  color: white;
+  position: relative;
+  top: 25rem;
+  left: 57rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: 1px 5px 2px black;
+  z-index: 2;
+ 
+}
+
+.delNews{
+  color: rgb(247, 11, 11);
+  text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }

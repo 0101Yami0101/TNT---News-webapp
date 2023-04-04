@@ -19,6 +19,9 @@
     }, false)
   })
 })()
+
+
+
 //Logo shadow
 function turn_red() {
   //Function to turn the logo to a different color

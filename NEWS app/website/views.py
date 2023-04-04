@@ -153,6 +153,31 @@ def listOfReadlater():
     
     return render_template('listofreadlater.html', newslist = news_list)
 
+# remove readlater
+@views.route('/removeReadlater', methods = ['POST'])
+@login_required
+def removeReadlater():
+    if request.method == 'POST':
+        data = request.get_data()
+        newdata = data.decode('utf8') #recieved data is in bit format so converting it
+        dict = json.loads(newdata)
+        thenewsId = int(dict["newsId"])
+        # remove the news corresponding to id
+        try:
+
+            news = News.query.get(thenewsId)
+            db.session.delete(news)
+            db.session.commit()
+            
+            return jsonify({"status" : "sucess" })
+        except: 
+           
+            return jsonify({"status" : "error" })
+
+    else:
+
+        return render_template('listofreadlater.html')
+
 
 @views.route('/readmore/<section>/<article_id>', methods= ['GET'])     
 def readMore(section, article_id):

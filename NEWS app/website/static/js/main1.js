@@ -233,8 +233,46 @@ function AppendToRL(id, section){
     }
   });
 }
+//AJAX TO BACKEND to remove readlater
+$('#emptyTag').hide()
+function RemoveFromRL(id){
+  // confirm('Are you sure?')
+  $.ajax({
+    url: '/removeReadlater',
+    data: JSON.stringify({"newsId" : id}),
+    type: 'POST',
+    success: function(){
+      var secToremove = '#newsListId'+id
 
 
+      $(secToremove).css("transition", "transform 2s")
+      $(secToremove).css('transform', 'rotate(90deg)')
+      $(secToremove).fadeOut()
+      setTimeout(function(){
+        $(secToremove).remove()
+        // check if my-readlaters is empty
+        let readlaterLength = ($('#my-readlaters').children()).length
+        if (readlaterLength == 0){
+          $('#emptyTag').fadeIn()
+          $('#my-readlaters').css('top', '11.5rem')
+         
+        }
+      }, 1000)
+
+
+      
+    },
+    error: function(error){
+      console.log("Some unknown error ");
+    }
+  });
+}
+
+// check if my-readlaters is empty
+let readlaterLength = ($('#my-readlaters').children()).length
+if (readlaterLength == 0){
+  $('#emptyTag').show()
+}
 
 
 
