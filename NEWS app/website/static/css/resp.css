@@ -109,7 +109,6 @@
 
   #nav-toggler {
     display: block;
-    /* bottom: 0; */
     text-shadow: 1px 11px 8px #2e2d2d;
   }
 
@@ -249,12 +248,42 @@
     margin: 1rem;
     margin-top: 2rem;
   }
+
+  /* signupform and login form */
+  .signup-form form, .login-form form {
+    left: 18rem;
+  }
+  #Signed-In, #Logged-in{
+   
+    left: 35rem;
+    
+  }
+  
+
   .alertArea{ 
 
     left: 30rem;
     width: 24rem;
     top: 1rem;
     
+  }
+
+  #my-readlaters{
+    top: 18rem; 
+   
+  }
+  #this-is-read-later{    
+    top: 9rem;
+    left: 20rem;
+
+  }
+
+  .newsdiv img{
+    max-width: 20rem;
+  }
+  .titles-readlater{
+    width: 28rem;
+    height: 6.8rem; 
   }
 }
 
@@ -476,6 +505,19 @@
     margin-top: 0.4rem;
   }
   
+  /* signupform and login form */
+  .signup-form form, .login-form form {
+    left: 0rem;
+  }
+  #Signed-In{
+   
+    left: 5rem;
+    
+  }
+  #Logged-in{
+    left: 2.5rem;
+  }
+  
   .alertArea{ 
 
     left: 0rem;
@@ -485,6 +527,36 @@
     left: 2rem;
     position: relative;
     
+  } 
+  #this-is-read-later{ 
+    font-size: 3rem;   
+    top: 9.5rem;
+    left: 3rem;
+
+  }
+  #my-readlaters{
+    padding: 0;
+    margin: 0;
+    max-height: 100rem; 
+    margin-bottom: 10rem;
+   
+  }
+  .newsdiv{
+    width: 85%;
+  
+  }
+
+  .newsdiv img{
+    height: 7rem;
+    position: relative;
+    top: 7rem;
+    left: 7rem;
+   
+  }
+  .titles-readlater{
+    top: -5rem;
+    width: 21rem;
+    height: 6.8rem; 
   }
 
 }
