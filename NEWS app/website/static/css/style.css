@@ -15,7 +15,7 @@
 
 
 body {
-  background-color: rgb(41, 39, 39);
+  background-color: rgb(37, 36, 36);
   margin: -1rem;
   overflow-x: hidden;
   
@@ -313,7 +313,7 @@ body {
 
 
 
-/* readmore section */
+/* Readmore section */
 .read-more{
   position: relative;
   bottom: -3.1rem;
@@ -374,7 +374,19 @@ body {
   
 
 }
+/* readmore-Page */
 
+#content-readmore{
+  background-color: red;
+  color: white;
+  position: relative;
+  top: 10rem;
+  padding: 3rem;
+}
+
+.content{
+  font-size: 1.5rem;
+}
 
 /*search*/
 
@@ -1184,3 +1196,5 @@ form label{
   color: rgb(247, 11, 11);
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }
+
+

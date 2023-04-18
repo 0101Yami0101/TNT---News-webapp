@@ -192,7 +192,7 @@ def readMore(section, article_id):
        #process html data
        soupData = BeautifulSoup(html_content, 'html.parser')
 
-       for i in ['header', 'footer', 'credit', 'ad']:
+       for i in ['header', 'footer', 'credit', 'ad',  'headlines']:
             
           try:
             soupData.find(i).extract()
