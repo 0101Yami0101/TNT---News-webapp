@@ -56,8 +56,8 @@ $( "#loadmoreOther" ).on("click", function() {
             '</div>'+
             '<div class="other-readmore-container  d-flex flex-row mb-3 justify-content-between">'+
 
-              '<span class="other-read-more flex-grow-1 "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/def/'+i+'"  ></a> </i> </span> '+
-              '<span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='+ default_data[i]["link"] +'></a></i></span>'+
+              '<span class="other-read-more flex-grow-1 "><a  class="p-2" href='+ default_data[i]["link"] +'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> '+
+              '<span onclick="ShareThis(def, '+ i +')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>'+
               '<span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('+i+', "def")"></a></i></span> '+
 
             '</div>'+
@@ -93,8 +93,8 @@ $( "#loadmoreBlock" ).on("click", function() {
     + blockchain_data[i]["title"] + '</h3></div><div class="blockchain-news-description headers-desp">'
     + blockchain_data[i]['description'] + '</div>'+
     '<div class="block-readmore-container d-flex flex-row mb-3">'+
-          '<span class="other-read-more flex-grow-1 "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/block/'+i+'"  ></a> </i> </span> '+
-          '<span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='+ blockchain_data[i]["link"] +'></a></i></span>'+
+          '<span class="other-read-more flex-grow-1 "><a  class="p-2" href='+ blockchain_data[i]["link"] +'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> '+
+          '<span onclick="ShareThis(block, '+i+')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>'+
           '<span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('+i+', "block")"></a></i></span> '+
     '</div>'+
     '<div id="" class="col-4 web3-images"><a href=' +
@@ -397,6 +397,91 @@ function ToggleMenu(){
 }
 
 
+
+
+///Share Area
+function copyToClipboard() {
+  const copyText = document.getElementById("copy-input").value;
+  navigator.clipboard.writeText(copyText)
+    .then(() => {
+      alert("Copied link: " +   copyText);
+    })
+    .catch((error) => {
+      console.error("Unable to copy text: ", error);
+    });
+}
+
+function ShareThis(section, number){
+  var url = ''
+  section= section ; 
+  number = number;
+  console.log("clicking and sharing")
+
+  fetch('/share/'+section+'/'+number) //get link
+  .then(response => response.json())
+  .then(data => url = data['URL'])
+  .then(url => {
+
+    
+
+      //custom share tab
+    const customShareTab = `
+    <div class="share-buttons">
+       
+      <a href="https://api.whatsapp.com/send?text=CheckItOut: ${encodeURIComponent(url)}" target="_blank" rel="noopener" class="share-button whatsapp">
+        <i class="fab fa-whatsapp fa-2x"></i>
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}" target="_blank" rel="noopener" class="share-button facebook">
+        <i class="fab fa-facebook-f fa-2x"></i>
+      </a>
+      <a href="https://twitter.com/share?url=${encodeURIComponent(url)}" target="_blank" rel="noopener" class="share-button twitter">
+        <i class="fab fa-twitter fa-2x"></i>
+      </a>
+      <a href="https://www.instagram.com/share?url=${encodeURIComponent(url)}" target="_blank" rel="noopener" class="share-button instagram">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <div class = "copytoClip">
+        <input type="text" id="copy-input" value="${url}
+        ">
+        <button class="btn copy-button" onclick="copyToClipboard()">Copy</button>
+      </div>
+
+      <span onclick= "closeSearch()" class="close-search" data-toggle="tooltip" data-placement="right" title="Close!"><i class="fa-brands fa-xbox"></i></span>
+    
+    </div>
+    `;
+
+    let ele = document.getElementById('shareTab');
+    ele.classList.toggle('visible'); // toggle visibility
+    ele.setAttribute("style", "display: fixed !important")
+    $('#shareTab').fadeIn()
+  
+  
+    const targetElement = document.getElementById('shareTab');
+    targetElement.innerHTML = customShareTab;
+
+  })
+  .catch(error => console.error(error));
+
+
+}
+function closeSearch(){
+  let ele = document.getElementById('shareTab');
+    ele.classList.toggle('visible'); // toggle visibility
+    $('#shareTab').fadeOut()
+}
+
+
+//prevent share tab from opening at default location and ahref pointing to it causing to scroll top by default// Share tab appears wherever screen is
+const anchorLinks = document.querySelectorAll('a[href^="#"]:not(.exclude-from-prevDef)');  //:not() will exclude this effect to the selected
+anchorLinks.forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+  });
+});
+
+
+
 //Scrolling buttons and Loadmore buttons 
 $("#scrollBottomOther").click(() => {
   let appNewsLen = $("#append-more-block-news").children().length
@@ -551,4 +636,5 @@ $("#Searchcrypto").click(() => {
 
 })
 
-//// Alert area
+
+

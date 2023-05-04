@@ -374,7 +374,126 @@ body {
   
 
 }
-/* readmore-Page */
+/* Share*/
+
+
+.share{
+  background-color: rgb(255, 255, 255);
+  border-radius: 2rem 0 2rem 0;
+  box-shadow: 0px 0px 10px 4px black;
+  position: fixed;
+  padding: 1rem;
+  bottom: 2rem;
+  left: 32vw;
+  height: 5rem ;
+  width: 37vw;
+  transform: translateX(-200%);
+  transition: transform 0.5s ease-out;
+  z-index: 100;
+ 
+}
+
+.share.visible {
+  display: block;
+  transform: translateX(0);
+}
+
+.share-buttons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.share-button {
+  padding: 0.5rem;
+  flex: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #eee;
+  color: #333;
+  transition: all 0.2s ease-in-out;
+}
+
+.share-button:hover {
+  transform: scale(1.1);
+  color: rgb(0, 225, 255);
+  background-color: rgb(227, 243, 7);
+}
+
+.whatsapp {
+  background-color: #25D366;
+  color: #fff;
+}
+
+.facebook {
+  background-color: #3B5998;
+  color: #fff;
+}
+
+.twitter {
+  background-color: #1DA1F2;
+  color: #fff;
+}
+.instagram {
+  background-color: #ec530c;
+  color: #fff;
+}
+
+
+.fa {
+  font-size: 1.5rem;
+}
+
+#copy-input{
+  width: 16vw;
+  background-color: #c0c0c0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.copy-button{
+  background-color: rgb(192, 240, 19);
+  font-family: sans-serif;
+  box-shadow: 0px 0px 3px 1px black;
+
+}
+
+.copy-button:hover{
+  background-color: greenyellow;
+}
+
+.close-search{
+  position: absolute;
+  top: -2rem;
+  right: -1rem;
+  font-size: 2rem ;
+  border-radius: 2rem;
+  transition: transform 2s;
+  
+}
+.close-search:hover{
+  transform: rotate(-45deg);
+}
+
+.close-search i{
+  box-shadow: 0px 0px 3px 1px black;
+  background-color: rgba(255, 0, 0, 0.671);
+  border-radius: 5rem;
+  transition: all 2s;
+
+  
+}
+.close-search i:hover{
+  box-shadow: 1px 3px 5px 2px rgba(211, 14, 14, 0.562);
+  background-color: rgb(236, 235, 235);
+  border-radius: 5rem;
+}
+/* content-readmore */
 
 #content-readmore{
   background-color: red;

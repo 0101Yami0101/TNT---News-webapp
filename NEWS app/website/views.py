@@ -6,6 +6,9 @@ from . import db
 from .models import User, News
 import json
 import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import webbrowser
 from bs4 import BeautifulSoup
 
 
@@ -179,42 +182,22 @@ def removeReadlater():
         return render_template('listofreadlater.html')
 
 
-@views.route('/readmore/<section>/<article_id>', methods= ['GET'])     
-def readMore(section, article_id):
+@views.route('/share/<section>/<article_id>', methods= ['GET'])     
+def Share(section, article_id): 
 
+    print(section, article_id)
 
-    id = int(article_id)
-    if section == "def" :
-        
-        
-       data = requests.get(url= default_news_list[id]['link'])
-       html_content = data.text
-       #process html data
-       soupData = BeautifulSoup(html_content, 'html.parser')
-
-       for i in ['header', 'footer', 'credit', 'ad',  'headlines']:
-            
-          try:
-            soupData.find(i).extract()
-          except:
-              pass
-       
-       finalData = soupData.get_text()
-
-
-
-
-
-    else:
-        data = requests.get(url= blockchain_news_list[id]['link'])
-        html_content = data.text
-        #process html data
-        soupData = BeautifulSoup(html_content, 'html.parser')
-        for i in ['header', 'footer', 'credit', 'ad', 'headlines']:
-          try:
-            soupData.find(i).extract()
-          except:
-              pass
-        finalData = soupData.get_text()
+    if section == "def":#dynamically change news list based on request coming from frontend
     
-    return render_template('readmore.html', content= finalData)
+        url= (default_news_list[int(article_id)]['link'])
+    else:
+        url = (blockchain_news_list[int(article_id)]['link'])
+    
+
+    return jsonify({
+        "success": "True",
+        "URL": url
+        } )
+
+
+    

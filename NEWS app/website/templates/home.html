@@ -3,7 +3,12 @@
 <!-- "Extended" -->
 {% block Content %}
 
+<section id="shareTab" class="share" >
+  
+</section>
+
 <div id="home-body" class="home-body container-fluid radial-gradient-home">
+  
   <!-- flashnews area -->
   <div class="flash-news container-fluid d-flex p-3 mb-3">
     <div class="container-fluid flash-text-container">
@@ -37,8 +42,14 @@
           <div class="readmore-container d-flex flex-row mb-3">
 
 
-           <span id="topnewsReadMore" class="read-more"><a  class="p-2" href="/readmore/def/0"  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a>  </span> 
-           <span id="topnewsVisitOriginal" class="visit-original"><a class="p-2" href='{{ news_list[0]["link"] }}'><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article"></i></a></span>
+           <span id="topnewsReadMore" class="read-more"><a  class="p-2" href='{{ news_list[0]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a>  </span> 
+
+
+          
+           <span onclick="ShareThis('def', '0')" id="topnewsVisitOriginal" class="visit-original"><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
+
+        
+
            <span id="topnewsReadLater" class="read-later"><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later"></i></a></span> 
 
 
@@ -85,10 +96,12 @@
             {{ news_list[i]['description']}}
           </div>
           <div class="other-readmore-container  d-flex flex-row mb-3 justify-content-between">
-            <!-- To-do- target the index using api and feed data from backend-->
+           
 
-            <span class="other-read-more flex-grow-1 "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/def/{{i}}"  ></a> </i> </span> 
-            <span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ news_list[i]["link"] }}'></a></i></span>
+            <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ news_list[i]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
+
+            <span onclick="ShareThis('def', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
+
             <span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'def')"></a></i></span> 
 
 
@@ -106,10 +119,10 @@
     
 
     <!-- loadmoreButton section //Includes othercontainer scroll buttons -->
-    <div  id="load1" class="load-more sticky">
+    <div  id="load1" class="load-more sticky ">
       <span id="scrollBottomOther" ><i class="fa-solid fa-jet-fighter-up fa-2x" style="transform: rotate(180deg);"></i></span>
       <span id="loadmoreOther"><i class=" fa-solid fa-circle-chevron-down fa-3x"></i></span>
-      <a href="#scrollBottomOther"><span id="scrollTopOther"><i class="fa-solid fa-jet-fighter-up fa-2x"> </i></span></a>   <!--The link might cause a problem in the future to the home route-->
+      <a href="#scrollBottomOther" class="exclude-from-prevDef"><span id="scrollTopOther"><i class="fa-solid fa-jet-fighter-up fa-2x"> </i></span></a>   <!--The link might cause a problem in the future to the home route-->
     </div>
   </div>
 
@@ -126,9 +139,13 @@
           {{ blockchain_list[i]['description']}}
         </div>
         <div class="block-readmore-container d-flex flex-row mb-3">
-          <span class="other-read-more flex-grow-1 "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"><a  class="p-2" href="/readmore/block/{{i}}"  ></a> </i> </span> 
-          <span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ blockchain_list[i]["link"] }}'></a></i></span>
+
+          <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ blockchain_list[i]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
+
+          <span onclick="ShareThis('block', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
+          
           <span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'block')"></a></i></span> 
+
         </div>
 
         <div id="" class=" web3-images">
@@ -148,7 +165,7 @@
       <span id="scrollBottomBlock" ><i id="topBlock" class="fa-solid fa-jet-fighter-up fa-2x" style="transform: rotate(180deg);"></i></span>
 
       <span id="loadmoreBlock"><i class=" fa-solid fa-circle-chevron-down fa-3x"></i></span>
-      <a href="#scrollBottomBlock"><span id="scrollTopBlock"><i class="fa-solid fa-jet-fighter-up fa-2x"> </i></span></a>
+      <a href="#scrollBottomBlock" class="exclude-from-prevDef"><span id="scrollTopBlock"><i class="fa-solid fa-jet-fighter-up fa-2x"> </i></span></a>
       
     </div>
   </div>
