@@ -141,6 +141,15 @@
     top: 50rem;
     left: 1rem;
   }
+
+  .share{
+    padding: 1rem;
+    padding-top: 1.5rem;
+    height: 6rem ;
+    width: 50vw;
+   
+   
+  }
   .read-more {
 
     bottom: -2.5rem;
@@ -400,6 +409,33 @@
     opacity: 0.9;
     
   }
+  .share{
+  
+    height: 20rem ;
+    width: 75vw;
+    left: 3rem;
+  
+   
+  }
+  .share-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .share-button {
+    flex-direction: row;
+    padding: 0.2rem;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 0 2rem 0 2rem;
+  
+  }
+  #copy-input{
+    width: 35vw;
+    background-color: #c0c0c0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
   .read-more{
    
     top: 12.5rem;
