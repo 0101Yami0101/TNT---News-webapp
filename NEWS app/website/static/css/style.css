@@ -26,13 +26,13 @@ body {
 .loader {
   position: absolute;
   border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #080d11; /* Blue */
+  border-top: 16px solid #0585ee; /* Blue */
   border-radius: 50%;
   width: 100px;
   height: 100px;
   animation: spin 2s linear infinite;
   top: 45%;
-  left: 45%;
+  left: 46%;
 }
 
 @keyframes spin {

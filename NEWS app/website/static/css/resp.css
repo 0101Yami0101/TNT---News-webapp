@@ -595,6 +595,11 @@
     height: 6.8rem; 
   }
 
+  .loader {
+
+    left: 37%;
+  }
+
 }
 
 
