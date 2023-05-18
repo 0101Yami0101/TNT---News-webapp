@@ -15,7 +15,7 @@
 
 
 body {
-  background-color: rgb(37, 36, 36);
+  background-color: rgba(10, 10, 10, 0.984);
   margin: -1rem;
   overflow-x: hidden;
   
@@ -51,7 +51,8 @@ body {
   margin-left: 1rem;
   z-index: 6;
   height: 7rem;
-  box-shadow: 2px 3px 10px 2px rgb(2, 2, 2);
+  box-shadow: 0 2px 7px 2px #04e7f9;
+  
 }
 
 .l1 a {
@@ -76,32 +77,36 @@ body {
   width: 15rem;
   font-size: 23px;
   font-family: "Sofia Sans Extra Condensed", sans-serif;
-  font-weight: 900;
+  font-weight: 1000;
   letter-spacing: 1.1px;
+ 
 }
 .nav-item i {
   padding: 10px;
 }
 
 .nav-item :hover {
-  color: black;
-  animation: enlarge 2s infinite;
+  /* color: rgb(235, 0, 0); */
+  animation: changeColor 2s infinite;
 }
 
-@keyframes enlarge {
+@keyframes changeColor {
   25% {
-    color: #151616;
+    color: #07f5f5;
+    letter-spacing: 2.2px;
   }
   50% {
-    color: #08eb1b;
+    color: #fcbb06;
+    letter-spacing: 1.1px;
   }
   75% {
-    color: #daf107;
+    color: #07caf1;
+    letter-spacing: 2.2px;
   }
 }
 
 .radial-gradient {
-  background: radial-gradient(#06a6e6, #2c2b2b);
+  background: radial-gradient(rgb(6 34 230), rgb(0 251 220));
 }
 .radial-gradient-home {
   background: radial-gradient(rgb(22, 219, 219), #085a7a);
@@ -143,8 +148,11 @@ body {
 }
 
 #login-button {
+  align-items: center;
+  display: flex;
   position: absolute;
-  right: 4rem;
+  right: 0rem;
+  width: 20rem;
 }
 #login-button button {
   position: relative;
@@ -180,17 +188,17 @@ body {
   border-radius: 2rem;
   box-shadow: -2px 1px 12px 8px rgb(104, 100, 100);
   height: 118rem; /*can increase body height to add more news sections layers later */
-  background-image: radial-gradient(#09cccc, #1b1a1a);
+  
 }
+
 
 /* flashnewscontainer */
 .flash-news {
-  background-color: #119499;
+  background-color: #18acc3;
   border-radius: 2rem;
   margin-top: 1rem;
   height: 3rem;
-  box-shadow: 0px 5px 10px 2px rgb(5, 5, 5);
-  /* overflow: hidden; */
+  box-shadow: 0 2px 7px 2px #1dc318;
 }
 
 .flash-text-container {
@@ -207,7 +215,7 @@ body {
   white-space: nowrap;
   font-family: "Righteous", cursive;
   color: rgb(255, 255, 255);
-  text-shadow: 1px 3px 7px rgb(22, 21, 21);
+  text-shadow: 1px 4px 8px rgb(22, 21, 21);
   animation: marquee 500s linear infinite;
 }
 
@@ -221,7 +229,7 @@ body {
 }
 
 .time-date {
-  background-color: #009ccc5b;
+  background: linear-gradient(#0ef0ff 1% , #848698 50%  );
   bottom: 8px;
   border-radius: 2rem;
   color: #0d0e0d;

@@ -7,7 +7,10 @@
   
 </section>
 
-<div id="home-body" class="home-body container-fluid radial-gradient-home">
+<div id="home-body" class="home-body container-fluid ">
+  
+
+  
   
   <!-- flashnews area -->
   <div class="flash-news container-fluid d-flex p-3 mb-3">
@@ -15,7 +18,7 @@
       <h3 id="theMarqueehead">
         {% for i in range(marquee_list|length) %}
         <span>
-          <i class="fa fa-cloud"></i> &nbsp; {{ marquee_list[i] }} &nbsp; &nbsp;
+          <i style="color: rgb(215, 231, 237); text-shadow: 3px 7px 4px black; "  class="fa fa-cloud"></i> &nbsp; {{ marquee_list[i] }} &nbsp; &nbsp;
         </span>
         {% endfor %}
       </h3>
