@@ -61,7 +61,7 @@ $(document).mousemove(function(event) {
   mouseXpercentage = Math.round(event.pageX / windowWidth * 100);
   mouseYpercentage = Math.round(event.pageY / windowHeight * 100);
   
-  $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%,  rgb(6 34 230), rgb(0 251 220)');
+  $('.radial-gradient').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%,  rgba(13, 13, 14, 0.415), rgb(7, 202, 246)');
   // $('.radial-gradient-home').css('background', 'radial-gradient(at ' + mouseXpercentage + '% ' + mouseYpercentage + '%, #09cccc  , #1b1a1a');
 });
 
@@ -141,20 +141,29 @@ setInterval(dispTime, 10);
 
 //Main headline area
 
-//headline
+//headlines hovering effect
 function Glowup(elem){
   let id = "#"+elem.id 
+
+  $(id).css("transform" , "scale(1.1)")
+  $(id).css("background-color" , "rgb(7 7 7 / 69%)")
+  $(id).css("box-shadow", "1px 1px 7px 1px #ffffff")
+  $(id).css("text-shadow", "2px 2px 8px aqua")
   
-  $(id).css("color", "aqua")
-  $(id).css("background" , "linear-gradient( #3B9DEA, black)")
+  
+  
+  
   $(id).mouseleave(function(){
-    $(id).css("color", "#daf6fc");
-    $(id).css("background" , "linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 182, 228, 0.384))")
-    
-  });
+        $(id).css("box-shadow", "0px 1px 10px 2px rgb(12, 12, 12)")
+        $(id).css("transform" , "scale(1)")
+        $(id).css("background-color" , " rgba(1, 1, 1, 0.384)")
+        $(id).css("text-shadow", "2px 3px 5px #080808")
+        
+      });
 
   
 }
+
 
 //IMAGES
 const css = window.document.styleSheets[1];

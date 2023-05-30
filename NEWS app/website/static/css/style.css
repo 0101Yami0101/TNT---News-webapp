@@ -106,7 +106,7 @@ body {
 }
 
 .radial-gradient {
-  background: radial-gradient(rgb(6 34 230), rgb(0 251 220));
+  background: radial-gradient(rgba(13, 13, 14, 0.415), rgb(7, 202, 246));
 }
 .radial-gradient-home {
   background: radial-gradient(rgb(22, 219, 219), #085a7a);
@@ -264,7 +264,7 @@ body {
 /* main headline */
 
 .main-headline-container {
-  background: radial-gradient(rgb(2, 216, 245), #03030365);
+  background: radial-gradient(rgb(0 0 0), #dc3545);;
   height: 17rem;
   margin-top: 2rem;
   margin-bottom: 3rem;
@@ -278,8 +278,7 @@ body {
 
 #head-news-title,
 .headers-title {
-  color: #eceff0;
-  background: linear-gradient(rgba(0, 0, 0, 0.562), rgba(0, 182, 228, 0.384));
+  background-color:  rgba(1, 1, 1, 0.384);
   border-radius: 2rem;
   box-shadow: 0px 1px 10px 2px rgb(12, 12, 12);
   cursor: pointer;
@@ -291,16 +290,19 @@ body {
   padding-top: 0.5rem;
   max-height: 7rem;
   overflow: hidden;
+  transition: transform 1s ease, background-color 1s ease, box-shadow 1s ease-in, text-shadow 1s ease-out ;
  
 }
 
+
 #head-news-title a,
-.headers-title a {
-  
+.headers-title a { 
   text-decoration: none;
   color: white;
+  transition: color 1s ease; 
 
 }
+
 
 
 #head-news-description,
@@ -706,10 +708,6 @@ body {
   
 }
 
-.news-section h3{
-  background-color: aqua;
-
-}
 
 .new-img-demo {
   max-height: inherit;

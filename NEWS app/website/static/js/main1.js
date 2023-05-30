@@ -10,26 +10,30 @@ let togglerLeafTemp = '<i id="toggler" class="fa-brands fa-pagelines fa-4x"></i>
 
 
 
-function getData(){$(function() { // <---  document.ready
+async function getData(){$(function() { // <---  document.ready
 
   fetch('/getAlldata')   //<---  fetching data from backend using fetch api when the DOM is ready
-  .then((response) => response.json())
-  .then((data) => {
-    default_data = data['def-data'];
-    blockchain_data = data['block-data'];
-    c_list = data['c-list'];
-    user = data['user']
+  .then(async (response) => await response.json())
+  .then(async(data) => {
+    default_data = await data['def-data'];
+    blockchain_data = await data['block-data'];
+    c_list = await data['c-list'];
+    user = await data['user']
     
     }) 
-    .then(() => {$('div:not(#loader)').show(); $('#loader').hide(); $('#search-results').hide(); if(user){
+    .then(async() => {
+      await $('div:not(#loader)').show();
+      await $('#loader').hide();
+      $('#search-results').hide();
+      if(user){
       $("#clicksignup").hide();
       $("#login-button").append(logoutTemp) //add logout in place of login if user is found
-      
-    } })
+      } })
     
   
   
 });}
+
 
 $('div:not(#loader)').hide();
 setTimeout(getData, 2000)

@@ -40,7 +40,7 @@
     <div class="container">
       <div class="row">
         <div class="col-8">
-          <h1 id="head-news-title" onmouseenter="Glowup(this)"><a href="/readmore/def/0"  >{{ news_list[0]['title']}}</a></h1>
+          <h1 id="head-news-title" onmouseenter="Glowup(this)"><a href="/readmore/def/0"  ><span>{{ news_list[0]['title']}}</span></a></h1>
           <div id="head-news-description" >{{ news_list[0]['description']}}</div>
           <div class="readmore-container d-flex flex-row mb-3">
 
@@ -187,7 +187,7 @@
         <div id="prepend-here" class="cryptos-section-rows p-2 row row-cols-1">
           
           
-          {% for i in range(32, crypto_list|length)  %}
+          {% for i in range(1, crypto_list|length)  %}
             {% set name = (crypto_list[i]['name']).lower() %}
               <div id="{{(crypto_list[i]['name']).lower()}}" onclick="ExpandDetails(this)" ondblclick="CloseDetails(this)" class="cryptos col c-tabs" style='background-image: url("https://coinicons-api.vercel.app/api/icon/{{name}}");'>
               
