@@ -209,6 +209,47 @@ function FadestopReadLater(rmore){
 
 }
 
+//Images becomes fullscreen on click
+var elements = document.getElementsByClassName('full-screen-hover');
+let homeBody = document.getElementById("home-body");
+const sectionElement = document.getElementById('display-zoomed-image');
+setInterval(()=>{ //to continuously accumulate newly added news section
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', expandFullScreen);
+  
+  }
+
+}, 1000)
+
+function removeAppendedImg(){ //remove image from 'display-zoomed-image' section
+  sectionElement.style.display = "none";
+  sectionElement.innerHTML = "";
+
+  homeBody.style.filter = "blur(0px)";
+  homeBody.style.pointerEvents = ""
+
+}
+
+function expandFullScreen() {
+  console.log("clicking " +  this.src );
+
+  //Hide and unhide full-screen-hover section accordingly // note - this works the other way since this is happening before the appending
+  
+  let template = `<img id="appendedImg" onclick="removeAppendedImg()" src='${this.src}' alt="" />`;  
+  sectionElement.style.display = "block";
+  document.getElementById("home-body").style.filter = "blur(6px)";
+  sectionElement.innerHTML += template;
+  homeBody.style.pointerEvents = "none";
+
+
+
+
+}
+
+
+
+
+
 
 //Search section
 

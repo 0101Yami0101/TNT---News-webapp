@@ -66,10 +66,9 @@ $( "#loadmoreOther" ).on("click", function() {
 
             '</div>'+
           '</div>'+
-          '<div id="otherImg'+i+'" class="col-4 new-img-demo ">'+
-            '<a href='+ default_data[i]["image-link"] +' target="_blank">'+
-              '<img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='+ default_data[i]["image-link"] +' alt="" />'+
-            '</a>'+
+          '<div id="otherImg'+i+'" class="col-4 new-img-demo ">'+           
+              '<img class="full-screen-hover" onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='+ default_data[i]["image-link"] +' alt="" />'+
+
           '</div>'+
         '</div>'+
      '</div>'  
@@ -101,8 +100,7 @@ $( "#loadmoreBlock" ).on("click", function() {
           '<span onclick="ShareThis(block, '+i+')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>'+
           '<span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('+i+', "block")"></a></i></span> '+
     '</div>'+
-    '<div id="" class="col-4 web3-images"><a href=' +
-    blockchain_data[i]["image-link"] + ' target="_blank"><img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='+ blockchain_data[i]["image-link"] + ' alt="" /></a></div>'
+    '<div id="" class="col-4 web3-images"><img class="full-screen-hover" onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='+ blockchain_data[i]["image-link"] + ' alt="" /></div>'
 
 
   $("#append-more-block-news").append(block_news_temp); //<--- To-Do do animation while appending

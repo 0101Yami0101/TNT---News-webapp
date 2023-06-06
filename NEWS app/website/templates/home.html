@@ -3,9 +3,8 @@
 <!-- "Extended" -->
 {% block Content %}
 
-<section id="shareTab" class="share" >
-  
-</section>
+<section id="shareTab" class="share" ></section>
+<section onclick="removeAppendedImg()"  id="display-zoomed-image"></section> <!--Add zooming image here-->
 
 <div id="home-body" class="home-body container-fluid ">
   
@@ -45,23 +44,18 @@
           <div class="readmore-container d-flex flex-row mb-3">
 
 
-           <span id="topnewsReadMore" class="read-more"><a  class="p-2" href='{{ news_list[0]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a>  </span> 
-
-
-          
+           <span id="topnewsReadMore" class="read-more"><a  class="p-2" href='{{ news_list[0]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a>  </span>          
            <span onclick="ShareThis('def', '0')" id="topnewsVisitOriginal" class="visit-original"><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
-
-        
-
            <span id="topnewsReadLater" class="read-later"><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later"></i></a></span> 
 
 
           </div>
         </div>
-        <div class="image-headline col-4">
-          <a href='{{ news_list[0]["image-link"] }}' target="_blank">
-            <img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ news_list[0]["image-link"] }}' alt="" />
-          </a>
+        <div id="mainImg" class="image-headline col-4">
+          <img class="full-screen-hover" onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ news_list[0]["image-link"] }}' alt="" />
+          <!-- below code to open image in a new tab. Might need later -->
+          <!-- <a href='{{ news_list[0]["image-link"] }}' target="_blank">
+          </a> -->
         </div>
       </div>
     </div>
@@ -102,18 +96,14 @@
            
 
             <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ news_list[i]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
-
             <span onclick="ShareThis('def', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
-
             <span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'def')"></a></i></span> 
 
 
           </div>
         </div>
         <div id="otherImg{{i}}" class="col-4 new-img-demo ">
-          <a href='{{ news_list[i]["image-link"] }}' target="_blank">
-            <img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ news_list[i]["image-link"] }}' alt="" />
-          </a>
+          <img class="full-screen-hover" onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ news_list[i]["image-link"] }}' alt="" />
         </div>
       </div>
     </div>
@@ -144,17 +134,15 @@
         <div class="block-readmore-container d-flex flex-row mb-3">
 
           <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ blockchain_list[i]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
-
-          <span onclick="ShareThis('block', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
-          
+          <span onclick="ShareThis('block', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>         
           <span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'block')"></a></i></span> 
 
         </div>
 
         <div id="" class=" web3-images">
-          <a href='{{ blockchain_list[i]["image-link"] }}' target="_blank">
-            <img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ blockchain_list[i]["image-link"] }}' alt="" />
-          </a>
+          <img class="full-screen-hover" onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ blockchain_list[i]["image-link"] }}' alt="" />
+          <!-- <a href='{{ blockchain_list[i]["image-link"] }}' target="_blank">
+          </a> -->
         </div>
       </div>
     </div>
