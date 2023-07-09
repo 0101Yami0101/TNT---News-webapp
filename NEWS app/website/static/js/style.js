@@ -20,6 +20,15 @@
   })
 })()
 
+//Loading animation
+
+function loadAnimation(element){
+  //slight load animation on clicking icons
+  
+  
+
+}
+
 
 
 //Logo shadow
@@ -175,19 +184,12 @@ css.insertRule(`
    
  }`, css.cssRules.length);
 
-css.insertRule(`
-@keyframes fadeAnim {
-  25% {text-shadow: 1px 1px 4px red; opacity: 1} 
-  50% {text-shadow: 2px 2px black;} 
-  75% {text-shadow: 4px 2px 4px red; opacity: 0.2} 
-   
- }`, css.cssRules.length);
 
 
 function FocusUp(img){
 
   img.style.animation = "focus 2s infinite"
-  // img.style.opacity = 1 ;
+
   
 
 }
@@ -200,12 +202,32 @@ function FocusDown(img){
 }
 
 //Readmore section
+css.insertRule(`
+@keyframes fadeAnim {
+ 
+  25% {
+    text-shadow: 3px 3px 6px black; opacity: 0.5; transform: scale(1.6);
+  }
+  50% {
+    text-shadow: 2px 2x 4px aquamarine; opacity: 1; transform: scale(1);
+  }
+  75% {
+    text-shadow: 3px 3px 6px black; opacity: 1; transform: scale(1.6);
+  }
+   
+ }`, css.cssRules.length);
+
+
 function FadeReadLater(rmore){
+  rmore.style.transition = 'transform 2s';
   rmore.style.animation = "fadeAnim 2s infinite"
+  // rmore.style.transform = 'scale(2)';
 
 }
 function FadestopReadLater(rmore){
-  rmore.style.animation = ""
+  setTimeout(() => {
+    rmore.style.animation = ""   
+  }, 3800);
 
 }
 

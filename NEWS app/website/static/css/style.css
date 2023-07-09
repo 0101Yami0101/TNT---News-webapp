@@ -357,9 +357,9 @@ body {
 
 #topnewsReadMore{
   
+  position: relative;
   left: 3rem;
   padding-top: 0.5em;
-  position: relative;
   bottom: -3.1rem;
 }
 
@@ -1355,5 +1355,6 @@ form label{
   color: rgb(247, 11, 11);
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
 }
+
 
 

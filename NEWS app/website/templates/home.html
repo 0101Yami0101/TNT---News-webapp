@@ -44,9 +44,17 @@
           <div class="readmore-container d-flex flex-row mb-3">
 
 
-           <span id="topnewsReadMore" class="read-more"><a  class="p-2" href='{{ news_list[0]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a>  </span>          
-           <span onclick="ShareThis('def', '0')" id="topnewsVisitOriginal" class="visit-original"><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
-           <span id="topnewsReadLater" class="read-later"><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa fa-floppy-o fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later"></i></a></span> 
+            <span id="topnewsReadMore" class="read-more">
+              <a class="p-2" href='{{ news_list[0]["link"] }}'  >  
+                <i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i>              
+              </a>
+              
+            </span>          
+            
+           
+           <!-- onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"   ///   -->
+           <span onclick="ShareThis('def', '0')" id="topnewsVisitOriginal" class="visit-original"><a class="p-2" href="#"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
+           <span id="topnewsReadLater" class="read-later"><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa fa-floppy-o fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later"></i></a></span> 
 
 
           </div>
@@ -95,9 +103,9 @@
           <div class="other-readmore-container  d-flex flex-row mb-3 justify-content-between">
            
 
-            <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ news_list[i]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
-            <span onclick="ShareThis('def', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
-            <span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'def')"></a></i></span> 
+            <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ news_list[i]["link"] }}'  ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
+            <span onclick="ShareThis('def', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
+            <span class="other-read-later " ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'def')"></a></i></span> 
 
 
           </div>
@@ -133,9 +141,9 @@
         </div>
         <div class="block-readmore-container d-flex flex-row mb-3">
 
-          <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ blockchain_list[i]["link"] }}'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
-          <span onclick="ShareThis('block', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>         
-          <span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'block')"></a></i></span> 
+          <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ blockchain_list[i]["link"] }}'  ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
+          <span onclick="ShareThis('block', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>         
+          <span class="other-read-later " ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'block')"></a></i></span> 
 
         </div>
 
