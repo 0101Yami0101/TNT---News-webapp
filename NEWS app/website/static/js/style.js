@@ -276,19 +276,59 @@ function expandFullScreen() {
 //Search section
 
 $("#searchText").on({
-  mouseenter: function(){
-    $(this).css("background-color", "white").css("opacity", "1");
-  },
-  mouseleave: function(){
-    $(this).css("background-color", "white").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
-  },
-  dblclick: function(){
-    $(this).css("background", "linear-gradient(yellow, orange, aqua)").css("box-shadow", "0px 1px 8px 1px white");
-  },
-  keypress: function(){
-    $(this).css("background", "white");
+  
+  click: function(){
+ 
+    $('#searchText').attr('placeholder', 'Type Something');
+
+    if (window.matchMedia("(max-width: 600px)").matches) { /*If mobile window . scroll search section to middle on click */
+      var searchTextElement = document.getElementById("searchText");
+      var viewportHeight = window.innerHeight;
+      var elementTop = searchTextElement.getBoundingClientRect().top;
+      var desiredScrollPosition = elementTop - (viewportHeight / 3) + (searchTextElement.offsetHeight / 3);
+      
+      window.scrollTo({
+          top: desiredScrollPosition,
+          behavior: "smooth"
+      });
   }
+    
+  },
+
+
+ 
+
+  keypress: function(){
+    
+    $(this).css("background", "white").css("opacity", "1");
+
+    if($('#searchText').val() == ""){
+      $('#searchText').attr('placeholder', 'Search Headline..');
+    }
+    else{
+      console.log($('#searchText').val())
+    } 
+    
+    
+    
+  },
+
+  focus: function(){
+    $(this).css("outline", "none");
+    
+  },
+
+
+  
 });
+
+
+$("#searchText").on('click', () => {
+  
+})
+
+
+
 
 
 //video section
@@ -342,6 +382,10 @@ if (query1.matches){
   hiphen.remove()
   colon2.remove()
   $(".time-date").append(tempDay)
+
+
+  
+ 
 
  
   

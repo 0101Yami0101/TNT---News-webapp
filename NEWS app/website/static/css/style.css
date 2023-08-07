@@ -18,6 +18,7 @@ body {
   background-color: rgba(10, 10, 10, 0.984);
   margin: -1rem;
   overflow-x: hidden;
+  
 
   
 }
@@ -154,7 +155,7 @@ body {
 
 #login-button {
   align-items: center;
-  display: flex;
+  /* display: flex; */
   position: absolute;
   right: 0rem;
   width: 20rem;
@@ -555,14 +556,14 @@ body {
 
 #search-section {
  
-  height: 5rem;
+  height: fit-content;
+  width: fit-content;
   padding-left: 1rem;
   padding-top: 0.5rem;
-  width: 55rem;
 }
 #searchText {
-  color: rgba(10, 10, 10, 0.959);
-  background-color: #eee9e9d3;
+  color: rgba(92, 47, 47, 0.959);
+  background: linear-gradient(to bottom right, #dc3545, black);
   border-radius: 1rem;
   box-shadow: 0px 4px 10px 1px black;
   font-family:"Righteous", cursive;
@@ -574,12 +575,17 @@ body {
   position: relative;
   bottom: 2rem;
   opacity: 0.85;
+  transition: all 1s;
   
 }
 #searchText::placeholder{
-  color: rgba(0, 0, 0, 0.534);
-  text-shadow: 1px 1px 4px rgba(253, 252, 252, 0.788);
+  color: rgba(253, 255, 255, 0.871);
+  text-shadow: 1px 1px 4px rgba(6, 6, 6, 0.788);
 
+}
+.focused-input::placeholder {
+  color: rgb(243, 67, 8) !important; 
+  text-shadow: 2px 2px 6px rgba(7, 238, 230, 0.788) !important;
 }
 
 
@@ -593,53 +599,115 @@ body {
 }
 
 #search-results {
-  background: radial-gradient( rgba(0rgba(0, 255, 0, 0.164)5, 255, 0.274), lime);
+  background: linear-gradient(rgb(0, 247, 255) 0%, black 50%);
   border-radius: 2rem;
-  border-top: 2px dotted black;
-  box-shadow: 0px 5px 7px 2px black;
+  box-shadow: 0px 5px 7px 2px rgb(66 64 64);
   padding: 2rem 1rem 0 2rem;
   width: 53rem;
-  height: 15rem;
+  height: 19rem;
   margin-top: 2px;
   overflow-y: auto;
   position: relative;
-  bottom: 2.3rem;
+  bottom: 1rem;
   z-index: 1;
+  scrollbar-width: thin; /* Set the width of the scrollbar track */
+  scrollbar-color: #ccc transparent; 
   display: none;
 }
 
 #search-results::-webkit-scrollbar {/* Hide scrollbar for Chrome, Safari and Opera */
-  display: none;
+  width: 5px;
+}
+
+#search-results::-webkit-scrollbar-thumb {
+  background-color: #999; /* Set the color of the thumb */
+  border-radius: 5px; /* Rounded corners for the thumb */
+}
+
+#search-results::-webkit-scrollbar-track {
+  background-color: transparent; /* Set the color of the track */
 }
 
 #close-search{
-  box-shadow: 0 0 5px 2px rgb(252, 8, 8);
-  background-color: rgba(253, 2, 2, 0.363);
+  
   display: none;
   position: relative;
-  width: 1rem;
-  top: -3.75rem;
-  left: 52.6rem;
+  top: -2rem;
+  left: -2.4rem;
   border-radius: 0.4rem;
   z-index: 2;
+   
+  
 }
-
+.fa-times-circle-o{
+  color: rgb(245, 13, 1);
+  cursor: pointer;
+  text-shadow: 2px 2px 7px red;
+  transition: all 1s;
+}
+.fa-times-circle-o:hover{
+  color: rgb(244, 7, 224);
+  text-shadow: 2px 2px 9px red;
+  transform: scale(1.4) ;
+}
 .search-return{
-  background: linear-gradient(rgba(102, 219, 141, 0.63), rgb(19, 18, 18));
+  background: #202020;
   border: 2px solid black;
   box-shadow: 0px 0px 7px 2px black;
   border-radius: 2rem;
-  color: whitesmoke;
+  color: rgba(15, 15, 15, 0.835);
+  cursor: pointer;
   font-family: "Righteous", cursive;
   margin-bottom: 1rem;
-  padding: 0 2rem 0 2rem;
-
-
+  padding: 1rem 2rem 0 2rem;
+  transition: all 0.5s;
+  text-shadow:
+    -1px -1px 0 rgb(247, 248, 249), /* Top-left shadow */
+    1px -1px 0 rgb(247, 248, 249),  /* Top-right shadow */
+    -1px 1px 0 rgb(247, 248, 249),  /* Bottom-left shadow */
+    1px 1px 0 rgb(247, 248, 249);   /* Bottom-right shadow */
+  
 }
+
+ 
+
+
+.search-return:hover{
+  scale: 1.035;
+  transition: all 0.3s;
+  background: #000000;
+  box-shadow: 0px 0px 7px 2px #333333;;
+  text-shadow: 
+  1px -1px 0 black,  /* Top-right shadow */
+  -1px -1px 0 black, /* Top-left shadow */
+  -1px 1px 0 black,  /* Bottom-left shadow */
+  1px 1px 0 black;
+
+
+   /* nest conditions */
+  .search-titles{ 
+    transition: all 0.5s;
+    color: rgb(217, 216, 216);
+  };
+
+  .search-readmore-icon{
+    transition: all 0.5s;
+    color: #06f5f5;
+
+  }
+
+  
+}
+
+
+
+
+
+
 
 .search-readmore-icon{
   margin-left: 1.2rem;
-  color: yellow;
+  color: #636254;
   text-shadow: 0px 7px 3px black ;
 }
 
@@ -713,7 +781,7 @@ body {
 
 /* other-headline-container */
 .other-headline-container {
-  background: linear-gradient(rgba(0, 255, 255, 0), rgba(245, 245, 245, 0));
+  background: linear-gradient(rgb(0, 247, 255), rgba(245, 245, 245, 0));
   box-shadow: 2px 1px 8px 2px rgb(19, 18, 18); 
   border-radius: 0rem 2rem 0rem  2rem;
   height: 85rem;
@@ -723,7 +791,7 @@ body {
   position: relative;
   scroll-behavior: smooth;
   left: -31rem;
-  top: -2rem;
+  top: 1rem;
   z-index: 5;
   
 }

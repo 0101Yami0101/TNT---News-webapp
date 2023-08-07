@@ -110,7 +110,7 @@ $( "#loadmoreBlock" ).on("click", function() {
 
 //Searching
 
-function searchText(){
+function  search(){
   $("#appendSearch").text("")
   let TempsearchingIcon = '<div class="lds-hourglass searching"></div>'  //searching loader
   $("#appendSearch").append(TempsearchingIcon)
@@ -133,14 +133,16 @@ function searchText(){
     $(".other-headline-container").css("top", "14rem")
     $('#search-results').fadeIn()
     $('#close-search').show()
+    
 
     //If value is empty - re-adjust
     if($("#searchText").val() == "")
       {
           $(".other-headline-container").css("transition", "top 1s")
-          $(".other-headline-container").css("top", "-2rem")
+          $(".other-headline-container").css("top", "1rem")
           $("#search-results").fadeOut()
-          $('#close-search').hide()
+          $("#close-search").hide()
+          $("#searchText").css("background-color", "#18acc3").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
       
       
       }
@@ -155,11 +157,11 @@ function searchText(){
         if (theTitle.includes(searchText)){  
           //create temporary div to append
 
-          var title = data[i]["title"]
-          var theID = data[i]["id"] - 1
-          var tempDivSearch = '<div class="container search-return" ><h4>' + title + '<a href="/readmore/'+ listNm +'/'+theID  +'"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right search-readmore-icon" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></h4></div>'
+          var title = data[i]["title"]          
+          var link = data[i]['link']
+          var tempDivSearch = '<div class="container search-return" ><h4 class="search-titles">' + title + '<a href="'+ link +'"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right search-readmore-icon" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></h4></div>'
           $("#appendSearch").append(tempDivSearch)
-    
+          
     
         }
         
@@ -181,11 +183,56 @@ function searchText(){
   }, 500)
 
  
-
 }
 
-//Tracking input and searching corresponding text
-$("#searchText").on('input', searchText)
+
+
+$("#searchText").on("keydown", function(event) {
+
+  if($('#searchText').val() !== ""){
+    $('#searchText').attr('placeholder', 'Backspace again to close!');
+     //add alternate placeholder color class
+    const input = document.getElementById("searchText");
+    input.classList.add("focused-input");
+
+    
+   
+    
+  }
+
+
+  // Check if the pressed key is the backspace 
+  if (event.key === "Backspace" || event.keyCode === 8) {
+    // Backspace key is pressed
+    console.log($('#searchText').val())
+  
+    //if searchtext area becomes empty close search section
+    if($('#searchText').val() == ""){
+
+      //if searchtext is backspaced to empty perform readjustment of divs
+
+      $("#appendSearch").text("")
+      $(".other-headline-container").css("transition", "top 1s")
+      $(".other-headline-container").css("top", "1rem")
+      $("#search-results").fadeOut()
+      $("#close-search").hide()
+      $("#searchText").css("background", "linear-gradient(to bottom right, #dc3545, black)").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
+      $('#searchText').attr('placeholder', 'Search Headline..');
+      //remove alternate placeholder color class
+      const input = document.getElementById("searchText");
+      input.classList.remove("focused-input"); 
+     
+    }
+  }
+  else{
+    
+    search() //Perform search when kepressed except backspace
+  
+    
+  }
+});
+
+
 
 
 $("#close-search").on({
@@ -194,7 +241,7 @@ $("#close-search").on({
     let MobileWidmatches =   window.matchMedia("(max-width: 700px)")
 
     if(MobileWidmatches){ //re-adjust in mobile device 
-      $("#Other-head-container").css("top", '-2rem')
+      $("#Other-head-container").css("top", '1rem')
     }
   }
 })
@@ -204,6 +251,11 @@ $("#close-search").on("click", function(){
   $(this).hide()
   $("#searchText").val("")
   $("#search-results").hide()
+  $("#searchText").css("background", "linear-gradient(to bottom right, #dc3545, black)").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
+  $('#searchText').attr('placeholder', 'Search Headline..');
+  //remove alternate placeholder color class
+  const input = document.getElementById("searchText");
+  input.classList.remove("focused-input"); 
  
 })
 
