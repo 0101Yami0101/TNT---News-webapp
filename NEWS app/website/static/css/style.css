@@ -229,7 +229,7 @@ body {
   border-radius: 2rem;
   margin-top: 1rem;
   height: 3rem;
-  box-shadow: 0 2px 7px 2px #1dc318;
+  box-shadow: 0 2px 7px 2px #050df7;
 }
 
 .flash-text-container {
@@ -307,9 +307,13 @@ body {
 }
 
 
+#head-news-title{
+  background-color:  rgba(1, 1, 1, 0.384);
+}
+
 #head-news-title,
 .headers-title {
-  background-color:  rgba(1, 1, 1, 0.384);
+  
   border-radius: 2rem;
   box-shadow: 0px 1px 10px 2px rgb(12, 12, 12);
   cursor: pointer;
@@ -319,10 +323,15 @@ body {
   margin: 2rem;
   margin-top: 0.5rem;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   max-height: 7rem;
   overflow: hidden;
   transition: transform 1s ease, background-color 1s ease, box-shadow 1s ease-in, text-shadow 1s ease-out ;
  
+}
+
+.headers-title{
+  background-color:  #52505061;
 }
 
 
@@ -781,7 +790,7 @@ body {
 
 /* other-headline-container */
 .other-headline-container {
-  background: linear-gradient(rgb(0, 247, 255), rgba(245, 245, 245, 0));
+  background: linear-gradient(to bottom left ,#050505 , #dc3545 30%, black 80%);
   box-shadow: 2px 1px 8px 2px rgb(19, 18, 18); 
   border-radius: 0rem 2rem 0rem  2rem;
   height: 85rem;
@@ -806,7 +815,7 @@ body {
   cursor: pointer;
   height: fit-content;
   box-shadow: 0 0 8px 2px rgb(0, 0, 0);
-  background: radial-gradient(rgb(0, 247, 255), black);
+  background: radial-gradient(rgb(73 73 73), black);
   
 }
 

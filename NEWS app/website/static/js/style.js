@@ -154,21 +154,46 @@ setInterval(dispTime, 10);
 function Glowup(elem){
   let id = "#"+elem.id 
 
+  
+  
+  
+ 
+  
   $(id).css("transform" , "scale(1.1)")
   $(id).css("background-color" , "rgb(7 7 7 / 69%)")
-  $(id).css("box-shadow", "1px 1px 7px 1px #ffffff")
   $(id).css("text-shadow", "2px 2px 8px aqua")
-  
+
+  if(id == "#head-news-title"){
+    
+    $(id).css("box-shadow", "1px 1px 7px 1px #ffffff")
+   
+  }
+  else{
+    
+    $(id).css("box-shadow", "1px 1px 7px 1px grey")
+    
+  }
   
   
   
   $(id).mouseleave(function(){
-        $(id).css("box-shadow", "0px 1px 10px 2px rgb(12, 12, 12)")
-        $(id).css("transform" , "scale(1)")
-        $(id).css("background-color" , " rgba(1, 1, 1, 0.384)")
-        $(id).css("text-shadow", "2px 3px 5px #080808")
+
+
+    if(id == "#head-news-title"){
+      $(id).css("box-shadow", "0px 1px 10px 2px rgb(12, 12, 12)")
+      $(id).css("transform" , "scale(1)")
+      $(id).css("background-color" , " rgba(1, 1, 1, 0.384)")
+      $(id).css("text-shadow", "2px 3px 5px #080808")
+    }
+    else{
+      $(id).css("box-shadow", "0px 1px 10px 2px rgb(12, 12, 12)")
+      $(id).css("transform" , "scale(1)")
+      $(id).css("background-color" , "#52505061")
+      $(id).css("text-shadow", "2px 3px 5px #080808")
+    }
+      
         
-      });
+    });
 
   
 }
