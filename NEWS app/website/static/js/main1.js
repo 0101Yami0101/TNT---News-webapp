@@ -39,10 +39,30 @@ $('div:not(#loader)').hide();
 setTimeout(getData, 2000)
 
 
+//if no images there , replace with NO-IMaGE image
+function CheckImages(){ //Check images everytime new news tabs are added
+  
+  const imageContainer = document.getElementById('Other-head-container');
+  const images = imageContainer.querySelectorAll('img');
+  
+  // Loop through each image
+  images.forEach((image, index) => {
+      // console.log(`Image ${index + 1}: ${image.src}`);
+      if(image.src == "http://127.0.0.1:5000/null"){
+        image.src = "https://t3.ftcdn.net/jpg/00/36/94/26/360_F_36942622_9SUXpSuE5JlfxLFKB1jHu5Z07eVIWQ2W.jpg";
+        image.classList.add("null-image")
+      }
+      
+  });
+
+}
+// CheckImages();
+
 //Appending data to Default data section
 var def_start_count = 0;
 
 $( "#loadmoreOther" ).on("click", function() {
+
        
     def_start_count += 6;
     for(i = def_start_count; i <= def_start_count + 5 ; i++ ){ 
@@ -60,9 +80,9 @@ $( "#loadmoreOther" ).on("click", function() {
             '</div>'+
             '<div class="other-readmore-container  d-flex flex-row mb-3 justify-content-between">'+
 
-              '<span class="other-read-more flex-grow-1 "><a  class="p-2" href='+ default_data[i]["link"] +'  ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> '+
-              '<span onclick="ShareThis(def, '+ i +')" class="other-visit-original "><a class="p-2" href="#"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>'+
-              '<span class="other-read-later " ><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('+i+', "def")"></a></i></span> '+
+              '<span class="other-read-more flex-grow-1"><a  class="p-2" href='+ default_data[i]["link"] +'  ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> '+
+              '<span class="other-visit-original "><a onclick="ShareThis(def, '+ i +')" class="p-2" href="#"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Share this now!" ></i></a></span>'+
+              '<span class="other-read-later " ><a class="p-2"  onclick="AppendToRL('+i+', "def")"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa fa-floppy-o fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later"></i></a></span> '+
 
             '</div>'+
           '</div>'+
@@ -77,7 +97,9 @@ $( "#loadmoreOther" ).on("click", function() {
 
 
       $("#append-more-def-news").append(default_news_temp)  //<--- To-Do do animation while appending
-    }     
+      
+    } 
+    CheckImages();    
   });
 
 
@@ -104,8 +126,12 @@ $( "#loadmoreBlock" ).on("click", function() {
 
 
   $("#append-more-block-news").append(block_news_temp); //<--- To-Do do animation while appending
-  }
+  };
+
+
+ 
 })
+
 
 
 //Searching
@@ -129,8 +155,8 @@ function  search(){
     searchText = $('#searchText').val().toUpperCase()
 
     // adjust dom and open box
-    $(".other-headline-container").css("transition", "top 1s")
-    $(".other-headline-container").css("top", "14rem")
+    $(".other-headline-container").css("transition", "all 1s")
+    $(".other-headline-container").css("top", "3rem")
     $('#search-results').fadeIn()
     $('#close-search').show()
     
@@ -138,7 +164,7 @@ function  search(){
     //If value is empty - re-adjust
     if($("#searchText").val() == "")
       {
-          $(".other-headline-container").css("transition", "top 1s")
+          $(".other-headline-container").css("transition", "all 1s")
           $(".other-headline-container").css("top", "1rem")
           $("#search-results").fadeOut()
           $("#close-search").hide()
@@ -195,8 +221,6 @@ $("#searchText").on("keydown", function(event) {
     const input = document.getElementById("searchText");
     input.classList.add("focused-input");
 
-    
-   
     
   }
 
@@ -536,7 +560,18 @@ anchorLinks.forEach(link => {
 
 
 
-//Scrolling buttons and Loadmore buttons 
+// Sticky Plane Icons
+const container = document.querySelector('#Other-head-container');
+const icon = document.querySelector('#scrollBottomOther');
+
+container.addEventListener('scroll', () => {
+  const scrollPosition = container.scrollTop;
+  icon.style.transform = `translateY(${scrollPosition}px)`;
+});
+
+
+
+//Scrolling buttons and Loadmore buttons //chamge this
 $("#scrollBottomOther").click(() => {
   let appNewsLen = $("#append-more-block-news").children().length
   if(appNewsLen == 0){
@@ -551,6 +586,19 @@ $("#scrollBottomOther").click(() => {
 
   }
 })
+
+$("#scrollTopOther").click(() => {
+  
+  
+  let id = "otherheader1"
+  document.getElementById(id).scrollIntoView(true)
+
+ 
+})
+
+//add for #scrollTopBlock
+
+
 $("#scrollBottomBlock").click(() => {
   let appNewsLen = $("#append-more-def-news").children().length
   if(appNewsLen == 0){
@@ -689,6 +737,9 @@ $("#Searchcrypto").click(() => {
   document.getElementById("prepend-here").firstElementChild.scrollIntoView({ behavior: "smooth", block: "center" });
 
 })
+
+
+
 
 
 

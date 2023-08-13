@@ -20,14 +20,6 @@
   })
 })()
 
-//Loading animation
-
-function loadAnimation(element){
-  //slight load animation on clicking icons
-  
-  
-
-}
 
 
 
@@ -50,14 +42,26 @@ function turn_grey() {
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
   var currentScrollPos = window.pageYOffset;
+  function isAtTop() {
+    return window.scrollY === 0;
+  }
+    
   if (prevScrollpos > currentScrollPos) {  //scrolling up
-    document.getElementById("navbar").style.top = "0";
-    $("#navbar").fadeIn(900)
-    $("#home-body").css("top", "9rem")
+    //Dont unhide Novbar if the screen isnt at the top
+    if (isAtTop()) {
+      //unhide
+      document.getElementById("navbar").style.top = "0";
+      $("#navbar").fadeIn(900)
+      $("#home-body").css("top", "9rem")
+    }
+   
+
   } else {  //scrolling down
+    //hide
     document.getElementById("navbar").style.top = "-100px";
     $("#navbar").fadeOut(900)
     $("#home-body").css("top", "7.1rem")
+
   }
   prevScrollpos = currentScrollPos;
 }
@@ -294,10 +298,6 @@ function expandFullScreen() {
 }
 
 
-
-
-
-
 //Search section
 
 $("#searchText").on({
@@ -310,7 +310,7 @@ $("#searchText").on({
       var searchTextElement = document.getElementById("searchText");
       var viewportHeight = window.innerHeight;
       var elementTop = searchTextElement.getBoundingClientRect().top;
-      var desiredScrollPosition = elementTop - (viewportHeight / 3) + (searchTextElement.offsetHeight / 3);
+      var desiredScrollPosition = elementTop - (viewportHeight /4) + (searchTextElement.offsetHeight / 1);
       
       window.scrollTo({
           top: desiredScrollPosition,

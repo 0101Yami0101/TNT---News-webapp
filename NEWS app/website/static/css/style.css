@@ -372,7 +372,9 @@ body {
   padding-top: 0.5em;
   bottom: -3.1rem;
 }
-
+.other-read-more{
+  padding-left: 1rem;
+}
 .read-more i, .other-read-more i{ /* will change all readmore icons*/
   color: #77a6ce;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
@@ -380,6 +382,7 @@ body {
   
   
 }
+
 
 #topnewsVisitOriginal, #topnewsReadLater{
   position: relative;
@@ -390,6 +393,11 @@ body {
 }
 #topnewsReadLater{
   left: 32rem;
+}
+.other-visit-original{
+  margin-left: -3rem;
+  position: relative;
+  left: -2rem;
 }
 
 .visit-original i, .other-visit-original i{
@@ -408,6 +416,7 @@ body {
 .read-later i, .other-read-later i{
   color:  #1ca190d7;
   text-shadow: 5px 7px 7px rgb(36, 34, 34);
+  top: 0;
 }
 
 .image-headline {
@@ -787,6 +796,11 @@ body {
   opacity: 0.9;
 
 }
+/* NULL images */
+.null-image{
+  height: 26rem !important;
+
+}
 
 /* other-headline-container */
 .other-headline-container {
@@ -812,6 +826,7 @@ body {
 .news-section {
   border-radius: 1rem;
   margin: 2rem;
+  padding: 1rem;
   cursor: pointer;
   height: fit-content;
   box-shadow: 0 0 8px 2px rgb(0, 0, 0);
@@ -821,17 +836,18 @@ body {
 
 
 .new-img-demo {
-  max-height: inherit;
-  width: 50rem;
-  height: 20rem;
-  margin: 0 0 1rem 1rem;
+  width: 100%;
+  height: 100%;
   
 }
 .new-img-demo  img{
-  height: 100%;
-  width: 100%;
-  border-radius: 1rem;
-  box-shadow: 0px 1px 10px 7px black; 
+  height: inherit;
+  width:inherit; 
+  box-shadow: 0px 1px 10px 7px black;  
+  cursor: pointer;
+  position: relative;
+  border-radius: 1rem 0 1rem 0;
+  transition: transform 1s ease-in;
   
 }
 
@@ -842,8 +858,7 @@ body {
 }
 
 .other-readmore-container{
-  position: relative;
-  padding: 0 1rem 0 2rem;
+  padding: 0 3rem 0 5rem;
   margin-top: 1rem;
   
 }
@@ -1066,7 +1081,7 @@ body {
   top: 2rem;
 }
 #scrollBottomOther i{
-  color: rgb(9, 248, 228);
+  color: #7d7e7c;
   animation: flyDown 1s infinite ;
   opacity: 1;
 }
@@ -1080,7 +1095,7 @@ body {
 
 
 #scrollTopOther i{
-  color: rgb(9, 248, 236);
+  color: #7d7e7c;
   animation: flyUp 1s infinite ;
   opacity: 1;
 }
@@ -1097,16 +1112,16 @@ body {
 }
 
 #loadmoreOther i {
-  color: red;
+  color: #ffffff00;
   text-shadow: 0px 5px 2px black;
   animation: loadMoreAnim 2s linear infinite;
   opacity: 0;
 }
 
 @keyframes loadMoreAnim {
-  25% {color: rgba(0, 225, 255, 0.671) ;transform:  translate(0 , 20px); text-shadow: 3px 9px 3px black; opacity: 1;}
-  50% {color: rgba(0, 225, 255, 0.89) ;transform:  translate(0 , 30px); text-shadow: 4px 11px 2px rgba(0, 0, 0, 0.247);}
-  75% {color: rgba(0, 225, 255, 0.938) ;transform:  translate(0 , 40px) ;opacity: 1;}; 
+  25% {color: rgba(22, 22, 22, 0.671) ;transform:  translate(0 , 20px); text-shadow: 3px 9px 3px black; opacity: 1;}
+  50% {color: rgba(101, 103, 103, 0.89) ;transform:  translate(0 , 30px); text-shadow: 4px 11px 2px rgba(0, 0, 0, 0.247);}
+  75% {color: rgba(254, 254, 254, 0.938) ;transform:  translate(0 , 40px) ;opacity: 1;}; 
 }
 
 #load2{

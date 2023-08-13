@@ -182,6 +182,11 @@
     left: 60rem;
     top: -3.6rem;
   }
+
+  .null-image{
+    height: 20rem !important;
+  
+  }
   .other-headline-container{
     
     left: 0rem;
@@ -190,7 +195,6 @@
   }
   .new-img-demo {
     
-    width: 96%;
     height: 20rem;
     margin-top: 1rem;
     
@@ -485,6 +489,10 @@
     left: 21rem;
    
   }
+  .null-image{
+    height: 12rem !important;
+  
+  }
   .other-headline-container{
     padding-top: 1rem;
   }
@@ -494,6 +502,12 @@
     left: -2rem;
     
   }
+
+  .new-img-demo {
+    height: 80%;
+    
+  }
+
 
   .lds-hourglass{
     left: 40%;
