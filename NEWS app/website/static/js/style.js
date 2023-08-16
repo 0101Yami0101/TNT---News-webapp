@@ -282,7 +282,7 @@ function removeAppendedImg(){ //remove image from 'display-zoomed-image' section
 }
 
 function expandFullScreen() {
-  console.log("clicking " +  this.src );
+  // console.log("clicking " +  this.src );
 
   //Hide and unhide full-screen-hover section accordingly // note - this works the other way since this is happening before the appending
   
@@ -332,6 +332,7 @@ $("#searchText").on({
     }
     else{
       console.log($('#searchText').val())
+      
     } 
     
     
@@ -355,16 +356,6 @@ $("#searchText").on('click', () => {
 
 
 
-
-//video section
-$("#centerGIF").mouseenter(function(){
-  $(this).css('opacity', '1').css('transition', 'box-shadow 3s').css('box-shadow', '0px 0px 12px 4px #09f1e380')
-   
-})
-$("#centerGIF").mouseleave(function(){
-  $(this).css('opacity', '1').css('transition', 'box-shadow 3s').css('box-shadow', '0px 9px 9px 3px #141313')
-   
-})
 
 //crypto search section
 

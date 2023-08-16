@@ -142,32 +142,50 @@ function  search(){
   $("#appendSearch").append(TempsearchingIcon)
 
   setTimeout(() => {
-    $("#appendSearch").text("")
-     //check if mobile screen
-    let maxMobwid =   window.matchMedia("(max-width: 700px)")
-    if (maxMobwid.matches){
-      // todo -------------->
-      // $(".image-headline").css("transition", "height 2s")
-      // $(".image-headline").css("height", "50rem")
-    }
-    
-    //get search data
-    searchText = $('#searchText').val().toUpperCase()
+    $("#appendSearch").text("") 
+    searchText = $('#searchText').val().toUpperCase() //get search data
 
     // adjust dom and open box
+   
+    let maxTabwid =   window.matchMedia("(max-width: 1200px)")
+    let maxMobwid =   window.matchMedia("(max-width: 700px)")
+
     $(".other-headline-container").css("transition", "all 1s")
-    $(".other-headline-container").css("top", "3rem")
     $('#search-results').fadeIn()
     $('#close-search').show()
+
+    if (maxMobwid.matches){ //mobile
+      $(".other-headline-container").css("top", "-20rem")    
+    }
+    else if (maxTabwid.matches){ //tablet
+      $(".other-headline-container").css("top", "-21rem")
+    }
+
+    else{ //default  
+      $(".other-headline-container").css("top", "1.5rem")
+    }
     
 
     //If value is empty - re-adjust
     if($("#searchText").val() == "")
       {
           $(".other-headline-container").css("transition", "all 1s")
-          $(".other-headline-container").css("top", "1rem")
           $("#search-results").fadeOut()
           $("#close-search").hide()
+
+          let maxTabwid =   window.matchMedia("(max-width: 1200px)")
+          let maxMobwid =   window.matchMedia("(max-width: 700px)")
+          if (maxMobwid.matches){ //mobile
+            $(".other-headline-container").css("top", "-22.5rem")    
+          }
+          else if (maxTabwid.matches){ //tablet
+            $(".other-headline-container").css("top", "-23rem")
+          }
+      
+          else{ //default  
+            $(".other-headline-container").css("top", "0rem")
+          
+          }
           $("#searchText").css("background-color", "#18acc3").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
       
       
@@ -236,10 +254,25 @@ $("#searchText").on("keydown", function(event) {
       //if searchtext is backspaced to empty perform readjustment of divs
 
       $("#appendSearch").text("")
-      $(".other-headline-container").css("transition", "top 1s")
-      $(".other-headline-container").css("top", "1rem")
+      $(".other-headline-container").css("transition", "all 2s")
       $("#search-results").fadeOut()
       $("#close-search").hide()
+      
+      let maxTabwid =   window.matchMedia("(max-width: 1200px)")
+      let maxMobwid =   window.matchMedia("(max-width: 700px)")
+
+      if (maxMobwid.matches){ //mobile
+        $(".other-headline-container").css("top", "-22.5rem")    
+      }
+      else if (maxTabwid.matches){ //tablet
+        $(".other-headline-container").css("top", "-23rem")
+      }
+  
+      else{ //default  
+        $(".other-headline-container").css("top", "0rem")
+      
+      }
+      
       $("#searchText").css("background", "linear-gradient(to bottom right, #dc3545, black)").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
       $('#searchText').attr('placeholder', 'Search Headline..');
       //remove alternate placeholder color class
@@ -258,23 +291,29 @@ $("#searchText").on("keydown", function(event) {
 
 
 
-
-$("#close-search").on({
-  click: function(){
-    $("#Other-head-container").css("top", '0')
-    let MobileWidmatches =   window.matchMedia("(max-width: 700px)")
-
-    if(MobileWidmatches){ //re-adjust in mobile device 
-      $("#Other-head-container").css("top", '1rem')
-    }
-  }
-})
-
 //close search button
 $("#close-search").on("click", function(){
+
   $(this).hide()
   $("#searchText").val("")
-  $("#search-results").hide()
+  $("#search-results").fadeOut()
+  $("#close-search").hide()
+  $(".other-headline-container").css("transition", "all 1s")
+
+  let maxTabwid =   window.matchMedia("(max-width: 1200px)")
+  let maxMobwid =   window.matchMedia("(max-width: 700px)")
+
+  if (maxMobwid.matches){ //mobile
+    $(".other-headline-container").css("top", "-22.5rem")    
+  }
+  else if (maxTabwid.matches){ //tablet
+    $(".other-headline-container").css("top", "-23rem")
+  }
+
+  else{ //default  
+    $(".other-headline-container").css("top", "0rem")
+  
+  }
   $("#searchText").css("background", "linear-gradient(to bottom right, #dc3545, black)").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
   $('#searchText').attr('placeholder', 'Search Headline..');
   //remove alternate placeholder color class
