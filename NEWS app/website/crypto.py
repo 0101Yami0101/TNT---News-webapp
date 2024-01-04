@@ -1,5 +1,6 @@
 # Class to get cdata data using Api
 import requests
+import json
 
 
 
@@ -11,16 +12,26 @@ class cryptoData():
         self.assets_list = []
 
 
-        # # request to get a list of assets
-        # asset_req = requests.get(url= self.URL_endpoint, headers= self.headers)
-        # data = asset_req.json()
-        # print(len(data))
-        # for i in range(len(data)):
-        #     asset = data[i]
-        #     self.assets_list.append(asset)
+        # request to get a list of assets
+        asset_req = requests.get(url= self.URL_endpoint, headers= self.headers)
+        data = asset_req.json()
+        print(len(data))
+        for i in range(len(data)):
+
+            if(data[i]['type_is_crypto'] == 1): #filter only crypto type
+                if('price_usd' in data[i]): #only with price
+                    asset = data[i]
+                    self.assets_list.append(asset)
+
+                
+        
 
         
-        # print(self.assets_list)
+
+    
+
+        
+        
         
 
         

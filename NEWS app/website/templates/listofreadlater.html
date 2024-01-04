@@ -6,19 +6,21 @@
 <div>
     <h2 id="this-is-read-later">READ LATERS</h2>
     <h1 id="emptyTag">EMPTY</h1>
-    <div id="my-readlaters"  class="container ">
+    <div id="my-readlaters"  class="container  ">
         
         {% for i in newslist %}
         <div id="newsListId{{i.newsId}}" class="newsdiv" >
-            <div class="imgcontainer" style="height: 5rem; width: 5rem;">
-                <img src="{{ i.imgLink }}" alt="">
+            <div class="imgcontainerReadLater" >
+                <img onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src="{{ i.imgLink }}" alt="">
             </div>
-            <span class="titles-readlater"> <h3>{{ i.title }}</h3></span>
-           
+            <span class="titles-readlater"> {{ i.title }}</span>
+            <span class="readlaterAuthor"> {{ i.author }}</span>
             <!-- Go to article -->
-            <span class="other-visit-original "><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-person-running fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."><a class="p-2" href='{{ i.blogLink }}'></a></i></span>
-            <!-- to-do::: delete news on click -->
-            <span class="delNews" onclick="RemoveFromRL('{{i.newsId}}')"><i onmouseenter = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-delete-left fa-2x"></i></span>
+
+            <div class="readLaterButtons">
+                <span class="readlaterVisit"><a class="p-2" href='{{ i.blogLink }}'><i onclick= "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Visit the original article.."></i></a></span>
+                <span class="delNews" onclick="RemoveFromRL('{{i.newsId}}')"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-delete-left fa-2x"></i></span>
+            </div>
 
         </div>
         {% endfor %}

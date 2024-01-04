@@ -3,7 +3,7 @@ from .news import NewsData
 from .crypto import cryptoData
 from flask_login import current_user, login_required
 from . import db
-from .models import User, News
+from .models import User, News, PostedNews
 import json
 import requests
 from selenium import webdriver
@@ -67,7 +67,8 @@ def getAlldata():
             "block-data": blockchain_news_list,
             "c-list": crypto_list,
             "user": user,
-            "status" : "success"}  
+            "status" : "success"}
+    # print(crypto_list[2])
 
 
     return jsonify(data)
@@ -85,6 +86,8 @@ def AddToreadlater():
         newdata = data.decode('utf8') #recieved data is in bit format so converting it
         dict = json.loads(newdata)
         theId = int(dict["id"])
+        # flash("Received at backend")
+        
 
         if dict["section"] == "def":
             news = default_news_list[theId]
@@ -97,20 +100,22 @@ def AddToreadlater():
                     dataExists = True
 
             if dataExists:
-                return jsonify({"status" : f"ALready added to ur list" })
+                # flash("Already Added", "error")
+                return jsonify({"status" : f"Already added!" })
             else:
                 title = thetitle
                 author = default_news_list[theId]['author']
                 blogLink = default_news_list[theId]['link']
                 imgLink = default_news_list[theId]['image-link']
                 user_id = current_user.id
+                # add data
                 news = News(title = title, author = author, blogLink = blogLink, imgLink = imgLink, user_id = user_id )
                 db.session.add(news)
                 db.session.commit()
 
 
-
-                return jsonify({"status" : f"Added default news {theId }" })
+                # flash("Added News To Readlater", "error")
+                return jsonify({"status" : f"Added to your list." })
 
         elif dict["section"] == "block":
             news = blockchain_news_list[theId]
@@ -122,7 +127,7 @@ def AddToreadlater():
                     dataExists = True
 
             if dataExists:
-                return jsonify({"status" : f"ALready added to ur list" })
+                return jsonify({"status" : f"Already added!" })
             else:
                 title = thetitle
                 author = blockchain_news_list[theId]['author']
@@ -135,7 +140,7 @@ def AddToreadlater():
 
 
 
-            return jsonify({"status" : f"Added blockchain news {theId }" })
+            return jsonify({"status" : f"Added to your list" })
 
             
 
@@ -149,9 +154,9 @@ def AddToreadlater():
 @login_required
 def listOfReadlater():
     news_list = current_user.news
-    print(news_list)
-    for i in news_list:
-        print(i.title)
+    # print(news_list)
+    # for i in news_list:
+    #     print(i.title)
 
     
     return render_template('listofreadlater.html', newslist = news_list)
@@ -200,4 +205,21 @@ def Share(section, article_id):
         } )
 
 
+@views.route('/sendPostIdea', methods=['POST'])
+def receivePost():
+    if request.method == 'POST':
+        data = request.get_data()
+        Postdata = json.loads(data.decode('utf8'))
+        mail = Postdata['email']
+        message = Postdata['message']
+
+        # add data to database
+        post = PostedNews(email = mail, postData = message)
+        db.session.add(post)
+        db.session.commit()
+
+        return jsonify({"status" : "sucess" })
     
+    return jsonify({"status" : "failed" })
+    
+

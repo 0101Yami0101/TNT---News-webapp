@@ -3,10 +3,11 @@
 //form validation
 (() => {
   'use strict'
+ 
 
   // Fetch all the forms we want to apply custom Bootstrap validation styles to
   const forms = document.querySelectorAll('.needs-validation')
-
+  
   // Loop over them and prevent submission
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
@@ -19,8 +20,6 @@
     }, false)
   })
 })()
-
-
 
 
 //Logo shadow
@@ -37,34 +36,7 @@ function turn_grey() {
 }
 
 
-//Hiding and Unhiding Navbar on scroll
 
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  function isAtTop() {
-    return window.scrollY === 0;
-  }
-    
-  if (prevScrollpos > currentScrollPos) {  //scrolling up
-    //Dont unhide Novbar if the screen isnt at the top
-    if (isAtTop()) {
-      //unhide
-      document.getElementById("navbar").style.top = "0";
-      $("#navbar").fadeIn(900)
-      $("#home-body").css("top", "9rem")
-    }
-   
-
-  } else {  //scrolling down
-    //hide
-    document.getElementById("navbar").style.top = "-100px";
-    $("#navbar").fadeOut(900)
-    $("#home-body").css("top", "7.1rem")
-
-  }
-  prevScrollpos = currentScrollPos;
-}
 
 //Navbar Gradient on hover effect
 $(document).mousemove(function(event) {
@@ -82,8 +54,8 @@ $(document).mousemove(function(event) {
 
 
 
-//CLOCK
-//Adding time
+// CLOCK
+// Adding time
 var min 
 var hr
 function dispTime() {
@@ -215,21 +187,6 @@ css.insertRule(`
 
 
 
-function FocusUp(img){
-
-  img.style.animation = "focus 2s infinite"
-
-  
-
-}
-function FocusDown(img){
-
-
-  img.style.animation = "None";
-  // img.style.opacity = 0.65 ;
-
-}
-
 //Readmore section
 css.insertRule(`
 @keyframes fadeAnim {
@@ -247,18 +204,6 @@ css.insertRule(`
  }`, css.cssRules.length);
 
 
-function FadeReadLater(rmore){
-  rmore.style.transition = 'transform 2s';
-  rmore.style.animation = "fadeAnim 2s infinite"
-  // rmore.style.transform = 'scale(2)';
-
-}
-function FadestopReadLater(rmore){
-  setTimeout(() => {
-    rmore.style.animation = ""   
-  }, 3800);
-
-}
 
 //Images becomes fullscreen on click
 var elements = document.getElementsByClassName('full-screen-hover');
@@ -291,7 +236,6 @@ function expandFullScreen() {
   document.getElementById("home-body").style.filter = "blur(6px)";
   sectionElement.innerHTML += template;
   homeBody.style.pointerEvents = "none";
-
 
 
 
@@ -364,7 +308,7 @@ $("#Searchcrypto").on({
     $(this).css("background-color", "white").css("opacity", "1");
   },
   mouseleave: function(){
-    $(this).css("background-color", "white").css("opacity", "0.85").css("box-shadow" , "0px 4px 10px 1px black");
+    $(this).css("background-color", "white").css("opacity", "0.85");
   },
   dblclick: function(){
     $(this).css("background", "linear-gradient(yellow, orange, aqua)").css("box-shadow", "0px 1px 8px 1px white");
@@ -373,6 +317,47 @@ $("#Searchcrypto").on({
     $(this).css("background", "white");
   }
 });
+
+//Crypto close button
+const closeButton = document.getElementById('closeButton');
+
+closeButton.addEventListener('mouseover', function() {
+    this.style.backgroundColor = 'brown';
+    this.style.color = 'black';
+});
+
+closeButton.addEventListener('mouseout', function() {
+    this.style.backgroundColor = '#5c9ba3';
+    this.style.color = 'black';
+});
+
+//cryptos On hover
+
+const lightUpCryptos = (crypto_div, onOrOff) => {
+  const appendDetails = crypto_div.querySelector('.append-details');
+
+
+  if (appendDetails.childNodes.length == 1 || appendDetails.childNodes.length == 0) { //checks if empty : default =1 ; after one expansion =0
+    if (onOrOff === 'on') {
+      crypto_div.style.filter = 'brightness(400%)';
+    } else {
+      crypto_div.style.filter = 'brightness(200%)';
+    }
+  }else {
+    if (onOrOff === 'on') {
+      crypto_div.style.backdropFilter = " brightness(400%)"
+    } else {
+      crypto_div.style.backdropFilter = "";
+    }
+   
+  }
+};
+
+// Call the function to apply the hover effect
+
+
+
+
 
 
 
@@ -425,17 +410,14 @@ $("#search-results").show()
 
 //FOOTER
 function changeShadow(icon){
-  icon.style.transition = "text-shadow 0.5s, font-size 1s, color 0.5s";  
-  icon.style.textShadow = "2px 7px 5px black";  
-  icon.style.fontSize = '2rem'
-  icon.style.color = 'blue'
+  icon.style.transform = "scale(1.5)"
+  icon.style.color = "aquamarine"
   
 }
 
 function changeBack(icon){
-  icon.style.textShadow = "0px 2px 3px rgb(10, 10, 10)"; 
-  icon.style.fontSize = '1.5rem'
-  icon.style.color = 'rgb(8, 8, 8)'
+  icon.style.transform = "scale(1)"
+  icon.style.color = "white"
 }
 
 
@@ -464,4 +446,40 @@ function highlightTalkwithUs(){
 }
 
 
+// Scrollbar in Mobile/Tab view
+// Check if the screen width is 800px or less
+if (window.innerWidth <= 1400) {
+  // Create a style rule for the scrollbar
+  var style = document.createElement('style');
+  style.type = 'text/css';
+  style.innerHTML = `
+      /* Style for scrollbar */
+      ::-webkit-scrollbar {
+          width: 8px; /* Width of the scrollbar */
+      }
+
+      ::-webkit-scrollbar-thumb {
+          background-color: #888; /* Color of the scrollbar thumb */
+      }
+  `;
+  
+  // Append the style rule to the head element
+  document.head.appendChild(style);
+}
+
+// focus images animation
+function FocusUp(img){
+
+  img.style.animation = "focus 2s infinite"
+
+  
+
+}
+function FocusDown(img){
+
+
+  img.style.animation = "None";
+  // img.style.opacity = 0.65 ;
+
+}
 

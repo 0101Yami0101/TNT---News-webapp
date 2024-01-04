@@ -36,23 +36,24 @@
 
   <!--Prime/Latest Headline-->
   <div class="main-headline-container">
-    <div class="container">
+    <div class="container" style="height: 100%;">
       <div class="row">
-        <div class="col-8">
-          <h1 id="head-news-title" onmouseenter="Glowup(this)"><a href="/readmore/def/0"  ><span>{{ news_list[0]['title']}}</span></a></h1>
+        <div class="col-8" >
+          <h1 id="head-news-title" onmouseenter="Glowup(this)"><a href='{{ news_list[0]["link"] }}' ><span>{{ news_list[0]['title']}}</span></a></h1>
           <div id="head-news-description" >{{ news_list[0]['description']}}</div>
           <div class="readmore-container d-flex flex-row mb-3">
 
-
+           
            <span id="topnewsReadMore" class="read-more"><a class="p-2" href='{{ news_list[0]["link"] }}'  ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span>                    
            <span onclick="ShareThis('def', '0')" id="topnewsVisitOriginal" class="visit-original"><a class="p-2" href="#"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>
            <span id="topnewsReadLater" class="read-later"><a class="p-2"  onclick="AppendToRL('{{0}}', 'def')"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa fa-floppy-o fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later"></i></a></span> 
 
 
           </div>
+           
         </div>
         <div id="mainImg" class="image-headline col-4">
-          <img class="full-screen-hover" onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src='{{ news_list[0]["image-link"] }}' alt="" />
+          <img class="full-screen-hover" onmouseover="FocusUp(this)" onmouseleave="FocusDown(this)" src="{{ news_list[0]["image-link"] }} " alt="" />
           <!-- below code to open image in a new tab. Might need later -->
           <!-- <a href='{{ news_list[0]["image-link"] }}' target="_blank">
           </a> -->
@@ -89,7 +90,7 @@
     <div id="news-section" class="news-section">
       <div class="row">
         <div class="col-12">
-          <h3 id="otherheader{{i}}" class="headers-title" onmouseenter="Glowup(this)"><a href="/readmore/def/{{i}}"  >{{ news_list[i]['title'] }}</a></h3>
+          <h3 id="otherheader{{i}}" class="headers-title" onmouseenter="Glowup(this)"><a href="#"  >{{ news_list[i]['title'] }}</a></h3>
           <div class="other-news-description headers-desp">
             {{ news_list[i]['description']}}
           </div>
@@ -127,16 +128,16 @@
     <div class="blockchain-news-section">
       <div class="row">
         <div class="col-12">
-          <h3 id="blockchainheader{{i}}"  class="headers-title" onmouseenter="Glowup(this)"><a href="/readmore/block/{{i}}"  >{{blockchain_list[i]['title'] }}</a></h3>
+          <h3 id="blockchainheader{{i}}"  class="headers-title" onmouseenter="Glowup(this)"><a href="#"  >{{blockchain_list[i]['title'] }}</a></h3>
         </div>
         <div class="blockchain-news-description headers-desp">
           {{ blockchain_list[i]['description']}}
         </div>
         <div class="block-readmore-container d-flex flex-row mb-3">
 
-          <span class="other-read-more flex-grow-1 "><a  class="p-2" href='{{ blockchain_list[i]["link"] }}'  ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
-          <span onclick="ShareThis('block', '{{i}}')" class="other-visit-original "><a class="p-2" href="#"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>         
-          <span class="other-read-later " ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-download fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."><a class="p-2"  onclick="AppendToRL('{{i}}', 'block')"></a></i></span> 
+          <span class="block-read-more flex-grow-1 "><a  class="p-2" href='{{ blockchain_list[i]["link"] }}'  ><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa-solid fa-angles-right fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!"></i></a></span> 
+          <span onclick="ShareThis('block', '{{i}}')" class="block-visit-original"><a class="p-2" href="#"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)"  class="fa-solid fa-share fa-2x" data-toggle="tooltip" data-placement="bottom" title="Read more now!" ></i></a></span>         
+          <span class="block-read-later " ><a class="p-2"  onclick="AppendToRL('{{i}}', 'block')"><i onclick = "FadeReadLater(this)" onmouseleave="FadestopReadLater(this)" class="fa fa-floppy-o fa-2x" data-toggle="tooltip" data-placement="bottom" title="Add to read-later."></i></a></span> 
 
         </div>
 
@@ -168,7 +169,8 @@
     <div class="cryptos-section">
       <!-- search  -->
       <div id="searchCrypto">
-        <input id="Searchcrypto" oninput="Searchcrypto()" name="Searchcrypto" type="text" placeholder="Search Crypto..">
+        <input id="Searchcrypto" name="Searchcrypto" type="text" placeholder="Search Crypto..">
+        <button id="closeButton">Close All</button>
       </div>
 
       <div id="Cryptocontainer" class="Cryptocontainer d-flex flex-row mb-3">
@@ -176,17 +178,18 @@
         <div id="prepend-here" class="cryptos-section-rows p-2 row row-cols-1">
           
           
-          {% for i in range(1, crypto_list|length)  %}
+          {% for i in range(0, 30)  %}
             {% set name = (crypto_list[i]['name']).lower() %}
-              <div id="{{(crypto_list[i]['name']).lower()}}" onclick="ExpandDetails(this)" ondblclick="CloseDetails(this)" class="cryptos col c-tabs" style='background-image: url("https://coinicons-api.vercel.app/api/icon/{{name}}");'>
+            {% set id = (crypto_list[i]['asset_id']).lower() %}
+              <div id="{{id.upper()}}" onclick="ExpandDetails(this)" ondblclick="CloseDetails(this)" onmouseenter="lightUpCryptos(this, 'on')" onmouseleave="lightUpCryptos(this, 'off')"  class="cryptos col c-tabs" style="background-image: url(https://coinicons-api.vercel.app/api/icon/{{id}})">
               
                 <h2 class="asset_ID">{{ crypto_list[i]['asset_id'] }}</h2>
                 <!-- <h4>{{ crypto_list[i]['price_usd'] }}</h4> -->
-                <div id="appendDetails{{(crypto_list[i]['name']).lower()}}" class="append-details">
+                <div id="appendDetails{{id.upper()}}" class="append-details" > </div>
 
-                </div>
               </div>
           {% endfor %}
+          <div class="scroll-highlight"><div class="scroll-loader"></div></div>
         </div>
         
       </div>

@@ -1,20 +1,12 @@
 /* site responsiveness */
-/* if less than 2400px*/
-@media only screen and (max-width: 2400px){
-  .cryptos-section {
-    left: 64.5rem;
-  }
-}
+
 /* if less than 2000px -----to do change to above 1960 FOR LARGER DESKTOP*/
 @media only screen and (max-width: 2000px){
   .other-headline-container{
     left: -31rem;
   }
   
-  .cryptos-section{
-    top: 50rem;
-    left: 58rem;
-  }
+ 
 }
 /* if less than 1600px*/
 @media only screen and (max-width: 1600px) {
@@ -108,6 +100,13 @@
     display: none;
   }
 
+  #clicksignup{
+    display: list-item;
+    position: relative;
+    right:-8rem;
+    top: 1rem;
+  }
+
   #nav-toggler {
     display: block;
     text-shadow: 1px 11px 8px #2e2d2d;
@@ -124,13 +123,18 @@
   .main-headline-container {
     width: 100%;
   }
+  .main-headline-container .container .row{
+    height: 100%;
+  }
   #head-news-title {
     width: 99%;
     max-height: 45%;
     position: relative;
     right: 1.2rem;
+    font-size: 2.1rem;
     
   }
+ 
   #topnewsVisitOriginal {
     left: 24rem;
   }
@@ -138,16 +142,17 @@
     left: 27rem;
   }
 
+  .image-headline {
+   
+    height: 100%;
+  
+  }
   .image-headline img {
-    width: 19rem;
+    height: 90%t;
     left: 1rem;
   }
 
-  .web3News-section {
-    position: absolute;
-    top: 50rem;
-    left: 1rem;
-  }
+
 
   .share{
     padding: 1rem;
@@ -208,11 +213,10 @@
     
   }
   .web3News-section{
-    position: static;
     width: 100%;
-    margin-top: 5rem;
     position: relative;
     top: 18rem;
+
   }
 
   #scrollBottomBlock{
@@ -227,17 +231,22 @@
 
   .Cryptocontainer{
     display: flex;
-    height: 80rem;
+    height: 60rem
   }
 
   .cryptos-section{
     position: relative;
     left: 1.5rem;
-    top: 12rem;
+    top: 22rem;
     width: 96%;
-    
   
   }
+
+  #Searchcrypto {
+    border-radius: 2rem;
+    width: 20rem;
+  }
+
   .cryptos-section-rows{
     width: 100%;
 
@@ -258,16 +267,28 @@
     left: 2rem;
   
   }
+  .video-section img {  
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    height: 150%;
+    width: 80%;
+  }
+ 
   #centerGIF{
     height: 20rem;
     width: 60rem;
     top: 0;
   }
 
-  .foot-container{
-    padding: 0;
-    margin: 1rem;
-    margin-top: 2rem;
+   /* footer */
+  #relevent_info{
+    display: none;
+  }
+
+  #haveAnews p{
+    margin: 0;
+    
   }
 
   /* signupform and login form */
@@ -306,6 +327,7 @@
     width: 28rem;
     height: 6.8rem; 
   }
+  
 }
 
 
@@ -322,7 +344,7 @@
   }
 
   .home-body{
-    height: 430rem;
+    height: 404rem;
     overflow-x: hidden;
   }
   .time-date {
@@ -331,6 +353,11 @@
   #navbar {
     top: -0.1rem;
     left: -1.2rem;
+  }
+  #clicksignup{
+    
+    right:-0.5rem;
+    top: 0;
   }
 
   #nav-toggler {
@@ -396,10 +423,14 @@
   .main-headline-container{
     position: relative;
     left: 0.6rem;
- 
-    height: 33rem;
+    height: 30rem;
     max-height: 40rem;
     
+  }
+  .main-headline-container .col-8{
+    
+    width: 100%;
+    height: 100%;
   }
   
   #head-news-title{
@@ -408,25 +439,35 @@
     top: 0.2rem;
     width: 22rem;
     max-height: 10.2rem;
+    margin-bottom: 0;
   }
 
+
+  
+  .image-headline {
+   
+    position: absolute;
+    top: 8rem;
+    left: 0.7rem;
+    height: fit-content;
+    width: fit-content;
+
+
+  }
+  .image-headline img{
+   
+   height: 12rem;
+   width: 82vw;
+  }
+  
   #head-news-description{
     position: relative;
     top: 14rem;
     font-size: 1.2rem;
     width: 22rem;
-    max-height: 8rem;
-  }
+    max-height: 5rem;
+    line-height: 1;
 
-  
-  .image-headline img{
-    position: relative;
-    top: 8.5rem;
-    left: -15.5rem;
-    width: 22.2rem;
-    height: 12rem;
-    opacity: 0.9;
-    
   }
 
 
@@ -459,21 +500,21 @@
   }
   .readmore-container{
     position:relative;
-    bottom: -17rem;
+    bottom: -16rem;
 
   }
   #topnewsReadMore{
     top: -1rem;
-    left: 2rem;
+    left: 6rem;
   }
 
   #topnewsVisitOriginal {
     top: -1rem;
-    left: 11rem;
+    left: 7rem;
   }
   #topnewsReadLater{
     top: -1rem;
-    left: 13rem;
+    left: 8rem;
   }
 
 
@@ -508,7 +549,16 @@
     left: -2rem;
     
   }
+  
+  .headers-title{
+    margin: 0;
+  }
 
+  .headers-desp{
+    font-size: 1.2rem;
+    line-height: 1;
+    max-height: 6.25rem;
+  }
   .new-img-demo {
     height: 80%;
     
@@ -526,7 +576,8 @@
   .web3News-section{
     height: 150rem;
     position: relative;
-    top: 20rem;
+    top: 1rem;
+    left: 2px;
     
   }
    
@@ -534,12 +585,38 @@
     width: 100%;
     position: relative;
     left: -2rem;
+    height: fit-content;
+    max-height: 32rem;
+
   }
   #scrollBottomBlock{
     position: relative;
     top: -313rem;
     
   }
+  .block-read-more {
+    left: 7rem
+  }
+  .block-readmore-container {
+    z-index: 20;
+  }
+  .block-visit-original{
+    left: -6.5rem;
+  }
+
+  .block-read-later {
+    
+    left: -5.5rem;
+}
+.web3-images img {
+  height: 40%;
+  width: 90%;
+  position: absolute;
+  bottom: 1rem;
+  border-radius: 0 1rem;
+  box-shadow: 0px 1px 10px 7px black;
+  z-index: 10;
+}
 
   .stocks-section{
     position: relative;
@@ -550,15 +627,26 @@
     position: relative;
   }
 
-  .cryptos-section{
-    width: 86%;
-  }
   #Searchcrypto{
     margin-top: 3rem;
+  }
+
+  .cryptos-section{
+    position: relative;
+    top: 0rem;
+    width: 86%;
   }
   .video-section {  
     
     left: 1rem;
+  
+  }
+  .video-section img{  
+    
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
   
   }
   
@@ -576,7 +664,8 @@
   .foot-container{
     
     width: 22rem;
-    margin-top: 0.4rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
   }
   
   /* signupform and login form */

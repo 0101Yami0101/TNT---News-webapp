@@ -6,8 +6,8 @@
 
 {% if not user.is_active %}  <!--if user isnt active show signup page-->
     <div id="sign-up" class="signup-form">
-      <div class="container ">
-        <form method="POST" class="form p-3 mb-5 bg-white rounded" style="margin-top: 2rem;">
+      <div class="container signup-Container">
+        <form method="POST" class="form p-3 mb-5 bg-white" style="margin-top: 2rem;">
           <h3 id="sign-up-title" align="center">Sign-Up</h3>
           <div class="form-group" style="margin: 1rem;">
             <label for="email">Email Address</label>
@@ -58,7 +58,7 @@
         </form>
       
         
-          <a href="/log-in" id="Signed-In" ><button class="btn" style=" color:rgb(132, 96, 230);">Already Signed Up? Login</button></a>
+          <a class="alreadySignedLogged" href="/log-in" id="Signed-In" ><button class="btn ">Already Signed Up? Login</button></a>
         
       </div>
     </div>

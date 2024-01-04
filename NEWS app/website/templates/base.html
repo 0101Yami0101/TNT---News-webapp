@@ -58,21 +58,21 @@
 
 
 
-
+    
     <!-- flash messges -->
     {% block flashmessage %}  
     {% with messages = get_flashed_messages(with_categories=true) %} 
     {% if messages %} 
     {% for category, message in messages%} 
     {% if category == 'error' %}
-    <div class="alertArea alert alert-danger alert-dismissible" style="overflow: auto ; z-index: 9;">
+    <div class="alertArea alert alert-danger alert-dismissible"  style="overflow: auto ; z-index: 9;">
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <h6>{{ message }}</h6> 
+      <h6 id="alertMsg">{{ message }}</h6> 
     </div>
     {% else %}
     <div class="alertArea alert alert-primary alert-dismissible" style=" z-index: 100;">
       <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-      <h6>{{ message }}</h6>
+      <h6 id="alertMsg">{{ message }}</h6>
     </div>
     {% endif %} {% endfor%}  {% endif %} {%endwith%} {% endblock %}
 
@@ -86,28 +86,16 @@
         <section id="social-media-links-section" class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
 
           <div class="me-5 d-none d-lg-block">
-              <span id="getconnected">Get connected with us on social networks:</span>
+              <span id="getconnected">CONNECT WITH US:</span>
           </div>   
           <!-- icons -->
-          <div id="social-link-icons">
-              <a href="" class="me-4 link-secondary">
-              <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-facebook-f"></i>
-              </a>
-              <a href="" class="me-4 link-secondary">
+          <div id="social-link-icons">       
+              <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-facebook-f"></i>            
               <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-twitter"></i>
-              </a>
-              <a href="" class="me-4 link-secondary">
               <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-google"></i>
-              </a>
-              <a href="" class="me-4 link-secondary">
               <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-instagram"></i>
-              </a>
-              <a href="" class="me-4 link-secondary">
-              <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-linkedin"></i>
-              </a>
-              <a href="" class="me-4 link-secondary">
-              <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-github"></i>
-              </a>
+              <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-linkedin"></i>             
+              <i onmouseover="changeShadow(this)" onmouseout="changeBack(this)" class="fab fa-github"></i>             
           </div>
         </section>
 
@@ -121,16 +109,24 @@
           </div>
 
           <!-- Have a news -->
-          <div class="foot-container">
+          <div id="haveAnews" class="foot-container">
             
             <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-gem me-3 text-secondary"></i>Have a news you want us to post?</h6>
-            <p><label for="formFileDisabled" class="form-label">SUBMIT</label><input class="form-control" type="file" id="formFileDisabled" disabled /></p>
-            <p><h7>Submit relevent files</h7></p>
-            <p><h7>We will verify and post!! </h7></p>  
+            <form id="contactForm" onsubmit="return validateFootFormAndSend(event)">
+              <label for="emailInput" id="footFormLabel">Write to Us:</label>
+              <input type="text" id="emailInput" name="email" placeholder="example@somemail.com">
+          
+              <textarea id="messageTextarea" name="message" rows="4" placeholder="Your Message"></textarea>
+          
+              <button type="submit"  id="footSubmit">Submit</button>
+              <p id="formErrorFoot"></p>
+            </form>
+            <p id="relevent_info"><h7>Or send relevent links</h7></p>
+            <!-- <p><h7>We will verify and post!! </h7></p>   -->
           </div>
 
           <!-- Useful links -->
-          <div class="foot-container">
+          <div id="usefulLinks" class="foot-container">
            
             <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3 text-secondary"></i>Useful links

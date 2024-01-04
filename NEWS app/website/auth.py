@@ -74,7 +74,7 @@ def login():
                 flash('Kindly enter the registered password and email')
             
             if check_password_hash(user.password, password):
-                flash("Logged in successfully", category= 'success')
+                flash("Welcome  " + user.user_name, category= 'success')
                 # if hash matches remember current user object as current user
                 login_user(user, remember= True )
                 return redirect('/')
@@ -91,10 +91,11 @@ def login():
 @auth.route('/log-out')
 def logout():
     #deactivating "activate_key"
+    flash("Goodbye  " + current_user.user_name, category= 'success')
     current_user.activate_key = False
     db.session.commit()
 
 
-    flash("Logged Out Sucessfully", category= 'success')
+    
     logout_user() #logs out the current user/ forgetting current user
     return redirect('/')

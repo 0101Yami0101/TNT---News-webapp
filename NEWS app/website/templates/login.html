@@ -4,8 +4,8 @@
 <!-- "Extended" -->
 {% block Content %}
     <div class="login-form">
-      <div class="container">
-        <form class="form p-3 mb-5 bg-white rounded " style="margin-top: 3rem;" method="POST">
+      <div class="container login-Container">
+        <form class="form p-3 mb-5 bg-white" style="margin-top: 3rem;" method="POST">
           <h3 id="log-in-title" align="center">Login</h3>
           <div class="form-group" style="margin: 2rem;">
             <label for="email">Email Address</label>
@@ -31,7 +31,7 @@
           <br />
           <button type="submit" class="btn btn-primary" >Login</button>
         </form>
-        <a href="/sign-up" id="Logged-in"><button class="btn" style=" color:rgb(132, 96, 230);">Not Signed Up? Sign Up here</button> </a>
+        <a class="alreadySignedLogged" href="/sign-up" id="Logged-in"><button class="btn" >Not Signed Up? Sign Up here</button> </a>
       </div>
     </div>
 
